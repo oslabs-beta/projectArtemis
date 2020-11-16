@@ -1,0 +1,21 @@
+/* align everything to be uniform (each box follows this rule) */
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* this is creating the shell. It's aligning it to the center.  */
+body {
+  margin: 0;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+/* this is the container for all of our boxes.  */
+.container-gui {
+  padding: 400px;
+  border: 5px solid black;
+  border-radius: 8%;
+  box-shadow: 10px 10px 10px grey;
+}

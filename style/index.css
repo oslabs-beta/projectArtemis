@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+/*
+  ! Note: padding is used to gain height
+*/
+
 /* this is creating the shell. It's aligning it to the center.  */
 body {
   display: flex;
@@ -23,13 +27,14 @@ body {
   min-width: 800px;
 }
 
-/*  */
+/* left menubar */
 .container-menubar {
   padding: 12rem;
   border-radius: 25px;
   background-color: grey;
 }
 
+/* holds both tab + analytics container */
 .container-main {
   padding: 12rem;
   border-radius: 25px;

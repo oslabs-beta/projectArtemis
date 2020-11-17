@@ -16,7 +16,8 @@ body {
 /* this is the container for all of our boxes.  */
 .container-gui {
   padding: 2%;
-  border: 5px solid black;
+  border: 1px solid rgba(0, 0, 0, .1);
+
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
 
@@ -52,4 +53,26 @@ body {
 .container-analytics{
   padding: 50px;
   background-color: antiquewhite;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.menubar-items_social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menubar-items_list-links {
+  margin-top: -250%;
 }

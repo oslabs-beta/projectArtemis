@@ -3,24 +3,26 @@ import { MenuItems }  from "./menubar-container/MenuItems.tsx"
 import { Hamburger, Git, Twit } from "./Logos.tsx"
 const MenuBar = () => {
   return (
-    <nav className="NavbarItem">
-      <h1 className="navbar-logo"><Hamburger /></h1>
-      <div className="menu-icon">
-      </div>
-      <ul>
+    <div className="menu-items">
+      <Hamburger />
+      <ul className='menubar-items_list-links'>
         {/* maps over the array that holds our links for the menubar */}
+        <div className="menubar-sublist">
         {MenuItems.map((item, index)=> {
           return (
-          <li key={index}>
+          <li key={index} style={{"marginTop": "10px"}}>
           <a className={item.cName} href={item.url}>
           {item.title}
           </a>
           </li>
         )})}
+      </div>
       </ul>
-      <Git />
-      <Twit />
-    </nav>
+      <div className='menubar-items_social-icons'>
+        <Git />
+        <Twit />
+      </div>
+    </div>
   );
 }
 

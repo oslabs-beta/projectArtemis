@@ -11,7 +11,7 @@ body {
 
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 8%;
+  padding: 2%;
   border: 5px solid black;
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
@@ -19,6 +19,8 @@ body {
   display: flex;
   justify-content: space-around;
   gap: 15px;
+
+  min-width: 800px;
 }
 
 /*  */

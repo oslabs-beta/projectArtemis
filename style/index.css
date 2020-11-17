@@ -28,13 +28,6 @@ body {
   min-width: 800px;
 }
 
-/* left menubar */
-.container-menubar {
-  padding: 12rem;
-  border-radius: 25px;
-  background-color: grey;
-}
-
 /* holds both tab + analytics container */
 .container-main {
   padding: 12rem;
@@ -55,13 +48,13 @@ body {
   background-color: antiquewhite;
 }
 
-.menu-items {
+/* holds menubar items */
+.container-menubar {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 5%;
   border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 25px;
   box-shadow: 5px 5px 5px grey;
@@ -75,4 +68,5 @@ body {
 
 .menubar-items_list-links {
   margin-top: -250%;
+  text-align: center;
 }

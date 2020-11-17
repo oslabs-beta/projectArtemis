@@ -1,13 +1,13 @@
-import React from 'https://esm.sh/react';
+import React from "https://esm.sh/react";
 import { MenuItems }  from "./containers/MenuItems.tsx"
+import { Hamburger, Git, Twit } from "./containers/Logo.tsx"
 const MenuBar = () => {
   return (
-
-       <nav className="NavbarItem">
-         <h1 className="navbar-logo">H</h1>
+    <nav className="NavbarItem">
+         <h1 className="navbar-logo"><Hamburger /></h1>
          <div className="menu-icon">
 
-         </div>
+        </div>
          <ul>
            {/* maps over the array that holds our links for the menubar */}
            {MenuItems.map((item, index)=> {
@@ -21,6 +21,8 @@ const MenuBar = () => {
              )
             })}
          </ul>
+         <Git />
+         <Twit />
        </nav>
 
   );

@@ -1,21 +1,48 @@
 /* align everything to be uniform (each box follows this rule) */
 *, *::before, *::after {
   box-sizing: border-box;
-  padding: 0;
 }
 
 /* this is creating the shell. It's aligning it to the center.  */
 body {
-  margin: 0;
-  margin-top: 10%;
   display: flex;
   justify-content: center;
 }
 
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 400px;
+  padding: 8%;
   border: 5px solid black;
-  border-radius: 8%;
+  border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
+
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+/*  */
+.container-menubar {
+  padding: 12rem;
+  border-radius: 25px;
+  background-color: grey;
+}
+
+.container-main {
+  padding: 12rem;
+  border-radius: 25px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.container-tab {
+  padding: 50px;
+  background-color: aliceblue;
+}
+
+.container-analytics{
+  padding: 50px;
+  background-color: antiquewhite;
 }

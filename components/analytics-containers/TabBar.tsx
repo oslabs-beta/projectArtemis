@@ -2,8 +2,7 @@ import React from 'https://esm.sh/react';
 
 const TabBar = () => {
   return (
-    <div>
-
+    <div className='container-tab'>
     </div>
   );
 }

@@ -9,8 +9,10 @@
 
 /* this is creating the shell. It's aligning it to the center.  */
 body {
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* this is the container for all of our boxes.  */

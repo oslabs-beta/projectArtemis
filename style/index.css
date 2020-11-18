@@ -84,6 +84,7 @@ body {
 }
 
 .social-icon {
+  transition: .2s ease-in-out;
   opacity: .8;
   filter: drop-shadow(3px 3px 3px grey);
 }

@@ -72,3 +72,18 @@ body {
   margin-top: -250%;
   text-align: center;
 }
+
+.social-icon:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.social-icon:active {
+  transform: translateY(3px);
+  filter: drop-shadow(3px 1px 1px grey);
+}
+
+.social-icon {
+  opacity: .8;
+  filter: drop-shadow(3px 3px 3px grey);
+}

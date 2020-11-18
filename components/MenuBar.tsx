@@ -17,8 +17,12 @@ const MenuBar = () => {
         )})}
       </div>
       <div className='menubar-items_social-icons'>
-        <Git />
-        <Twit />
+        <div className='social-icon'>
+          <Git />
+        </div>
+        <div className='social-icon'>
+          <Twit className="social-icon" />
+        </div>
       </div>
     </div>
   );

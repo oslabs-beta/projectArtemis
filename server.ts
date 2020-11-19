@@ -14,38 +14,57 @@ const GraphQLService = await applyGraphQL<Router>({
 })
 
 const router = new Router();
-router.get("/", async (ctx) => {
+const path = "./artemisCache.json";
+
+
+// const fileExists = async (path: string): Promise<boolean> => {
+//     try {
+
+//     }
+// }
+
+router.get("/artemis", async (ctx) => {
     ctx.response.body = "router has been created"
-  
-
-      function writeJson(path: string, data: object): string {
+    const readArtemisCache = (path: string): string => {
         try {
-    Deno.writeTextFileSync(path, JSON.stringify(data));
-    return "Written to " + path;
-  } catch (e) {
-    return e.message;
-  }
+            const data = Deno.readTextFileSync(path)
+            if (!data) {
+                overwriteArtemisCache(path, [])
+            }
+            ctx.state = { artemis: JSON.parse(data) }
+            return ctx.state.artemis
+        }
+        catch (error) {
+            return error.message
+        }
     }
-    console.log(writeJson("./artemisCache.json", [{ hello: "World" }]));
 
-    const read = Deno.readTextFileSync("./artemisCache.json")
-    ctx.state = { artemis: JSON.parse(read) }
-    console.log("state ", ctx.state)
-    
-    const appendJson = (path: string, data: object): string => {
-        ctx.state.artemis.push(data)
-        console.log("updated state ", ctx.state.artemis)
-        writeJson("./artemisCache.json", ctx.state.artemis)
-        return "State updated"
-}
-appendJson("./artemisCache.json", {newTest: "newString"})
-  
+    const overwriteArtemisCache = (path: string, data: object): string => {
+        try {
+            Deno.writeTextFileSync(path, JSON.stringify(data));
+            return "Written to " + path;
+        }
+        catch (e) {
+            return e.message;
+        }
+    }
 
+    const addDataSnapshot = (path: string, data: object): string => {
+        try {
+            ctx.state.artemis.push(data)
+            overwriteArtemisCache(path, ctx.state.artemis)
+            return `${data}`
+        }
+        catch (error) {
+            return error.message
+        }
+    }
+
+    readArtemisCache("./artemisCache.json")
 })
 
 app.use(router.routes())
 app.use(router.allowedMethods())
-
 
 app.use(GraphQLService.routes(), GraphQLService.allowedMethods());
 

@@ -29,9 +29,8 @@
 //   );
 // };
 import React from 'https://esm.sh/react';
-import { MenuItems } from './menubar-container/MenuItems.tsx';
+import { MenuItems } from './menubar-container/data/MenuItems.tsx';
 import { Hamburger, Git, Twit } from './Logos.tsx';
-import HamburgerDrop from './HamburgerDrop.tsx';
 
 interface Props {
   setState: (Boolean: boolean) => void;

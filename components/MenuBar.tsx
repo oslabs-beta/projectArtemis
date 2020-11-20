@@ -1,27 +1,41 @@
-import React from "https://esm.sh/react";
-import { MenuItems }  from "./menubar-container/MenuItems.tsx"
-import { Hamburger, Git, Twit } from "./Logos.tsx"
-const MenuBar = () => {
-  return (
-    <nav className="NavbarItem">
-      <h1 className="navbar-logo"><Hamburger /></h1>
-      <div className="menu-icon">
-      </div>
-      <ul>
-        {/* maps over the array that holds our links for the menubar */}
-        {MenuItems.map((item, index)=> {
-          return (
-          <li key={index}>
-          <a className={item.cName} href={item.url}>
-          {item.title}
-          </a>
-          </li>
-        )})}
-      </ul>
-      <Git />
-      <Twit />
-    </nav>
-  );
+import React from 'https://esm.sh/react';
+import { MenuItems } from './menubar-container/MenuItems.tsx';
+import { Hamburger, Git, Twit } from './Logos.tsx';
+import HamburgerDrop from './HamburgerDrop.tsx';
+
+interface Props {
+	setState: (Boolean: boolean) => void;
+	state: boolean;
 }
+
+const MenuBar = (props: Props) => {
+	return (
+		<div className="container-menubar">
+			<div onClick={() => props.setState(!props.state)}>
+				<Hamburger />
+			</div>
+			<div className="menubar-items_list-links">
+				{/* maps over the array that holds our links for the menubar */}
+				{MenuItems.map((item, index) => {
+					return (
+						<div key={index} style={{ marginTop: '10px' }}>
+							<a className={item.cName} href={item.url}>
+								{item.title}
+							</a>
+						</div>
+					);
+				})}
+			</div>
+			<div className="menubar-items_social-icons">
+				<div className="social-icon">
+					<Git />
+				</div>
+				<div className="social-icon">
+					<Twit className="social-icon" />
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default MenuBar;

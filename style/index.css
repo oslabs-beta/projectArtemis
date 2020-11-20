@@ -9,14 +9,17 @@
 
 /* this is creating the shell. It's aligning it to the center.  */
 body {
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* this is the container for all of our boxes.  */
 .container-gui {
   padding: 2%;
-  border: 5px solid black;
+  border: 1px solid rgba(0, 0, 0, .1);
+
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
 
@@ -25,13 +28,6 @@ body {
   gap: 15px;
 
   min-width: 800px;
-}
-
-/* left menubar */
-.container-menubar {
-  padding: 12rem;
-  border-radius: 25px;
-  background-color: grey;
 }
 
 /* holds both tab + analytics container */
@@ -52,4 +48,49 @@ body {
 .container-analytics{
   padding: 50px;
   background-color: antiquewhite;
+}
+
+/* holds menubar items */
+.container-menubar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+
+.hamburgerDrop {
+  display: flex;
+  flex-direction: column;
+}
+
+.menubar-items_social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menubar-items_list-links {
+  margin-top: -250%;
+  text-align: center;
+}
+
+.social-icon:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.social-icon:active {
+  transform: translateY(3px);
+  filter: drop-shadow(3px 1px 1px grey);
+}
+
+.social-icon {
+  transition: .2s ease-in-out;
+  opacity: .8;
+  filter: drop-shadow(3px 3px 3px grey);
 }

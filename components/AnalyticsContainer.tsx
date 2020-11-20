@@ -2,7 +2,7 @@ import React from 'https://esm.sh/react';
 import TabBar from './analytics-containers/TabBar.tsx';
 import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 
-const Main = () => {
+const AnalyticsContainer = () => {
   return (
     <div className="container-main">
       <TabBar />
@@ -11,4 +11,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default AnalyticsContainer;

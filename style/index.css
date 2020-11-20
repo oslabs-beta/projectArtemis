@@ -21,14 +21,11 @@ body {
 .container-gui {
   padding: 2%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
-
   display: flex;
   justify-content: space-around;
   gap: 15px;
-
   min-width: 800px;
 }
 

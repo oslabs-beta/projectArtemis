@@ -1,11 +1,16 @@
-/* align everything to be uniform (each box follows this rule) */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 /*
   ! Note: padding is used to gain height
 */
+
+/*******************************
+GLOBAL CSS ONLY
+*******************************/
+/* align everything to be uniform (each box follows this rule) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* this is creating the shell. It's aligning it to the center.  */
 body {
@@ -15,23 +20,23 @@ body {
   align-items: center;
 }
 
+
+/*******************************
+MAIN GUI CONTAINER ONLY
+*******************************/
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 2%;
-  border: 1px solid rgba(0, 0, 0, .1);
-
+  padding: 3%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
-
   display: flex;
   justify-content: space-around;
-  gap: 15px;
-
   min-width: 800px;
 }
 
 /* holds both tab + analytics container */
-.container-main {
+.container-main-view {
   padding: 12rem;
   border-radius: 25px;
   background-color: black;
@@ -40,32 +45,39 @@ body {
   gap: 25px;
 }
 
+/*******************************
+ANALYTICS CONTAINER ONLY
+*******************************/
 .container-tab {
   padding: 50px;
   background-color: aliceblue;
 }
 
-.container-analytics{
+.container-analytics {
   padding: 50px;
   background-color: antiquewhite;
 }
 
-/* holds menubar items */
-.container-menubar {
+/*******************************
+GRAPHS ONLY
+*******************************/
+
+
+/*******************************
+SIDEBAR ONLY
+*******************************/
+.flex-menubar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 5%;
-  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 25px;
   box-shadow: 5px 5px 5px grey;
+  padding: 5%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-
-.hamburgerDrop {
-  display: flex;
-  flex-direction: column;
+.container-sidebar {
+  justify-content: space-between;
 }
 
 .menubar-items_social-icons {
@@ -79,6 +91,13 @@ body {
   text-align: center;
 }
 
+.wrapper_navLinks {
+  margin-top: 10px;
+}
+
+/*
+* note: social icons must have a div wrapper to gain css functionality
+*/
 .social-icon:hover {
   cursor: pointer;
   opacity: 1;
@@ -90,7 +109,11 @@ body {
 }
 
 .social-icon {
-  transition: .2s ease-in-out;
-  opacity: .8;
+  transition: 0.2s ease-in-out;
+  opacity: 0.8;
   filter: drop-shadow(3px 3px 3px grey);
+}
+
+.container-queries {
+  /* justify-content: center; */
 }

@@ -19,8 +19,8 @@ const MenuBar = (props: Props) => {
         {/* maps over the array that holds our links for the menubar */}
         {MenuItems.map((item, index) => {
           return (
-            <div key={index} style={{ marginTop: '10px' }}>
-              <a className={item.cName} href={item.url}>
+            <div className='wrapper_navLinks'>
+              <a className='sidebar_nav-links' href={item.url}>
                 {item.title}
               </a>
             </div>

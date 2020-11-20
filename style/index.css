@@ -36,7 +36,7 @@ MAIN GUI CONTAINER ONLY
 }
 
 /* holds both tab + analytics container */
-.container-main {
+.container-main-view {
   padding: 12rem;
   border-radius: 25px;
   background-color: black;
@@ -91,6 +91,13 @@ SIDEBAR ONLY
   text-align: center;
 }
 
+.wrapper_navLinks {
+  margin-top: 10px;
+}
+
+/*
+* note: social icons must have a div wrapper to gain css functionality
+*/
 .social-icon:hover {
   cursor: pointer;
   opacity: 1;

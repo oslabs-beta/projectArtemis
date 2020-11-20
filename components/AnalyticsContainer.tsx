@@ -4,7 +4,7 @@ import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 
 const AnalyticsContainer = () => {
   return (
-    <div className="container-main">
+    <div className="container-main-view">
       <TabBar />
       <AnalyticsBar />
     </div>

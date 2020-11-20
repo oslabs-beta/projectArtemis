@@ -1,5 +1,5 @@
 import React, { useState } from 'https://esm.sh/react';
-import MenuBar from './MenuBar.tsx';
+import MenuBar from './menubar-container/MenuBar.tsx';
 import ListOfQueries from './menubar-container/ListOfQueries.tsx';
 
 const SideBar = () => {

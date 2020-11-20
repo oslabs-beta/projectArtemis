@@ -64,11 +64,6 @@ body {
   box-shadow: 5px 5px 5px grey;
 }
 
-.hamburgerDrop {
-  display: flex;
-  flex-direction: column;
-}
-
 .menubar-items_social-icons {
   display: flex;
   flex-direction: column;

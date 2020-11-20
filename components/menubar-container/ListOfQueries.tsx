@@ -2,21 +2,44 @@ import React, { useState } from 'https://esm.sh/react';
 import { Hamburger } from '../Logos.tsx';
 
 interface Props {
-  setState: (Boolean: boolean) => void;
-  state: boolean;
+  setToggle: (Boolean: boolean) => void;
+  toggle: boolean;
 }
 
-const HamburgerDrop = (props: Props) => {
+// TODO fix query expanding without restrictions
+const ListOfQueries = (props: Props) => {
+  const { toggle, setToggle } = props;
   // items in this array will be jsx elements
-  const [queries, setQueries] = useState([<p>hello</p>, <p>hello</p>, <p>hello</p>, <p>hello</p>]);
+  const [queries, setQueries] = useState([
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+    <p>hello</p>,
+  ]);
+
   return (
-    <div>
-      <div onClick={() => props.setState(!props.state)}>
+    <div className="sidebar container-queries">
+      <div onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>
-      <div className="hamburgerDrop">{queries}</div>
+      <div className="queries_list">{queries}</div>
     </div>
   );
 };
 
-export default HamburgerDrop;
+export default ListOfQueries;

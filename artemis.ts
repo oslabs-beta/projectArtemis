@@ -1,27 +1,36 @@
-//Testing:
-let responseTime
-const start = Date.now()
-responseTime = Date.now() - start
 
-const artemisQuery = (url: any, obj: any = null) => {
+const artemisQuery = (url: string, obj: any = null) => {
   /* 
   An Artemis Query takes in two parameters: a URL for the API you're retrieving 
   data from and an optional object, which is used to retrieve a single piece of
   data. The provided object must match the structure that id's are provided to
   resolvers: { variableName }
   */
+  const metrics = {
+    start: Date.now(),
+    http: {},
+    query: null,
+    requestedFields: null,
+  }
 
   const opts = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(obj)
   }
+
+  metrics.http = opts;
+  console.log("metrics:", metrics)
+
   // Sets options for fetch request.
+
   
   return fetch(url, opts).then(res => res.json()).then(data => {
-    
+    console.log(data)
     if (obj) {
-      const queryParameter = Object.keys(obj)[0] 
-      return data.find((el: any) => el[queryParameter] === obj[queryParameter])
+      const queryParameter = Object.keys(obj)[0]
+      return data
+      // return data.find((el: any) => el[queryParameter] === obj[queryParameter])
       /*
       If an object is provided as a parameter, that lets the query function know
       that the client is searching for a single piece of data and triggers this
@@ -38,6 +47,13 @@ const artemisQuery = (url: any, obj: any = null) => {
       be further filtered by the client.
       */
     }
+  }).catch(err => {
+    console.log("Error in Artemis fetch request")
+    const error = {
+      time : Date.now(),
+      errMessage : err.mesage
+    }
+    console.log(err)
   })
 } 
     

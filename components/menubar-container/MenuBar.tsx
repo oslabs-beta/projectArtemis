@@ -11,8 +11,8 @@ const MenuBar = (props: Props) => {
   const { toggle, setToggle } = props;
   // get link info from data folder within menubar-container
   const menuLinks = MenuItems.map((linkInfo, index) => (
-    <div className="wrapper_navLinks">
-      <a className="sidebar_nav-links" href={linkInfo.url} key={index}>
+    <div className="wrapper_navLinks" key={index}>
+      <a className="sidebar_nav-links" href={linkInfo.url}>
         {linkInfo.title}
       </a>
     </div>

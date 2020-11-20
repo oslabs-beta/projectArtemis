@@ -11,7 +11,7 @@ const MenuBar = (props: Props) => {
   const { toggle, setToggle } = props;
 
   return (
-    <div className="container-menubar">
+    <div className="flex-menubar container-sidebar">
       <div onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>

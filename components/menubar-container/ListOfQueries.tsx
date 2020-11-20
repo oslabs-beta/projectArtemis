@@ -7,6 +7,7 @@ interface Props {
 }
 
 // TODO fix query expanding without restrictions
+// TODO fix query list formatting queries_list
 const ListOfQueries = (props: Props) => {
   const { toggle, setToggle } = props;
   // items in this array will be jsx elements
@@ -14,26 +15,10 @@ const ListOfQueries = (props: Props) => {
     <p>hello</p>,
     <p>hello</p>,
     <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
   ]);
 
   return (
-    <div className="sidebar container-queries">
+    <div className="flex-menubar container-queries">
       <div onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>

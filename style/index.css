@@ -13,7 +13,7 @@ GLOBAL CSS ONLY
   /* COLOR PALETTE */
   --primary-color: rgba(22, 22, 26, .95);
   --secondary-color: rgb(114, 117, 126);
-  --tertiary-color: rgba(127, 90, 240, 0.65);
+  --tertiary-color: rgb(127, 90, 240);
   --quaternary-color: rgba(240, 248, 255);
 }
 

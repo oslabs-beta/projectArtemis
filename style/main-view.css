@@ -3,7 +3,7 @@ ANALYTICS CONTAINER ONLY
 *******************************/
 .container-tab {
   padding: 1.8%;
-  background-color: aliceblue;
+  background-color: var(--tertiary-color);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   border: 1px solid var(--primary-color);

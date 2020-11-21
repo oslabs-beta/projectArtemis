@@ -10,8 +10,8 @@ const extractFields = (metrics: any, data: any) => {
     }
   }
   else {
-    metrics.query = "Unsucessful query"
-    metrics.errors = data.errors[0]
+    metrics.successfulQuery = false;
+    metrics.errors = data.errors[0];
   }
 }
  
@@ -33,7 +33,7 @@ const artemisQuery = (url: string, query: string, state: any) => {
     headers: opts.headers,
     dataSize: 0,
     requestedFields: [],
-    query: "Sucessful query",
+    successfulQuery: true,
     errors: []
   }
 

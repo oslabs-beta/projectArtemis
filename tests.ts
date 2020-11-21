@@ -4,7 +4,7 @@ import clearSnapshots from "./functions/clear"
 import syncCacheAndState from "./functions/sync"
 import { assertEquals, assertNotEquals } from "https://deno.land/std@0.78.0/testing/asserts.ts"
 
-//DATA FOR TESTS
+//DUMMY DATA FOR TESTS
 const url = "https://api.spacex.land/graphql"
 
 const query = ` query {

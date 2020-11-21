@@ -96,6 +96,11 @@ SIDEBAR ONLY
   margin-top: 10px;
 }
 
+.queries_list_item {
+  text-transform: capitalize;
+  font-size: 1.35rem;
+}
+
 /*
 * note: social icons must have a div wrapper to gain css functionality
 */

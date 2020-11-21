@@ -9,8 +9,6 @@ interface Props {
 const QuerySpeed = (props: Props) => {
   const { queryData } = props;
 
-  console.log(queryData);
-
   const data = {
     labels: queryData.map((obj) => {
       const key = Object.keys(obj);
@@ -18,7 +16,7 @@ const QuerySpeed = (props: Props) => {
     }),
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'Query Speed',
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
@@ -35,11 +33,18 @@ const QuerySpeed = (props: Props) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    onClick: function (e, item) {
+      console.log(item)
+    },
+    intersect: true,
+    tooltips: {
+      mode: 'index',
+    },
   };
 
   const legend = {
     display: false,
-  }
+  };
 
   return (
     <div className="query-speed-container">

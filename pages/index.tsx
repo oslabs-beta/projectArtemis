@@ -1,5 +1,5 @@
 import { Import } from 'https://deno.land/x/aleph/mod.ts';
-import React, { useState, useEffect } from 'https://esm.sh/react';
+import React from 'https://esm.sh/react';
 import AnalyticsContainer from '../components/AnalyticsContainer.tsx';
 import SideBar from '../components/SideBar.tsx';
 

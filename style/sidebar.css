@@ -1,0 +1,74 @@
+/*******************************
+ANALYTICS CONTAINER ONLY
+*******************************/
+.container-tab {
+  padding: 1.8%;
+  background-color: aliceblue;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 12px 8px grey;
+}
+
+.container-analytics {
+  background-color: antiquewhite;
+  box-shadow: 8px 8px 8px grey;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/*******************************
+SIDEBAR ONLY
+*******************************/
+.flex-menubar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px grey;
+  padding: 2.5%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container-sidebar {
+  justify-content: space-between;
+}
+
+.menubar-items_social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menubar-items_list-links {
+  margin-top: -100%;
+  text-align: center;
+}
+
+.wrapper_navLinks {
+  margin-top: 10px;
+}
+
+.queries_list_item {
+  text-transform: capitalize;
+  font-size: 1.35rem;
+}
+
+/*
+* note: social icons must have a div wrapper to gain css functionality
+*/
+.social-icon:hover {
+  cursor: pointer;
+  filter: drop-shadow(3px 3px 3px grey) grayscale(0);
+}
+
+.social-icon:active {
+  transform: translateY(3px);
+  filter: drop-shadow(3px 1px 1px grey);
+}
+
+.social-icon {
+  transition: 0.1s ease-in-out;
+  filter: drop-shadow(3px 3px 3px grey) grayscale(.7);
+}

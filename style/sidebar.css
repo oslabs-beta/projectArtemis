@@ -6,9 +6,10 @@ SIDEBAR ONLY
   flex-direction: column;
   align-items: center;
   border-radius: 25px;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 5px 5px 5px var(--primary-color);
   padding: 2.5%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .container-sidebar {
@@ -40,15 +41,15 @@ SIDEBAR ONLY
 */
 .social-icon:hover {
   cursor: pointer;
-  filter: drop-shadow(3px 3px 3px grey) grayscale(0);
+  filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(0);
 }
 
 .social-icon:active {
   transform: translateY(3px);
-  filter: drop-shadow(3px 1px 1px grey);
+  filter: drop-shadow(3px 1px 1px var(--tertiary-color));
 }
 
 .social-icon {
   transition: 0.1s ease-in-out;
-  filter: drop-shadow(3px 3px 3px grey) grayscale(.7);
+  filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(.7);
 }

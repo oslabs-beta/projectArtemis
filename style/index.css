@@ -10,6 +10,11 @@ GLOBAL CSS ONLY
 *::before,
 *::after {
   box-sizing: border-box;
+  /* COLOR PALETTE */
+  --primary-color: rgba(22, 22, 26, .95);
+  --secondary-color: rgb(114, 117, 126);
+  --tertiary-color: rgba(127, 90, 240, 0.65);
+  --quaternary-color: rgba(240, 248, 255);
 }
 
 /* this is creating the shell. It's aligning it to the center.  */
@@ -19,8 +24,8 @@ body {
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
+  background-color: var(--secondary-color);
 }
-
 
 /*******************************
 MAIN GUI CONTAINER ONLY
@@ -28,18 +33,18 @@ MAIN GUI CONTAINER ONLY
 /* this is the container for all of our boxes.  */
 .container-gui {
   padding: 2%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
-  box-shadow: 10px 10px 10px grey;
+  box-shadow: 10px 10px 8px 1px var(--primary-color);
   display: flex;
   justify-content: space-around;
   min-width: 90vw;
+  background-color: var(--primary-color);
 }
 
 /* holds both tab + analytics container */
 .container-main-view {
   padding: 2%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 10px 10px 10px grey;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 10px 10px 10px 5px var(--primary-color);
   border-radius: 25px;
 }

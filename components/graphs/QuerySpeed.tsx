@@ -1,5 +1,6 @@
 import React from 'https://esm.sh/react';
 import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
+import '../../style/graphs.css';
 
 interface Props {
   queryData: [];
@@ -8,11 +9,11 @@ interface Props {
 const QuerySpeed = (props: Props) => {
   const { queryData } = props;
 
-  console.log(queryData)
+  console.log(queryData);
 
   const data = {
-    labels: queryData.map(obj => {
-      const key = Object.keys(obj)
+    labels: queryData.map((obj) => {
+      const key = Object.keys(obj);
       return key[0];
     }),
     datasets: [
@@ -23,17 +24,32 @@ const QuerySpeed = (props: Props) => {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: queryData.map(obj => {
-          const value = Object.values(obj)
+        data: queryData.map((obj) => {
+          const value = Object.values(obj);
           return value[0];
-        })
+        }),
       },
     ],
   };
 
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+  };
+
+  const legend = {
+    display: false,
+  }
+
   return (
-    <div>
-      <Bar data={data} width={500} height={500} />
+    <div className="query-speed-container">
+      <Bar
+        data={data}
+        options={options}
+        legend={legend}
+        aria-label="display-graph-query-speeds"
+        role="img"
+      />
     </div>
   );
 };

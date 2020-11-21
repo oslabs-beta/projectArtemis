@@ -19,6 +19,7 @@ const AnalyticsBar = () => {
       setQueryData((prevQueryData) => [...prevQueryData, createData()]);
     }, 5000);
   }, []);
+
   return (
     <div className="container-analytics">
       <QuerySpeed queryData={queryData} />

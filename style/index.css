@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
 }
 
 
@@ -26,42 +27,42 @@ MAIN GUI CONTAINER ONLY
 *******************************/
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 3%;
+  padding: 2%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
   display: flex;
   justify-content: space-around;
-  min-width: 800px;
+  min-width: 90vw;
 }
 
 /* holds both tab + analytics container */
 .container-main-view {
-  padding: 12rem;
+  padding: 2%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 10px grey;
   border-radius: 25px;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
 }
 
 /*******************************
 ANALYTICS CONTAINER ONLY
 *******************************/
 .container-tab {
-  padding: 50px;
+  padding: 1.8%;
   background-color: aliceblue;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 12px 8px grey;
 }
 
 .container-analytics {
-  padding: 50px;
   background-color: antiquewhite;
+  box-shadow: 8px 8px 8px grey;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
-
-/*******************************
-GRAPHS ONLY
-*******************************/
-
 
 /*******************************
 SIDEBAR ONLY
@@ -72,7 +73,7 @@ SIDEBAR ONLY
   align-items: center;
   border-radius: 25px;
   box-shadow: 5px 5px 5px grey;
-  padding: 5%;
+  padding: 2.5%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -87,7 +88,7 @@ SIDEBAR ONLY
 }
 
 .menubar-items_list-links {
-  margin-top: -250%;
+  margin-top: -100%;
   text-align: center;
 }
 
@@ -112,8 +113,4 @@ SIDEBAR ONLY
   transition: 0.2s ease-in-out;
   opacity: 0.8;
   filter: drop-shadow(3px 3px 3px grey);
-}
-
-.container-queries {
-  /* justify-content: center; */
 }

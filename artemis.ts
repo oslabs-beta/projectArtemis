@@ -35,10 +35,10 @@ const artemisQuery = (url: string, query: string, state: any) => {
     requestedFields: [],
   }
 
-  return fetch(url, opts).then(res => {
+  return fetch(url, opts).then(res =>
     // metrics.size = new TextEncoder().encode(JSON.stringify(res)).length / 1024
     res.json()
-  }).then(data => {
+  ).then(data => {
     console.log("data", data)
     extractFields(metrics, data)
     metrics.latency = Date.now() - start

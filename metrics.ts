@@ -8,6 +8,7 @@ const queriesPerApi = (arr) => {
             apis[el.api]++
         }
     })
+    return apis
 }
 
 const latencyMetrics = (arr) => {

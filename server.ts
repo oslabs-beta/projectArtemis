@@ -2,6 +2,7 @@ import { Application, Router, RouterContext } from "https://deno.land/x/oak@v6.2
 import artemisQuery from "./artemis.ts";
 import syncCacheAndState from "./sync.ts"
 import addDataSnapshot from "./snapshot.ts"
+import clearSnapshots from "./clear.ts";
 
 const app = new Application()
 
@@ -25,7 +26,8 @@ router.get("/artemis", (ctx) => {
     }
   }`
     
-    artemisQuery(url, query, ctx.state)
+  artemisQuery(url, query, ctx.state)
+  clearSnapshots(ctx.state)
 })
 
 app.use(router.routes(), router.allowedMethods())

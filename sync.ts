@@ -1,6 +1,4 @@
-import artemisQuery from "./artemis.ts";
-
-const syncCacheAndState = (state: any, path: string | null = null): string => {
+const syncCacheAndState = (state: any, path?: string): string => {
     /*
     Reads the artemisCache file for data and saves it to ctx.state as an object labeled Artemis.
     This should be called every time at the beginning of any any functionality to ensure the 
@@ -14,7 +12,6 @@ const syncCacheAndState = (state: any, path: string | null = null): string => {
         const data = Deno.readTextFileSync(path)
         state.artemis = JSON.parse(data)
         //Parses the data saved in artemisCache and saves it on ctx.state.
-        console.log("You've successfully synced")
         return state.artemis
     }
     catch (err) {

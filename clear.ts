@@ -1,14 +1,14 @@
- const addDataSnapshot = (data: object, state: any, path?: string): string => {
+const clearSnapshots = (state: any, path?: string) => {
+    console.log("you're in clearSnapshots")
         if (!path) {
             path = "./artemisCache.json"
         }   
         //Sets a default path if one is not passed as an argument
         try {
-            state.artemis.push(data)
+            state.artemis = []
             Deno.writeTextFileSync(path, JSON.stringify(state.artemis));
-            console.log("You've successfully added a data snapshot")
+            console.log("You've successfully cleared all data")
             console.log("State.artemis: ", state.artemis)
-            return `${data}`
         }
         catch (err) {
             console.log(err)
@@ -17,4 +17,4 @@
     }
 
 
-export default addDataSnapshot
+export default clearSnapshots

@@ -36,10 +36,6 @@ const QuerySpeed = (props: Props) => {
     onClick: function (e, item) {
       console.log(item)
     },
-    intersect: true,
-    tooltips: {
-      mode: 'index',
-    },
   };
 
   const legend = {

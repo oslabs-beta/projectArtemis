@@ -1,5 +1,7 @@
 /* align everything to be uniform (each box follows this rule) */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -18,7 +20,7 @@ body {
 /* this is the container for all of our boxes.  */
 .container-gui {
   padding: 2%;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
   border-radius: 25px;
   box-shadow: 10px 10px 10px grey;
@@ -45,7 +47,7 @@ body {
   background-color: aliceblue;
 }
 
-.container-analytics{
+.container-analytics {
   padding: 50px;
   background-color: antiquewhite;
 }
@@ -57,7 +59,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 5%;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   box-shadow: 5px 5px 5px grey;
 }
@@ -84,7 +86,12 @@ body {
 }
 
 .social-icon {
-  transition: .2s ease-in-out;
-  opacity: .8;
+  transition: 0.2s ease-in-out;
+  opacity: 0.8;
   filter: drop-shadow(3px 3px 3px grey);
+}
+
+.container-2nd {
+  padding: 50px;
+  background-color: antiquewhite;
 }

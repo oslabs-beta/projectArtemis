@@ -34,7 +34,7 @@ MAIN GUI CONTAINER ONLY
 .container-gui {
   padding: 2%;
   border-radius: 25px;
-  box-shadow: 10px 10px 8px 1px var(--primary-color);
+  box-shadow: 10px 10px 8px 1px rgba(22, 22, 26, .75);
   display: flex;
   justify-content: space-around;
   min-width: 90vw;

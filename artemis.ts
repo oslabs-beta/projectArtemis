@@ -1,35 +1,49 @@
+import syncCacheAndState from "./sync.ts"
+import addDataSnapshot from "./snapshot.ts"
 
-const artemisQuery = (url: string, obj: any = null) => {
+const extractFields = (metrics: any, data: any) => {
+  for (let x in data) {
+  metrics.requestedFields.push(x)
+    if (typeof data[x] === "object") extractFields(metrics, data[x])
+  }
+}
+
+const artemisQuery = (url: string, query: string, state: any) => {
   /* 
   An Artemis Query takes in two parameters: a URL for the API you're retrieving 
   data from and an optional object, which is used to retrieve a single piece of
   data. The provided object must match the structure that id's are provided to
   resolvers: { variableName }
   */
-  const metrics = {
-    start: Date.now(),
-    http: {},
-    query: null,
-    requestedFields: null,
-  }
+  const start = Date.now()
+  syncCacheAndState(state)
 
   const opts = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(obj)
+    body: JSON.stringify({query})
   }
-
-  metrics.http = opts;
-  console.log("metrics:", metrics)
-
   // Sets options for fetch request.
 
-  
-  return fetch(url, opts).then(res => res.json()).then(data => {
-    console.log(data)
-    if (obj) {
-      const queryParameter = Object.keys(obj)[0]
-      return data
+  const metrics = {
+    api : url,
+    latency: 0,
+    method: opts.method,
+    headers: opts.headers,
+    size: null,
+    query: null,
+    requestedFields: [],
+  }
+
+  return fetch(url, opts).then(res => {res.json()}).then(data => {
+    console.log("data", data)
+    // metrics.size = new TextEncoder().encode(JSON.stringify(res)).length/1024
+    extractFields(metrics, data)
+    metrics.latency = Date.now() - start
+    addDataSnapshot(metrics, state)
+    // if (obj) {
+    //   const queryParameter = Object.keys(obj)[0]
+    //   return data
       // return data.find((el: any) => el[queryParameter] === obj[queryParameter])
       /*
       If an object is provided as a parameter, that lets the query function know
@@ -39,20 +53,23 @@ const artemisQuery = (url: string, obj: any = null) => {
       of the variable. Find matches the label in the returned data array with the
       value requested.
       */
-    }
-    else {
+    // }
+    // else {}
+   
       return data
       /*
       Otherwise, by default, artemisQuery returns a full array of data which can
       be further filtered by the client.
       */
-    }
+
   }).catch(err => {
     console.log("Error in Artemis fetch request")
     const error = {
-      time : Date.now(),
+      latency: Date.now() - start,
+      errStatus : err.status,
       errMessage : err.mesage
     }
+    addDataSnapshot(error, state)
     console.log(err)
   })
 } 

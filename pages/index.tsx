@@ -5,8 +5,6 @@ import SideBar from '../components/SideBar.tsx';
 
 // let's try not to pollute our index.tsx - components that encompass a lot of small components
 
-// erick test
-
 export default function Home() {
   return (
     <div className="container-gui">

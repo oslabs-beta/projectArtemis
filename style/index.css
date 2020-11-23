@@ -11,10 +11,13 @@ GLOBAL CSS ONLY
 *::after {
   box-sizing: border-box;
   /* COLOR PALETTE */
-  --primary-color: rgba(22, 22, 26, .95);
+  --primary-color: rgba(22, 22, 26, 0.95);
   --secondary-color: rgb(114, 117, 126);
   --tertiary-color: rgb(127, 90, 240);
   --quaternary-color: rgba(240, 248, 255);
+
+  --dark-neumorphism: rgba(22, 22, 26, .9);
+  --light-neumorphism: rgba(240, 248, 255, 0.15);
 }
 
 /* this is creating the shell. It's aligning it to the center.  */
@@ -24,7 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 /*******************************
@@ -32,19 +35,22 @@ MAIN GUI CONTAINER ONLY
 *******************************/
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 2%;
+  padding: 3.5%;
   border-radius: 25px;
-  box-shadow: 10px 10px 8px 1px rgba(22, 22, 26, .75);
   display: flex;
   justify-content: space-around;
   min-width: 90vw;
-  background-color: var(--primary-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* box-shadow: -3px -3px 9px rgba(240, 248, 255, 0.15),
+    8px 8px 16.2px rgba(22, 22, 26, .9); */
+  box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
+    -3px -3px 9px 1px var(--light-neumorphism);
 }
 
 /* holds both tab + analytics container */
-.container-main-view {
+/* .container-main-view {
   padding: 2%;
   border: 1px solid var(--secondary-color);
   box-shadow: 10px 10px 10px 5px var(--primary-color);
   border-radius: 25px;
-}
+} */

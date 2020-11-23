@@ -4,25 +4,11 @@ import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 import useViewController from './utils/useViewController.ts';
 import '../style/main-view.css';
 
-const createData = (() => {
-  let count = 0;
-  return () => {
-    count += 1;
-    return {
-      [`query${count}`]: Math.random(),
-    };
-  };
-})();
+import useTest from './utils/useTest.ts';
 
 const AnalyticsContainer = () => {
-  const [queryData, setQueryData] = useState([]);
+  const [queryData] = useTest();
   const [viewIndex, updateViewIndex] = useViewController();
-
-  useEffect(() => {
-    setInterval(() => {
-      setQueryData((prevQueryData) => [...prevQueryData, createData()]);
-    }, 5000);
-  }, []);
 
   return (
     <div className="container-main-view">

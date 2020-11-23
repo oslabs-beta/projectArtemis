@@ -1,0 +1,19 @@
+/*******************************
+ANALYTICS CONTAINER ONLY
+*******************************/
+.container-tab {
+  padding: 1.8%;
+  background-color: var(--tertiary-color);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 8px 12px 8px var(--primary-color);
+}
+
+.container-analytics {
+  background-color: antiquewhite;
+  box-shadow: 8px 8px 8px  var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}

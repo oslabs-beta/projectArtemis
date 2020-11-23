@@ -1,5 +1,5 @@
 /*
-  ! Note: padding is used to gain height
+  ! Note: height property is avoided to gain height
 */
 
 /*******************************
@@ -10,6 +10,11 @@ GLOBAL CSS ONLY
 *::before,
 *::after {
   box-sizing: border-box;
+  /* COLOR PALETTE */
+  --primary-color: rgba(22, 22, 26, .95);
+  --secondary-color: rgb(114, 117, 126);
+  --tertiary-color: rgb(127, 90, 240);
+  --quaternary-color: rgba(240, 248, 255);
 }
 
 /* this is creating the shell. It's aligning it to the center.  */
@@ -18,102 +23,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
+  background-color: var(--secondary-color);
 }
-
 
 /*******************************
 MAIN GUI CONTAINER ONLY
 *******************************/
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 3%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2%;
   border-radius: 25px;
-  box-shadow: 10px 10px 10px grey;
+  box-shadow: 10px 10px 8px 1px rgba(22, 22, 26, .75);
   display: flex;
   justify-content: space-around;
-  min-width: 800px;
+  min-width: 90vw;
+  background-color: var(--primary-color);
 }
 
 /* holds both tab + analytics container */
 .container-main-view {
-  padding: 12rem;
+  padding: 2%;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 10px 10px 10px 5px var(--primary-color);
   border-radius: 25px;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-/*******************************
-ANALYTICS CONTAINER ONLY
-*******************************/
-.container-tab {
-  padding: 50px;
-  background-color: aliceblue;
-}
-
-.container-analytics {
-  padding: 50px;
-  background-color: antiquewhite;
-}
-
-/*******************************
-GRAPHS ONLY
-*******************************/
-
-
-/*******************************
-SIDEBAR ONLY
-*******************************/
-.flex-menubar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 25px;
-  box-shadow: 5px 5px 5px grey;
-  padding: 5%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.container-sidebar {
-  justify-content: space-between;
-}
-
-.menubar-items_social-icons {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.menubar-items_list-links {
-  margin-top: -250%;
-  text-align: center;
-}
-
-.wrapper_navLinks {
-  margin-top: 10px;
-}
-
-/*
-* note: social icons must have a div wrapper to gain css functionality
-*/
-.social-icon:hover {
-  cursor: pointer;
-  opacity: 1;
-}
-
-.social-icon:active {
-  transform: translateY(3px);
-  filter: drop-shadow(3px 1px 1px grey);
-}
-
-.social-icon {
-  transition: 0.2s ease-in-out;
-  opacity: 0.8;
-  filter: drop-shadow(3px 3px 3px grey);
-}
-
-.container-queries {
-  /* justify-content: center; */
 }

@@ -1,0 +1,55 @@
+/*******************************
+SIDEBAR ONLY
+*******************************/
+.flex-menubar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px var(--primary-color);
+  padding: 2.5%;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.container-sidebar {
+  justify-content: space-between;
+}
+
+.menubar-items_social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menubar-items_list-links {
+  margin-top: -100%;
+  text-align: center;
+}
+
+.wrapper_navLinks {
+  margin-top: 10px;
+}
+
+.queries_list_item {
+  text-transform: capitalize;
+  font-size: 1.35rem;
+}
+
+/*
+* note: social icons must have a div wrapper to gain css functionality
+*/
+.social-icon:hover {
+  cursor: pointer;
+  filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(0);
+}
+
+.social-icon:active {
+  transform: translateY(3px);
+  filter: drop-shadow(3px 1px 1px var(--tertiary-color));
+}
+
+.social-icon {
+  transition: 0.1s ease-in-out;
+  filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(.7);
+}

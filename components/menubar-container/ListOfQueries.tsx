@@ -12,9 +12,9 @@ const ListOfQueries = (props: Props) => {
   const { toggle, setToggle } = props;
   // items in this array will be jsx elements
   const [queries, setQueries] = useState([
-    <p>hello</p>,
-    <p>hello</p>,
-    <p>hello</p>,
+    <p className='queries_list_item'>hello</p>,
+    <p className='queries_list_item'>hello</p>,
+    <p className='queries_list_item'>hello</p>,
   ]);
 
   return (

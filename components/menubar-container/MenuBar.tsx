@@ -9,6 +9,7 @@ interface Props {
 
 const MenuBar = (props: Props) => {
   const { toggle, setToggle } = props;
+
   // get link info from data folder within menubar-container
   const menuLinks = MenuItems.map((linkInfo, index) => (
     <div className="wrapper_navLinks" key={index}>
@@ -23,9 +24,7 @@ const MenuBar = (props: Props) => {
       <div onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>
-      <div className="menubar-items_list-links">
-        {menuLinks}
-      </div>
+      <div className="menubar-items_list-links">{menuLinks}</div>
       <div className="menubar-items_social-icons">
         <div className="social-icon">
           <Git />

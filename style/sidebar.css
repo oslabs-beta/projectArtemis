@@ -6,10 +6,11 @@ SIDEBAR ONLY
   flex-direction: column;
   align-items: center;
   border-radius: 25px;
-  box-shadow: 5px 5px 5px var(--primary-color);
   padding: 2.5%;
-  border: 1px solid var(--secondary-color);
-  background-color: var(--primary-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
+  -3px -3px 9px 1px var(--light-neumorphism);
 }
 
 .container-sidebar {
@@ -51,5 +52,9 @@ SIDEBAR ONLY
 
 .social-icon {
   transition: 0.1s ease-in-out;
-  filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(.7);
+  /* filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(.7); */
+  /* todo: fix logo neumorphism */
+  filter: drop-shadow(-4px -4px 0px var(--light-neumorphism)) drop-shadow(4px 4px 0px var(--dark-neumorphism));
+  /* inset 8px 8px 16.2px 1px var(--dark-neumorphism),
+  inset -3px -3px 9px 1px var(--light-neumorphism); */
 }

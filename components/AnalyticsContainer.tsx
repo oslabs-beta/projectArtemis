@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'https://esm.sh/react';
+import React from 'https://esm.sh/react';
 import TabBar from './analytics-containers/TabBar.tsx';
 import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 import useViewController from './utils/useViewController.ts';
-import '../style/main-view.css';
 import useData from './utils/useData.ts';
+import '../style/main-view.css';
 
 const AnalyticsContainer = () => {
   const [viewIndex, updateViewIndex] = useViewController();

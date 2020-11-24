@@ -1,0 +1,104 @@
+import { Application, Router, RouterContext, send } from "https://deno.land/x/oak@v6.2.0/mod.ts";
+import artemisQuery from "./functions/artemis.ts";
+import syncCacheAndState from "./functions/sync.ts"
+import addDataSnapshot from "./functions/snapshot.ts"
+import clearSnapshots from "./functions/clear.ts";
+import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
+
+const app = new Application()
+
+const router = new Router();
+
+// app.use(async (ctx, next) => {
+//   console.log(Deno.cwd())
+
+//   await ctx.send({
+
+//     root: `/Users/stellaliao/Desktop/Codesmith - VScode/newFrontend/artemis-gui/dist`,
+//     index: "index.html",
+// });
+//   next()
+  // const url = "https://api.spacex.land/graphql"
+  // const query = ` query {
+  //   launch(id: "1") {
+  //     mission_name
+  //     launch_success
+  //     launch_year
+  //     }
+  //   }`
+//   const query = `
+//   query {
+//     Lift(id: "panorama") {
+//       name
+//       status
+//     }
+//   }
+// `;
+// const url = "https://snowtooth.moonhighway.com/";
+// artemisQuery(url, query, ctx.state)
+// });
+
+// router.use("/", async (ctx, next) => {
+//   console.log('in router')
+
+//     const url = "https://api.spacex.land/graphql"
+//       const query = ` query {
+//         launch(id: "1") {
+//           mission_name
+//           launch_success
+//           upcoming
+//           launch_year
+//           }
+//         }`
+
+//     artemisQuery(url, query, ctx.state)
+//   })
+//   app.use(router.routes(), router.allowedMethods())
+
+// router.get("/gui", async (ctx) => {
+//   // ctx.response.redirect('/index.html')
+//   console.log(Deno.cwd())
+//   await ctx.send({
+//         root: `${Deno.cwd()}`,
+//         index: "index.html",
+//       });
+// })
+
+router.get("/artemis", (ctx) => {
+ctx.response.body = "Query has been sent"
+let counter = 10
+while(counter > 0) {
+  const url = "https://api.spacex.land/graphql"
+  let id = 10
+    const query = ` query {
+      launch(id: "${id}") {
+        mission_name
+        launch_success
+        upcoming
+        launch_year
+        }
+      }`
+      counter--
+      id++
+
+  artemisQuery(url, query, ctx.state)
+}
+
+})
+app.use(router.routes(), router.allowedMethods())
+
+
+app.use(async (ctx, next) => {
+  // console.log(Deno.cwd())
+  await ctx.send({
+        root: `/Users/stellaliao/Desktop/Codesmith - VScode/newFrontend/artemis-gui/dist`,
+        index: "index.html",
+      });
+  next()
+});
+
+
+const port = 4005
+console.log(`Server started on port ${port}`)
+await app.listen({port})
+

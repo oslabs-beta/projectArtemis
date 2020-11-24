@@ -1,0 +1,317 @@
+[
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 249,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 237,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 339,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 257,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 260,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 264,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 266,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 270,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 273,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 278,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 280,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 287,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 243,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 249,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 255,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 261,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 266,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 273,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 275,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 280,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 285,
+        "dataSize": 153,
+        "requestedFields": [
+            "data",
+            "launch",
+            "mission_name",
+            "launch_success",
+            "upcoming",
+            "launch_year"
+        ],
+        "successfulQuery": true,
+        "errors": []
+    }
+]

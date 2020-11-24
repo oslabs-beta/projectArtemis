@@ -3,12 +3,11 @@ import TabBar from './analytics-containers/TabBar.tsx';
 import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 import useViewController from './utils/useViewController.ts';
 import '../style/main-view.css';
-
-import useTest from './utils/useTest.ts';
+import useData from './utils/useData.ts';
 
 const AnalyticsContainer = () => {
-  const [queryData] = useTest();
   const [viewIndex, updateViewIndex] = useViewController();
+  const [queryData] = useData();
 
   return (
     <div className="container-main-view">

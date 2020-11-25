@@ -1,0 +1,11 @@
+/*******************************
+GRAPHS ONLY
+*******************************/
+
+.query-speed-container {
+  position: relative;
+  /* ! these values control the height and width of the application */
+  height: 65vh;
+  width: 70vw;
+  padding: 15px;
+}

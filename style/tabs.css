@@ -1,0 +1,20 @@
+.tab {
+  padding: 1%;
+  border: 1px solid rgba(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(128, 128, 128);
+  border-top-color: rgba(0, 0, 0, 0);
+  border-bottom: rgba(0, 0, 0, 0);
+}
+
+.tab_last {
+}
+
+.tab_first {
+  border-left-color: rgba(0, 0, 0, 0);
+}
+
+.hidden-view-buttons {
+  position: absolute;
+  visibility: hidden;
+}

@@ -2,14 +2,14 @@
 ANALYTICS CONTAINER ONLY
 *******************************/
 .container-tab {
-  padding: 1.8%;
+  padding: 1%;
   background-color: var(--tertiary-color);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0);
-  box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
-  -3px -3px 9px 1px var(--light-neumorphism);
+  box-shadow: 4px 4px 10px .5px var(--dark-neumorphism),
+  -1.5px -1.5px 4px .5px var(--light-neumorphism);
 }
 
 .container-analytics {
@@ -17,6 +17,6 @@ ANALYTICS CONTAINER ONLY
   border-bottom-right-radius: 25px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0);
-  box-shadow: inset 8px 8px 16.2px 1px var(--dark-neumorphism),
-  inset -3px -3px 9px 1px var(--light-neumorphism);
+  box-shadow: inset 4px 4px 10px .7px var(--dark-neumorphism),
+  inset -1.5px -1.5px 4px .7px var(--light-neumorphism);
 }

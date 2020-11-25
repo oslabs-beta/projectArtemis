@@ -1,0 +1,60 @@
+/*******************************
+SIDEBAR ONLY
+*******************************/
+.flex-menubar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  padding: 2.5%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
+  -3px -3px 9px 1px var(--light-neumorphism);
+}
+
+.container-sidebar {
+  justify-content: space-between;
+}
+
+.menubar-items_social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menubar-items_list-links {
+  margin-top: -100%;
+  text-align: center;
+}
+
+.wrapper_navLinks {
+  margin-top: 10px;
+}
+
+.queries_list_item {
+  text-transform: capitalize;
+  font-size: 1.35rem;
+}
+
+/*
+* note: social icons must have a div wrapper to gain css functionality
+*/
+.social-icon:hover {
+  cursor: pointer;
+  filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(0);
+}
+
+.social-icon:active {
+  transform: translateY(3px);
+  filter: drop-shadow(3px 1px 1px var(--tertiary-color));
+}
+
+.social-icon {
+  transition: 0.1s ease-in-out;
+  /* filter: drop-shadow(3px 3px 3px var(--tertiary-color)) grayscale(.7); */
+  /* todo: fix logo neumorphism */
+  filter: drop-shadow(-4px -4px 0px var(--light-neumorphism)) drop-shadow(4px 4px 0px var(--dark-neumorphism));
+  /* inset 8px 8px 16.2px 1px var(--dark-neumorphism),
+  inset -3px -3px 9px 1px var(--light-neumorphism); */
+}

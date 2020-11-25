@@ -15,7 +15,7 @@ const QuerySpeed = (props: Props) => {
 		}),
 		datasets: [
 			{
-				label: 'Query Speed',
+				label: 'Latency',
 				// backgroundColor: 'rgba(255,99,132,0.2)',
 				borderColor: 'rgba(255,99,132,1)',
 				borderWidth: 1,

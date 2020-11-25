@@ -2,6 +2,7 @@ import React from 'https://esm.sh/react';
 import QuerySpeed from '../graphs/QuerySpeed.tsx';
 import QuerySuccessFailure from '../graphs/QuerySuccessFailure.tsx';
 import DataSize from '../graphs/DataSize.tsx';
+import QueryPerAPI from '../graphs/QueryPerAPI.tsx'
 import '../../style/tabs.css';
 
 interface Props {
@@ -19,6 +20,7 @@ const AnalyticsBar = (props: Props) => {
         {viewIndex === 0 && <QuerySpeed queryData={queryData} />}
         {viewIndex === 1 && <QuerySuccessFailure queryData={queryData} />}
         {viewIndex === 2 && <DataSize queryData={queryData} />}
+        {viewIndex === 3 && <QueryPerAPI queryData={queryData} />}
       </div>
       <button
         id="increment"

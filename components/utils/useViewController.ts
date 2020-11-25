@@ -1,7 +1,7 @@
 import { useState } from 'https://esm.sh/react';
 
 const increment = (count: number, setCount: (Number: number) => void) => {
-  if (count >= 2) {
+  if (count >= 3) {
     setCount(0);
   } else {
     setCount(count + 1);

@@ -1,74 +1,123 @@
-import { Application, Router, RouterContext } from "https://deno.land/x/oak@v6.2.0/mod.ts";
-import { applyGraphQL } from "https://deno.land/x/oak_graphql/mod.ts";
-import { types, resolvers } from "./schema.ts"
+import {
+  Application,
+  Router,
+  RouterContext,
+  send,
+} from "https://deno.land/x/oak@v6.2.0/mod.ts";
+import artemisQuery from "./functions/artemis.ts";
+import syncCacheAndState from "./functions/sync.ts";
+import addDataSnapshot from "./functions/snapshot.ts";
+import clearSnapshots from "./functions/clear.ts";
+import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 const app = new Application();
 
-const GraphQLService = await applyGraphQL<Router>({
-    Router,
-    typeDefs: types,
-    resolvers,
-    context: (ctx: RouterContext) => {
-      return true;
-    }
-})
-
 const router = new Router();
-const path = "./artemisCache.json";
+app.use(oakCors())
+// app.use(async (ctx, next) => {
+//   console.log(Deno.cwd())
 
+//   await ctx.send({
 
-// const fileExists = async (path: string): Promise<boolean> => {
-//     try {
-
+//     root: `/Users/stellaliao/Desktop/Codesmith - VScode/newFrontend/artemis-gui/dist`,
+//     index: "index.html",
+// });
+//   next()
+// const url = "https://api.spacex.land/graphql"
+// const query = ` query {
+//   launch(id: "1") {
+//     mission_name
+//     launch_success
+//     launch_year
 //     }
-// }
+//   }`
+//   const query = `
+//   query {
+//     Lift(id: "panorama") {
+//       name
+//       status
+//     }
+//   }
+// `;
+// const url = "https://snowtooth.moonhighway.com/";
+// artemisQuery(url, query, ctx.state)
+// });
 
-router.get("/artemis", async (ctx) => {
-    ctx.response.body = "router has been created"
-    const readArtemisCache = (path: string): string => {
-        try {
-            const data = Deno.readTextFileSync(path)
-            if (!data) {
-                overwriteArtemisCache(path, [])
-            }
-            ctx.state = { artemis: JSON.parse(data) }
-            return ctx.state.artemis
-        }
-        catch (error) {
-            return error.message
-        }
-    }
+// router.use("/", async (ctx, next) => {
+//   console.log('in router')
 
-    const overwriteArtemisCache = (path: string, data: object): string => {
-        try {
-            Deno.writeTextFileSync(path, JSON.stringify(data));
-            return "Written to " + path;
-        }
-        catch (e) {
-            return e.message;
-        }
-    }
+//     const url = "https://api.spacex.land/graphql"
+//       const query = ` query {
+//         launch(id: "1") {
+//           mission_name
+//           launch_success
+//           upcoming
+//           launch_year
+//           }
+//         }`
 
-    const addDataSnapshot = (path: string, data: object): string => {
-        try {
-            ctx.state.artemis.push(data)
-            overwriteArtemisCache(path, ctx.state.artemis)
-            return `${data}`
-        }
-        catch (error) {
-            return error.message
-        }
-    }
+//     artemisQuery(url, query, ctx.state)
+//   })
+//   app.use(router.routes(), router.allowedMethods())
 
-    readArtemisCache("./artemisCache.json")
+// router.get("/gui", async (ctx) => {
+//   // ctx.response.redirect('/index.html')
+//   console.log(Deno.cwd())
+//   await ctx.send({
+//         root: `${Deno.cwd()}`,
+//         index: "index.html",
+//       });
+// })
+
+router.get("/artemis", (ctx) => {
+  ctx.response.body = "Query has been sent";
+  console.log("you have entered the router");
+  let counter = 3;
+  while (counter > 0) {
+    const url = "https://api.spacex.land/graphql";
+    let id = 10;
+    const query = ` query {
+      launch(id: "${id}") {
+        mission_name
+        launch_success
+        ffdso
+        upcoming
+        launch_year
+        }
+      }`;
+    counter--;
+    id++;
+
+    artemisQuery(url, query, ctx.state);
+    ctx.response.body = ctx.state
+  }
+});
+
+router.get("/getData", (ctx, state:any) => {
+  console.log("in getData route")
+  console.log("state", state.artemis)
+  ctx.response.body = state.artemis
 })
 
-app.use(router.routes())
-app.use(router.allowedMethods())
+app.use(router.routes(), router.allowedMethods());
 
-app.use(GraphQLService.routes(), GraphQLService.allowedMethods());
+app.use(
+  oakCors({
+    origin:  "http://localhost:8080",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }),
+);
 
-const port = 8080
-console.log(`Server started on port ${port}`)
-await app.listen({port})
+app.use(async (ctx, next) => {
+  // console.log(Deno.cwd());
+  await ctx.send({
+    root: `/Users/scottburman/Documents/artemis-gui/dist`,
+    index: "index.html",
+  });
+  next();
+});
 
+const port = 4005;
+console.log(`Server started on port ${port}`);
+await app.listen({ port });

@@ -2,7 +2,7 @@ const clearSnapshots = (state: any, path?: string) => {
     console.log("you're in clearSnapshots")
         if (!path) {
             path = "./artemisCache.json"
-        }   
+        }
         //Sets a default path if one is not passed as an argument
         try {
             state.artemis = []

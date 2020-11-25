@@ -1,6 +1,6 @@
 export const MenuItems = [
   {
-    title: 'H',
+    title: 'Home',
     url: '#',
   },
   {
@@ -8,7 +8,7 @@ export const MenuItems = [
     url: '#',
   },
   {
-    title: 'TBD',
+    title: 'Help',
     url: '#',
   },
 ];

@@ -1,4 +1,4 @@
-const aggregateMetrics = (arr) => {
+const aggregateMetrics = (arr:any) => {
     const apis = {}
     let latencySum = 0;
     let latencyMax = 0;
@@ -42,3 +42,5 @@ const aggregateMetrics = (arr) => {
         errorFrequency: errorArr.length,
     }
 }
+
+export default aggregateMetrics

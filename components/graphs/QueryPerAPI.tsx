@@ -1,5 +1,5 @@
 import React from 'https://esm.sh/react';
-import { Pie } from 'https://cdn.skypack.dev/react-chartjs-2';
+import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../style/graphs.css';
 
 interface Props {
@@ -28,8 +28,8 @@ const QueryPerAPI = (props: Props) => {
 		labels,
 		datasets: [
 			{
-				backgroundColor: ['#36A2EB','#FF6384'],
-				hoverBackgroundColor: ['#36A2EB','#FF6384'],
+				backgroundColor: ['#36A2EB', '#FF6384', '#b6fc03', '#b503fc', '#fc037b', '#fcfc03'],
+				hoverBackgroundColor: ['#36A2EB', '#FF6384', '#b6fc03', '#b503fc', '#fc037b', '#fcfc03'],
 				data: testArr
 			}
 		]
@@ -51,8 +51,8 @@ const QueryPerAPI = (props: Props) => {
 	};
 
 	return (
-		<div className="api-per-query-container">
-			<Pie
+		<div className="query-speed-container">
+			<Bar
 				data={data}
 				options={options}
 				legend={legend}

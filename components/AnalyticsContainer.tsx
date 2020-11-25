@@ -1,15 +1,11 @@
-import React, {useState, useEffect} from 'https://esm.sh/react';
+import React, { useState, useEffect } from 'https://esm.sh/react';
 import TabBar from './analytics-containers/TabBar.tsx';
 import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 import useViewController from './utils/useViewController.ts';
 import useData from './utils/useData.ts';
 import '../style/main-view.css';
-import { useDeno } from "https://deno.land/x/aleph/mod.ts"
-
-
 
 const AnalyticsContainer = () => {
-
     const [queryData, setQueryData] = useState<any>([]);
     // useEffect(() => {
     //   setInterval( async () => {
@@ -19,7 +15,7 @@ const AnalyticsContainer = () => {
     //   }, 2000);
     // }, [])
     const getData= ()=>{
-      fetch('http://localhost:4005/artemis')
+      fetch('http://localhost:4015/artemis')
         .then(function(response){
           return response.json();
         })
@@ -33,7 +29,7 @@ const AnalyticsContainer = () => {
     },[])
 
   const [viewIndex, updateViewIndex] = useViewController();
-  console.log("QUERY DATA:", queryData)
+  console.log('QUERY DATA:', queryData);
 
   return (
     <div className="container-main-view">

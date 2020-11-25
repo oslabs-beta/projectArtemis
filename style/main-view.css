@@ -2,7 +2,8 @@
 ANALYTICS CONTAINER ONLY
 *******************************/
 .container-tab {
-  padding: 1%;
+  padding: .7%;
+  padding-bottom: 0;
   background-color: var(--tertiary-color);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -10,6 +11,8 @@ ANALYTICS CONTAINER ONLY
   background-color: rgba(0, 0, 0, 0);
   box-shadow: 4px 4px 10px .5px var(--dark-neumorphism),
   -1.5px -1.5px 4px .5px var(--light-neumorphism);
+  display: flex;
+  justify-content: space-between;
 }
 
 .container-analytics {

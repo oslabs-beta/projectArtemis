@@ -40,7 +40,11 @@ a {
   transition: .28s ease-in-out;
 }
 
-a:hover {
+a:focus {
+  outline: none;
+}
+
+a:hover, a:focus {
   color: var(--tertiary-color);
   text-decoration: underline;
 }

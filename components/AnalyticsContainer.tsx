@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'https://esm.sh/react';
+import React, { useState, useEffect } from 'https://esm.sh/react';
 import TabBar from './analytics-containers/TabBar.tsx';
 import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 import useViewController from './utils/useViewController.ts';
@@ -6,7 +6,6 @@ import useData from './utils/useData.ts';
 import '../style/main-view.css';
 
 const AnalyticsContainer = () => {
-
     const [queryData, setQueryData] = useState<any>([]);
     // useEffect(() => {
     //   setInterval( async () => {
@@ -30,7 +29,7 @@ const AnalyticsContainer = () => {
     },[])
 
   const [viewIndex, updateViewIndex] = useViewController();
-  console.log("QUERY DATA:", queryData)
+  console.log('QUERY DATA:', queryData);
 
   return (
     <div className="container-main-view">

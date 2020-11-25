@@ -4,9 +4,6 @@ import AnalyticsBar from './analytics-containers/AnalyticsBar.tsx';
 import useViewController from './utils/useViewController.ts';
 import useData from './utils/useData.ts';
 import '../style/main-view.css';
-import { useDeno } from "https://deno.land/x/aleph/mod.ts"
-
-
 
 const AnalyticsContainer = () => {
 
@@ -19,7 +16,7 @@ const AnalyticsContainer = () => {
     //   }, 2000);
     // }, [])
     const getData= ()=>{
-      fetch('http://localhost:4005/artemis')
+      fetch('http://localhost:4015/artemis')
         .then(function(response){
           return response.json();
         })

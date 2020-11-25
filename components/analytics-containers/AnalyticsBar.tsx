@@ -16,9 +16,9 @@ const AnalyticsBar = (props: Props) => {
       {viewIndex === 0 && <QuerySpeed queryData={queryData} />}
       {viewIndex === 1 && <QuerySuccessFailure queryData={queryData} />}
       {viewIndex === 2 && <h1>Hello2</h1>}
-      <button onClick={() => updateViewIndex('increment')}>Right arrow!</button>
+      <button onClick={() => updateViewIndex('increment')}>Previous</button>
       <button onClick={() => updateViewIndex(1)}>Jump to!</button>
-      <button onClick={() => updateViewIndex('decrement')}>Left arrow!</button>
+      <button onClick={() => updateViewIndex('decrement')}>Next</button>
     </div>
   );
 };

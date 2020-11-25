@@ -15,7 +15,7 @@ const AnalyticsContainer = () => {
     //   }, 2000);
     // }, [])
     const getData= ()=>{
-      fetch('http://localhost:4015/artemis')
+      fetch('http://localhost:4016/artemis')
         .then(function(response){
           return response.json();
         })

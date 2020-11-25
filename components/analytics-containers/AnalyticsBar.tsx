@@ -1,5 +1,6 @@
 import React from 'https://esm.sh/react';
 import QuerySpeed from '../graphs/QuerySpeed.tsx';
+import QuerySuccessFailure from '../graphs/QuerySuccessFailure.tsx'
 
 interface Props {
   viewIndex: number;
@@ -13,7 +14,7 @@ const AnalyticsBar = (props: Props) => {
   return (
     <div className="container-analytics">
       {viewIndex === 0 && <QuerySpeed queryData={queryData} />}
-      {viewIndex === 1 && <h1>Hello1</h1>}
+      {viewIndex === 1 && <QuerySuccessFailure queryData={queryData} />}
       {viewIndex === 2 && <h1>Hello2</h1>}
       <button onClick={() => updateViewIndex('increment')}>Right arrow!</button>
       <button onClick={() => updateViewIndex(1)}>Jump to!</button>

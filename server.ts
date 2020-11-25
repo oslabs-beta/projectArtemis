@@ -112,12 +112,12 @@ app.use(
 app.use(async (ctx, next) => {
   // console.log(Deno.cwd());
   await ctx.send({
-    root: `/Users/scottburman/Documents/artemis-gui/dist`,
+    root: `${Deno.cwd()}/dist`,
     index: "index.html",
   });
   next();
 });
 
-const port = 4005;
+const port = 4015;
 console.log(`Server started on port ${port}`);
 await app.listen({ port });

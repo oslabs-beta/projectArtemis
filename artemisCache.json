@@ -5,7 +5,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1068,
-        "dataSize": 153,
+        "dataSize": 789,
         "requestedFields": [
             "data",
             "launch",
@@ -20,7 +20,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1076,
-        "dataSize": 153,
+        "dataSize": 3452,
         "requestedFields": [
             "data",
             "launch",
@@ -35,7 +35,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1101,
-        "dataSize": 153,
+        "dataSize": 149,
         "requestedFields": [
             "data",
             "launch",
@@ -65,7 +65,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1143,
-        "dataSize": 153,
+        "dataSize": 303,
         "requestedFields": [
             "data",
             "launch",
@@ -80,7 +80,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 705,
-        "dataSize": 153,
+        "dataSize": 900,
         "requestedFields": [
             "data",
             "launch",
@@ -95,7 +95,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 711,
-        "dataSize": 153,
+        "dataSize": 10,
         "requestedFields": [
             "data",
             "launch",
@@ -110,7 +110,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 728,
-        "dataSize": 153,
+        "dataSize": 200,
         "requestedFields": [
             "data",
             "launch",
@@ -125,7 +125,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 764,
-        "dataSize": 153,
+        "dataSize": 1000,
         "requestedFields": [
             "data",
             "launch",
@@ -155,7 +155,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1080,
-        "dataSize": 153,
+        "dataSize": 900,
         "requestedFields": [
             "data",
             "launch",
@@ -170,7 +170,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1098,
-        "dataSize": 153,
+        "dataSize": 900,
         "requestedFields": [
             "data",
             "launch",
@@ -185,7 +185,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1133,
-        "dataSize": 153,
+        "dataSize": 900,
         "requestedFields": [
             "data",
             "launch",
@@ -230,7 +230,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 601,
-        "dataSize": 153,
+        "dataSize": 2098,
         "requestedFields": [
             "data",
             "launch",
@@ -245,7 +245,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 639,
-        "dataSize": 153,
+        "dataSize": 2098,
         "requestedFields": [
             "data",
             "launch",
@@ -260,7 +260,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 705,
-        "dataSize": 153,
+        "dataSize": 2098,
         "requestedFields": [
             "data",
             "launch",
@@ -275,7 +275,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 911,
-        "dataSize": 153,
+        "dataSize": 2098,
         "requestedFields": [
             "data",
             "launch",
@@ -290,7 +290,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 1117,
-        "dataSize": 153,
+        "dataSize": 700,
         "requestedFields": [
             "data",
             "launch",
@@ -305,7 +305,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 667,
-        "dataSize": 153,
+        "dataSize": 1293,
         "requestedFields": [
             "data",
             "launch",
@@ -320,7 +320,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 715,
-        "dataSize": 153,
+        "dataSize": 453,
         "requestedFields": [
             "data",
             "launch",
@@ -335,7 +335,7 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 802,
-        "dataSize": 153,
+        "dataSize": 1533,
         "requestedFields": [
             "data",
             "launch",
@@ -2883,6 +2883,177 @@
     {
         "api": "https://api.spacex.land/graphql",
         "latency": 684,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 216,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 305,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 346,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 178,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 206,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 226,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 204,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 224,
+        "dataSize": 162,
+        "requestedFields": [],
+        "successfulQuery": false,
+        "errors": {
+            "message": "Cannot query field \"ffdso\" on type \"Launch\".",
+            "locations": [
+                {
+                    "line": 5,
+                    "column": 9
+                }
+            ],
+            "extensions": {
+                "code": "GRAPHQL_VALIDATION_FAILED"
+            }
+        }
+    },
+    {
+        "api": "https://api.spacex.land/graphql",
+        "latency": 246,
         "dataSize": 162,
         "requestedFields": [],
         "successfulQuery": false,

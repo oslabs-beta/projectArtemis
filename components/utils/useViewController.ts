@@ -22,8 +22,6 @@ const useViewController = () => {
   const countLogic = (action: string | number) => {
     if (action === 'increment') increment(count, setCount);
     else if (action === 'decrement') decrement(count, setCount);
-    else if (action === 1) setCount(1);
-    else if (action === 2) setCount(2);
   };
 
   return [count, countLogic] as const;

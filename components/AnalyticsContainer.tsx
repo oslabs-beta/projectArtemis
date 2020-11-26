@@ -11,7 +11,7 @@ const AnalyticsContainer = () => {
 
   return (
     <div className="container-main-view">
-      <TabBar />
+      <TabBar viewIndex={viewIndex} updateViewIndex={updateViewIndex} />
       <AnalyticsBar
         viewIndex={viewIndex}
         updateViewIndex={updateViewIndex}

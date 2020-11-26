@@ -2,7 +2,7 @@ import React from 'https://esm.sh/react';
 import Tab from './tabs/Tab.tsx';
 
 const TabBar = () => {
-  const tabs = ['Latency', 'Speed', 'Query', 'Other', 'Thing', 'One More Thing'];
+  const tabs = ['Latency', 'Success Rate', 'Data Size', 'APIs', 'Snapshot Data'];
 
   return (
     <div className="container-tab">

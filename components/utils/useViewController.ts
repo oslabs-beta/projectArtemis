@@ -10,7 +10,7 @@ const increment = (count: number, setCount: (Number: number) => void) => {
 
 const decrement = (count: number, setCount: (Number: number) => void) => {
   if (count <= 0) {
-    setCount(2);
+    setCount(3);
   } else {
     setCount(count - 1);
   }

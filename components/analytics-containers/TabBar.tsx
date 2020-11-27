@@ -23,8 +23,9 @@ const TabBar = (props: Props) => {
           <Tab
             label={label}
             highlight={viewIndex === i ? true : null}
+            viewIndex={viewIndex}
             index={i}
-            length={tabs.length}
+            length={tabs.length - 1}
             updateViewIndex={updateViewIndex}
             key={i}
           />

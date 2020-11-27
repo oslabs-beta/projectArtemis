@@ -4,7 +4,7 @@ import '../../style/graphs.css';
 import aggregateMetrics from '../../functions/aggregateMetrics.ts'
 
 interface Props {
-	queryData: [];
+	queryData: [object] | [];
 }
 
 const DataSize = (props: Props) => {

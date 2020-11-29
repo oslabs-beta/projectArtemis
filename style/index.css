@@ -20,6 +20,9 @@ GLOBAL CSS ONLY
 
   --dark-neumorphism: rgba(22, 22, 26, .9);
   --light-neumorphism: rgba(240, 248, 255, 0.15);
+
+  --primary--text-color: rgb(127, 90, 240);
+  --secondary-text-color: rgb(128, 128, 128);
 }
 
 /* this is creating the shell. It's aligning it to the center.  */
@@ -37,22 +40,12 @@ MAIN GUI CONTAINER ONLY
 *******************************/
 /* this is the container for all of our boxes.  */
 .container-gui {
-  padding: 3.5%;
+  padding: 2.5%;
   border-radius: 25px;
   display: flex;
   justify-content: space-around;
   min-width: 90vw;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  /* box-shadow: -3px -3px 9px rgba(240, 248, 255, 0.15),
-    8px 8px 16.2px rgba(22, 22, 26, .9); */
   box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
     -3px -3px 9px 1px var(--light-neumorphism);
 }
-
-/* holds both tab + analytics container */
-/* .container-main-view {
-  padding: 2%;
-  border: 1px solid var(--secondary-color);
-  box-shadow: 10px 10px 10px 5px var(--primary-color);
-  border-radius: 25px;
-} */

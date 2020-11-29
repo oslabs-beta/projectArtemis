@@ -1,29 +1,35 @@
 import React from 'https://esm.sh/react';
-import { Doughnut } from 'https://cdn.skypack.dev/react-chartjs-2';
+import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../style/graphs.css';
 
 interface Props {
 	queryData: [object] | [];
 }
 
-const QuerySuccessFailure = (props: Props) => {
+const QueryPerAPI = (props: Props) => {
 	const { queryData } = props;
 	const testArr: any = [];
-	let successfulCount: number = 0;
-	let failureCount: number = 0;
+	const labels: any = [];
+	const apis: object = {}
 	queryData.forEach((obj: any) => {
-		if (obj.successfulQuery === true) {
-			successfulCount += 1;
-		} else failureCount += 1;
+		if (!apis.hasOwnProperty(obj.api)) {
+            apis[obj.api] = 1;
+        }
+        else {
+            apis[obj.api]++
+        }
 	});
-	testArr.push(successfulCount, failureCount);
+	for (let x in apis) {
+		labels.push(x)
+	testArr.push(apis[x]);
+	}
 	console.log('testArr:', testArr);
 	const data = {
-		labels: [ 'Success', 'Failure' ],
+		labels,
 		datasets: [
 			{
-				backgroundColor: ['#36A2EB','#FF6384'],
-				hoverBackgroundColor: ['#36A2EB','#FF6384'],
+				backgroundColor: ['#36A2EB', '#FF6384', '#b6fc03', '#b503fc', '#fc037b', '#fcfc03'],
+				hoverBackgroundColor: ['#36A2EB', '#FF6384', '#b6fc03', '#b503fc', '#fc037b', '#fcfc03'],
 				data: testArr
 			}
 		]
@@ -33,7 +39,7 @@ const QuerySuccessFailure = (props: Props) => {
 		maintainAspectRatio: false,
 		title: {
 			display: true,
-			text: 'Query Success vs Query Failure'
+			text: 'Queries per API'
 		},
 		onClick: function(e, item) {
 			console.log(item);
@@ -46,7 +52,7 @@ const QuerySuccessFailure = (props: Props) => {
 
 	return (
 		<div className="query-speed-container">
-			<Doughnut
+			<Bar
 				data={data}
 				options={options}
 				legend={legend}
@@ -57,4 +63,4 @@ const QuerySuccessFailure = (props: Props) => {
 	);
 };
 
-export default QuerySuccessFailure;
+export default QueryPerAPI;

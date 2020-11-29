@@ -112,7 +112,7 @@ app.use(
 app.use(async (ctx, next) => {
   // console.log(Deno.cwd());
   await ctx.send({
-    root: `/Users/scottburman/Documents/artemis-gui/dist`,
+    root: `${Deno.cwd()}/dist`,
     index: "index.html",
   });
   next();

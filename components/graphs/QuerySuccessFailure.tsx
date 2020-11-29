@@ -3,7 +3,7 @@ import { Doughnut } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../style/graphs.css';
 
 interface Props {
-	queryData: [];
+	queryData: [object] | [];
 }
 
 const QuerySuccessFailure = (props: Props) => {

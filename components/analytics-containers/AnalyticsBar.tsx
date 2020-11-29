@@ -8,7 +8,7 @@ import '../../style/tabs.css';
 interface Props {
   viewIndex: number;
   updateViewIndex: (action: string | number) => void;
-  queryData: [object];
+  queryData: [object] | [];
 }
 
 const AnalyticsBar = (props: Props) => {

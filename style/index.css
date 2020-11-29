@@ -20,6 +20,9 @@ GLOBAL CSS ONLY
 
   --dark-neumorphism: rgba(22, 22, 26, .9);
   --light-neumorphism: rgba(240, 248, 255, 0.15);
+
+  --primary--text-color: rgb(127, 90, 240);
+  --secondary-text-color: rgb(128, 128, 128);
 }
 
 /* this is creating the shell. It's aligning it to the center.  */

@@ -4,10 +4,10 @@ import {
   RouterContext,
   send,
 } from "https://deno.land/x/oak@v6.2.0/mod.ts";
-import artemisQuery from "./functions/artemis.ts";
-import syncCacheAndState from "./functions/sync.ts";
-import addDataSnapshot from "./functions/snapshot.ts";
-import clearSnapshots from "./functions/clear.ts";
+import artemisQuery from "./functions/artemisQuery.ts";
+import syncCacheAndState from "./functions/syncCacheAndState.ts";
+import addDataSnapshot from "./functions/addDataSnapshot.ts";
+import clearSnapshots from "./functions/clearSnapshots.ts";
 import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
@@ -94,9 +94,9 @@ router.get("/artemis", (ctx) => {
   }
 });
 
+
 router.get("/getData", (ctx, state:any) => {
   console.log("in getData route")
-  console.log("state", state.artemis)
   ctx.response.body = state.artemis
 })
 

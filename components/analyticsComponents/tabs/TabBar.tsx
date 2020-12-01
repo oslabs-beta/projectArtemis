@@ -1,5 +1,5 @@
 import React from 'https://esm.sh/react';
-import Tab from './tabs/Tab.tsx';
+import Tab from './Tab.tsx';
 
 interface Props {
   viewIndex: number;
@@ -13,7 +13,6 @@ const TabBar = (props: Props) => {
     'Success Rate',
     'Data Size',
     'APIs',
-    'test'
   ];
 
   return (

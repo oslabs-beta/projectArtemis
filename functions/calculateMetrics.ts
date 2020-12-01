@@ -1,4 +1,4 @@
-const aggregateMetrics = (arr:any) => {
+const calculateMetrics = (arr: any) => {
     const apis = {}
     let latencySum = 0;
     let latencyMax = 0;
@@ -29,18 +29,20 @@ const aggregateMetrics = (arr:any) => {
             successfulArr.push(el.successfulQuery)}
         else {
             errorArr.push(el.successfulQuery)
-      }
+        }
+
     });
 
     return {
         apis,
-        latencyAvg : latencySum / arr.length,
-        latencyMax,
-        sizeAvg: sizeSum / arr.length,
-        sizeMax,
+        latencyAvg : (latencySum / arr.length).toFixed(3),
+        latencyMax : latencyMax.toFixed(3),
+        sizeAvg: (sizeSum / arr.length).toFixed(3),
+        sizeMax : sizeMax.toFixed(3),
+        queryTotal: arr.length,
         queryFrequency: successfulArr.length,
         errorFrequency: errorArr.length,
     }
 }
 
-export default aggregateMetrics
+export default calculateMetrics

@@ -1,15 +1,16 @@
 import React from 'https://esm.sh/react';
 import { Line } from 'https://cdn.skypack.dev/react-chartjs-2';
-import '../../style/graphs.css';
+import '../../../style/graphs.css';
 
 interface Props {
-	queryData: [object] | [];
+	aggregateMetrics: object | {};
+	snapshotArray: [object] | [];
 }
 
-const QuerySpeed = (props: Props) => {
-	const { queryData } = props;
+const LatencyGraph = (props: Props) => {
+const { snapshotArray, aggregateMetrics } = props;//
 	const data = {
-		labels: queryData.map((obj, index) => {
+		labels: snapshotArray.map((obj, index) => {
 			const key = `Query ${index}`;
 			return key;
 		}),
@@ -21,7 +22,7 @@ const QuerySpeed = (props: Props) => {
 				borderWidth: 1,
 				// hoverBackgroundColor: 'rgba(255,99,132,0.4)',
 				// hoverBorderColor: 'rgba(255,99,132,1)',
-				data: queryData.map((obj: any) => {
+				data: snapshotArray.map((obj: any) => {
 					const value = obj.latency;
 					return value;
 				})
@@ -34,7 +35,7 @@ const QuerySpeed = (props: Props) => {
 		maintainAspectRatio: false,
 		title: {
 			display: true,
-			text: 'Latency'
+			text: `Average Latency: ${aggregateMetrics.latencyAvg} bytes           Maximum Latency: ${aggregateMetrics.latencyMax} bytes`,
 		},
 		onClick: function(e, item) {
 			console.log(item);
@@ -52,4 +53,4 @@ const QuerySpeed = (props: Props) => {
 	);
 };
 
-export default QuerySpeed;
+export default LatencyGraph;

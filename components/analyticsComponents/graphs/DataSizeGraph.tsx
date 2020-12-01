@@ -1,7 +1,6 @@
 import React from 'https://esm.sh/react';
 import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../../style/graphs.css';
-// import aggregateMetrics from '../../functions/aggregateMetrics.ts'
 
 interface Props {
 	snapshotArray: [object] | [];
@@ -47,14 +46,11 @@ const DataSizeGraph = (props: Props) => {
 		// boxWidth: 40,
 		labels: {
 			fontColor: 'rgb(255, 99, 132)'
-
 		},
-		// MaxSize: result.sizeMax,
-		// AvgSize: result.sizeAvg,
 	};
 
 	return (
-		<div className="query-speed-container">
+		<div className="graph">
 			<Bar data={data} options={options} legend={legend} aria-label="display-graph-query-speeds" role="img" />
 
 		</div>

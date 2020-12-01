@@ -35,7 +35,7 @@ const QuerySuccessFailureGraph = (props: Props) => {
 	};
 
 	return (
-		<div className="query-speed-container">
+		<div className="graph">
 			<Doughnut
 				data={data}
 				options={options}

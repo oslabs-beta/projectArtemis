@@ -47,7 +47,7 @@ const { snapshotArray, aggregateMetrics } = props;//
 	};
 
 	return (
-		<div className="query-speed-container">
+		<div className="graph">
 			<Line data={data} options={options} legend={legend} aria-label="display-graph-query-speeds" role="img" />
 		</div>
 	);

@@ -47,7 +47,7 @@ const { aggregateMetrics } = props;
 	};
 
 	return (
-		<div className="query-speed-container">
+		<div className="graph">
 			<Bar
 				data={data}
 				options={options}

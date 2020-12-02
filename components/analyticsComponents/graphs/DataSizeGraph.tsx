@@ -52,7 +52,6 @@ const DataSizeGraph = (props: Props) => {
 	return (
 		<div className="graph">
 			<Bar data={data} options={options} legend={legend} aria-label="display-graph-query-speeds" role="img" />
-
 		</div>
 	);
 };

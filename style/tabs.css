@@ -1,31 +1,24 @@
 .tab {
   padding: 0.5%;
-  border: 1px solid rgba(128, 128, 128);
   background-color: rgba(0, 0, 0, 0);
   color: rgba(128, 128, 128);
   border-top-color: rgba(0, 0, 0, 0);
   border-bottom-color: rgba(0, 0, 0, 0);
   border-left-color: rgba(0, 0, 0, 0);
   flex-grow: 1;
-  /* border-top-right-radius: 25px; */
-  /* border-top-left-radius: 25px; */
-}
-
-.tab::after {
-  content: '';
-  width: 5px;
-  height: 5px;
-  background-color: red;
+  transition: 500ms ease;
+  font-weight: bold;
+  font-size: .95rem;
 }
 
 .tab:focus {
   outline: none;
 }
 
-.colored,
-.tab:focus {
-  background-color: var(--tertiary-color);
-  color: var(--primary-color);
+.tab:hover, .tab:focus {
+  cursor: pointer;
+  border-bottom-color: var(--tertiary-color);
+  color: var(--primary--text-color);
 }
 
 .hidden-view-buttons {

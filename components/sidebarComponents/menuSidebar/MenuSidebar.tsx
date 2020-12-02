@@ -1,5 +1,5 @@
 import React from 'https://esm.sh/react';
-import { MenuItems } from './data/MenuItems.ts';
+import { menuSidebarText } from './menuSidebarText.ts';
 import { Hamburger, Git, Twit } from '../Logos.tsx';
 
 interface Props {
@@ -7,11 +7,11 @@ interface Props {
   toggle: boolean;
 }
 
-const MenuBar = (props: Props) => {
+const MenuSidebar = (props: Props) => {
   const { toggle, setToggle } = props;
 
   // get link info from data folder within menubar-container
-  const menuLinks = MenuItems.map((linkInfo, index) => (
+  const menuLinks = menuSidebarText.map((linkInfo, index) => (
     <div className="wrapper_navLinks" key={index}>
       <a className="sidebar_nav-links" href={linkInfo.url}>
         {linkInfo.title}
@@ -37,4 +37,4 @@ const MenuBar = (props: Props) => {
   );
 };
 
-export default MenuBar;
+export default MenuSidebar;

@@ -1,30 +1,20 @@
 import React from 'https://esm.sh/react';
 import { Doughnut } from 'https://cdn.skypack.dev/react-chartjs-2';
-import '../../style/graphs.css';
+import '../../../style/graphs.css';
 
 interface Props {
-	queryData: [];
+	aggregateMetrics: object
 }
 
-const QuerySuccessFailure = (props: Props) => {
-	const { queryData } = props;
-	const testArr: any = [];
-	let successfulCount: number = 0;
-	let failureCount: number = 0;
-	queryData.forEach((obj: any) => {
-		if (obj.successfulQuery === true) {
-			successfulCount += 1;
-		} else failureCount += 1;
-	});
-	testArr.push(successfulCount, failureCount);
-	console.log('testArr:', testArr);
+const QuerySuccessFailureGraph = (props: Props) => {
+	const { aggregateMetrics } = props;
 	const data = {
 		labels: [ 'Success', 'Failure' ],
 		datasets: [
 			{
 				backgroundColor: ['#36A2EB','#FF6384'],
 				hoverBackgroundColor: ['#36A2EB','#FF6384'],
-				data: testArr
+				data: [aggregateMetrics.queryFrequency, aggregateMetrics.errorFrequency]
 			}
 		]
 	};
@@ -33,7 +23,7 @@ const QuerySuccessFailure = (props: Props) => {
 		maintainAspectRatio: false,
 		title: {
 			display: true,
-			text: 'Query Success vs Query Failure'
+			text: `Successful Queries : ${(aggregateMetrics.queryFrequency / aggregateMetrics.queryTotal *100).toFixed(3)}%           Unsuccessful Queries: ${(aggregateMetrics.errorFrequency / aggregateMetrics.queryTotal*100).toFixed(3)}%`,
 		},
 		onClick: function(e, item) {
 			console.log(item);
@@ -45,7 +35,7 @@ const QuerySuccessFailure = (props: Props) => {
 	};
 
 	return (
-		<div className="query-speed-container">
+		<div className="graph">
 			<Doughnut
 				data={data}
 				options={options}
@@ -57,4 +47,4 @@ const QuerySuccessFailure = (props: Props) => {
 	);
 };
 
-export default QuerySuccessFailure;
+export default QuerySuccessFailureGraph;

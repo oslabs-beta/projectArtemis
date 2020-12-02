@@ -36,7 +36,7 @@ a:link {
 }
 
 a {
-  color: rgb(128, 128, 128);
+  color: var(--secondary-text-color);
   transition: .28s ease-in-out;
 }
 
@@ -52,7 +52,7 @@ a:hover, a:focus {
 .queries_list_item {
   text-transform: uppercase;
   font-size: 1.1rem;
-  color: rgb(128, 128, 128);
+  color: var(--secondary-text-color);
   font-weight: 5250;
   font-family: 'Arial';
   text-shadow: 2px 2px 3px var(--dark-neumorphism),

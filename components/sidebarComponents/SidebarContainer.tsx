@@ -1,7 +1,7 @@
 import React, { useState } from 'https://esm.sh/react';
-import MenuBar from './menubar-container/MenuBar.tsx';
-import ListOfQueries from './menubar-container/ListOfQueries.tsx';
-import '../style/sidebar.css';
+import MenuSidebar from './menuSidebar/MenuSidebar.tsx';
+import SnapshotSidebar from './snapshotSidebar/SnapshotSidebar.tsx';
+import '../../style/sidebar.css';
 
 const SideBar = () => {
   // be able to swap between two different menus
@@ -9,9 +9,9 @@ const SideBar = () => {
   const [toggle, setToggle] = useState<boolean>(true);
 
   return toggle ? (
-    <MenuBar toggle={toggle} setToggle={setToggle} />
+    <MenuSidebar toggle={toggle} setToggle={setToggle} />
   ) : (
-    <ListOfQueries toggle={toggle} setToggle={setToggle} />
+    <SnapshotSidebar toggle={toggle} setToggle={setToggle} />
   );
 };
 

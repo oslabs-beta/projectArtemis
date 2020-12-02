@@ -1,5 +1,4 @@
 const addDataSnapshot = (data: object, state: any, path?: string): string => {
-  console.log('dataSnapshot', data);
   if (!path) {
     path = "./artemisCache.json";
   }
@@ -8,7 +7,6 @@ const addDataSnapshot = (data: object, state: any, path?: string): string => {
     state.artemis.push(data);
     Deno.writeTextFileSync(path, JSON.stringify(state.artemis));
     console.log("You've successfully added a data snapshot");
-    console.log("State.artemis: ", state.artemis);
     return `${data}`;
   } catch (err) {
     console.log(err);

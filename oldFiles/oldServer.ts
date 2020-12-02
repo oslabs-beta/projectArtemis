@@ -22,17 +22,17 @@ router.get("/artemis", (ctx) => {
     const readArtemisCache = (path: string): string => {
     /*
     Reads the artemisCache file for data and saves it to ctx.state as an object labeled Artemis.
-    This should be called every time at the beginning of any any functionality to ensure the 
+    This should be called every time at the beginning of any any functionality to ensure the
     state and cache are aligned and no data is ever lost or overwritten.
     */
         if (!path) {
             path = "./artemisCache.json"
-        }   
+        }
         //Sets a default path if one is not passed as an argument
         try {
             const data = Deno.readTextFileSync(path)
             if (!data) {
-                //If artemisCache is empty, adds an empty array to the file. This is necessary to 
+                //If artemisCache is empty, adds an empty array to the file. This is necessary to
                 //make sure addSnapshot etc. still functions properly.
                 overwriteArtemisCache([], path)
             }
@@ -53,7 +53,7 @@ router.get("/artemis", (ctx) => {
     const overwriteArtemisCache = (data: object, path: string): string => {
         if (!path) {
             path = "./artemisCache.json"
-        }   
+        }
         //Sets a default path if one is not passed as an argument
         try {
             Deno.writeTextFileSync(JSON.stringify(data), path);
@@ -67,7 +67,7 @@ router.get("/artemis", (ctx) => {
     const addDataSnapshot = (data: object, path: string): string => {
         if (!path) {
             path = "./artemisCache.json"
-        }   
+        }
         //Sets a default path if one is not passed as an argument
         try {
             ctx.state.artemis.push(data)
@@ -79,7 +79,7 @@ router.get("/artemis", (ctx) => {
         }
     }
     readArtemisCache(path)
-    
+
     const newArtemisQuery = (url: string, query: string) => {
         console.log(JSON.stringify({ query }))
     const opts = {
@@ -89,7 +89,6 @@ router.get("/artemis", (ctx) => {
     }
         fetch(url, opts)
   .then(res => res.json())
-  .then(console.log)
   .catch(console.error);
 }
 

@@ -1,36 +1,32 @@
 import React from 'https://esm.sh/react';
 import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
-import '../../style/graphs.css';
+import '../../../style/graphs.css';
 
 interface Props {
-	queryData: [object] | [];
+	aggregateMetrics: object | {};
 }
 
-const QueryPerAPI = (props: Props) => {
-	const { queryData } = props;
-	const testArr: any = [];
+const QueryPerAPIGraph = (props: Props) => {
+const { aggregateMetrics } = props;
+	const amounts: any = [];
 	const labels: any = [];
-	const apis: object = {}
-	queryData.forEach((obj: any) => {
-		if (!apis.hasOwnProperty(obj.api)) {
-            apis[obj.api] = 1;
-        }
-        else {
-            apis[obj.api]++
-        }
-	});
-	for (let x in apis) {
+	let topAmount: number = 0;
+	let topAPI: string = "";
+	for (let x in aggregateMetrics.apis) {
 		labels.push(x)
-	testArr.push(apis[x]);
+		amounts.push(aggregateMetrics.apis[x]);
+		if (aggregateMetrics.apis[x] > topAmount) {
+			topAmount = aggregateMetrics.apis[x];
+			topAPI = x;
+		}
 	}
-	console.log('testArr:', testArr);
 	const data = {
 		labels,
 		datasets: [
 			{
 				backgroundColor: ['#36A2EB', '#FF6384', '#b6fc03', '#b503fc', '#fc037b', '#fcfc03'],
 				hoverBackgroundColor: ['#36A2EB', '#FF6384', '#b6fc03', '#b503fc', '#fc037b', '#fcfc03'],
-				data: testArr
+				data: amounts
 			}
 		]
 	};
@@ -39,7 +35,7 @@ const QueryPerAPI = (props: Props) => {
 		maintainAspectRatio: false,
 		title: {
 			display: true,
-			text: 'Queries per API'
+			text: `Most Frequently Queried API: ${topAPI}`
 		},
 		onClick: function(e, item) {
 			console.log(item);
@@ -51,7 +47,7 @@ const QueryPerAPI = (props: Props) => {
 	};
 
 	return (
-		<div className="query-speed-container">
+		<div className="graph">
 			<Bar
 				data={data}
 				options={options}
@@ -63,4 +59,4 @@ const QueryPerAPI = (props: Props) => {
 	);
 };
 
-export default QueryPerAPI;
+export default QueryPerAPIGraph;

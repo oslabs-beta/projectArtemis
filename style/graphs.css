@@ -2,7 +2,7 @@
 GRAPHS ONLY
 *******************************/
 
-.query-speed-container {
+.graph {
   position: relative;
   /* ! these values control the height and width of the application */
   height: 65vh;

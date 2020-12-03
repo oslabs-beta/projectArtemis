@@ -7,8 +7,8 @@ import calculateMetrics from '../../functions/calculateMetrics.ts'
 import '../../style/analyticsContainer.css'
 
 const AnalyticsContainer = () => {
-  const [snapshotArray, setSnapshotArray] = useState<any>([]);
-  const [aggregateMetrics, setAggregateMetrics] = useState<any>({});
+  const [snapshotArray, setSnapshotArray] = useState([]);
+  const [aggregateMetrics, setAggregateMetrics] = useState({});
 
   useEffect(() => {
     fetch('http://localhost:4015/artemis')
@@ -21,12 +21,7 @@ const AnalyticsContainer = () => {
         .catch((err) => console.error("UseEffect error", err));
   }, []);
 
-
-
-  // const [queryData] = useData();
-  // const [metrics] = useMetrics([queryData])
   const [viewIndex, updateViewIndex] = useViewController();
-  // console.log(metrics)
   return (
     <div className="container-main-view">
       <TabBar viewIndex={viewIndex} updateViewIndex={updateViewIndex} />

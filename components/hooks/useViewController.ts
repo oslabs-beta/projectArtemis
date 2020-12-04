@@ -1,34 +1,47 @@
-import { useState } from 'https://esm.sh/react';
+import { useReducer } from 'https://esm.sh/react';
 
-const increment = (count: number, setCount: (Number: number) => void) => {
-  if (count >= 3) {
-    setCount(0);
-  } else {
-    setCount(count + 1);
+interface InitialState {
+  view: number;
+}
+
+type Action =
+  | { type: 'NEXT' }
+  | { type: 'PREV' }
+  | { type: 'SET'; payload: number };
+
+const reducer = (state: InitialState, action: Action) => {
+  switch (action.type) {
+    case 'NEXT': {
+      if (state.view >= 3) {
+        return { view: 0 };
+      } else {
+        return { view: state.view + 1 };
+      }
+    }
+    case 'PREV': {
+      if (state.view <= 0) {
+        return { view: 3 };
+      } else {
+        return { view: state.view - 1 };
+      }
+    }
+    case 'SET': {
+      return {
+        view: action.payload,
+      };
+    }
+    default: {
+      return state;
+    }
   }
 };
 
-const decrement = (count: number, setCount: (Number: number) => void) => {
-  if (count <= 0) {
-    setCount(3);
-  } else {
-    setCount(count - 1);
-  }
-};
+const initialState: InitialState = { view: 0 };
 
 const useViewController = () => {
-  const [count, setCount] = useState(0);
+  const [view, viewDispatch] = useReducer(reducer, initialState);
 
-  const countLogic = (action: string | number) => {
-    if (action === 'increment') increment(count, setCount);
-    else if (action === 'decrement') decrement(count, setCount);
-    else if (action === 0) setCount(0);
-    else if (action === 1) setCount(1);
-    else if (action === 2) setCount(2);
-    else if (action === 3) setCount(3);
-  };
-
-  return [count, countLogic] as const;
+  return [view, viewDispatch] as const;
 };
 
 export default useViewController;

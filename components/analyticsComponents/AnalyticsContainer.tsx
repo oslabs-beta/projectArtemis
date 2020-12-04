@@ -44,14 +44,14 @@ const AnalyticsContainer = () => {
       })
       .catch((err) => console.error('UseEffect error', err));
   }, []);
-  const [viewIndex, updateViewIndex] = useViewController();
+  const [view, setView] = useViewController();
 
   return (
     <div className="container-main-view">
-      <TabBar viewIndex={viewIndex} updateViewIndex={updateViewIndex} />
+      <TabBar view={view} setView={setView} />
       <GraphContainer
-        viewIndex={viewIndex}
-        updateViewIndex={updateViewIndex}
+        view={view}
+        setView={setView}
         snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics}
       />

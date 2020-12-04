@@ -2,12 +2,12 @@ import React from 'https://esm.sh/react';
 import Tab from './Tab.tsx';
 
 interface Props {
-  viewIndex: number;
-  updateViewIndex: (action: string | number) => void;
+  view: number;
+  setView: (action: string | number) => void;
 }
 
 const TabBar = (props: Props) => {
-  const { viewIndex, updateViewIndex } = props;
+  const { view, setView } = props;
   const tabs = [
     'Latency',
     'Success Rate',
@@ -21,11 +21,11 @@ const TabBar = (props: Props) => {
         return (
           <Tab
             label={label}
-            highlight={viewIndex === i ? true : null}
-            viewIndex={viewIndex}
+            highlight={view === i ? true : null}
+            view={view}
             index={i}
             length={tabs.length - 1}
-            updateViewIndex={updateViewIndex}
+            setView={setView}
             key={i}
           />
         );

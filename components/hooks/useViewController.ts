@@ -1,8 +1,6 @@
 import { useReducer } from 'https://esm.sh/react';
 
-interface InitialState {
-  view: number;
-}
+type InitialState = number;
 
 type Action =
   | { type: 'NEXT' }
@@ -12,23 +10,21 @@ type Action =
 const reducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case 'NEXT': {
-      if (state.view >= 3) {
-        return { view: 0 };
+      if (state >= 3) {
+        return 0;
       } else {
-        return { view: state.view + 1 };
+        return state + 1;
       }
     }
     case 'PREV': {
-      if (state.view <= 0) {
-        return { view: 3 };
+      if (state <= 0) {
+        return 3;
       } else {
-        return { view: state.view - 1 };
+        return state - 1;
       }
     }
     case 'SET': {
-      return {
-        view: action.payload,
-      };
+      return action.payload;
     }
     default: {
       return state;
@@ -36,7 +32,7 @@ const reducer = (state: InitialState, action: Action) => {
   }
 };
 
-const initialState: InitialState = { view: 0 };
+const initialState: InitialState = 0;
 
 const useViewController = () => {
   const [view, viewDispatch] = useReducer(reducer, initialState);

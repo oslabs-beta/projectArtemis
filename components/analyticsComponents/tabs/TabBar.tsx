@@ -1,19 +1,15 @@
 import React from 'https://esm.sh/react';
 import Tab from './Tab.tsx';
+import { InitialState, Action } from '../../typings/viewController.d.ts';
 
 interface Props {
-  view: number;
-  setView: (action: string | number) => void;
+  view: InitialState;
+  setView: React.Dispatch<Action>;
 }
 
 const TabBar = (props: Props) => {
   const { view, setView } = props;
-  const tabs = [
-    'Latency',
-    'Success Rate',
-    'Data Size',
-    'APIs',
-  ];
+  const tabs = ['Latency', 'Success Rate', 'Data Size', 'APIs'];
 
   return (
     <div className="container-tab">

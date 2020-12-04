@@ -1,11 +1,5 @@
 import { useReducer } from 'https://esm.sh/react';
-
-type InitialState = number;
-
-type Action =
-  | { type: 'NEXT' }
-  | { type: 'PREV' }
-  | { type: 'SET'; payload: number };
+import { InitialState, Action } from '../typings/viewController.d.ts';
 
 const reducer = (state: InitialState, action: Action) => {
   switch (action.type) {

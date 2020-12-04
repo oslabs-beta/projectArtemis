@@ -1,4 +1,5 @@
 import React from 'https://esm.sh/react';
+import { InitialState, Action } from '../../typings/viewController.d.ts';
 import '../../../style/tabs.css';
 
 interface Props {
@@ -6,8 +7,8 @@ interface Props {
   index: number;
   length: number;
   highlight: boolean | null;
-  view: number;
-  setView: (action: string | number) => void;
+  view: InitialState;
+  setView: React.Dispatch<Action>;
 }
 
 const Tab = (props: Props) => {
@@ -24,7 +25,7 @@ const Tab = (props: Props) => {
         borderTopRightRadius: highlight ? '10px' : undefined,
         borderTopLeftRadius: highlight ? '10px' : undefined,
       }}
-      onClick={() => setView(index)}
+      onClick={() => setView({type: 'SET', payload: index})}
     >
       {label}
     </button>

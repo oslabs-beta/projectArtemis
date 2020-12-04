@@ -1,21 +1,11 @@
 import React from 'https://esm.sh/react';
 import { Line } from 'https://cdn.skypack.dev/react-chartjs-2';
+import { Result, Snapshot } from '../../typings/data.d.ts';
 import '../../../style/graphs.css';
-
-interface Result {
-  apis: {};
-  latencyAvg: string;
-  latencyMax: string;
-  sizeAvg: string;
-  sizeMax: string;
-  queryTotal: any;
-  queryFrequency: number;
-  errorFrequency: number;
-}
 
 interface Props {
 	aggregateMetrics: Result | null;
-	snapshotArray: [object] | null;
+	snapshotArray: [Snapshot] | null;
 }
 
 const LatencyGraph = (props: Props) => {

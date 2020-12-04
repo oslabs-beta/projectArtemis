@@ -1,20 +1,10 @@
 import React from 'https://esm.sh/react';
 import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
+import { Result, Snapshot } from '../../typings/data.d.ts';
 import '../../../style/graphs.css';
 
-interface Result {
-  apis: {};
-  latencyAvg: string;
-  latencyMax: string;
-  sizeAvg: string;
-  sizeMax: string;
-  queryTotal: any;
-  queryFrequency: number;
-  errorFrequency: number;
-}
-
 interface Props {
-	snapshotArray: [object] | null;
+	snapshotArray: [Snapshot] | null;
 	aggregateMetrics: Result | null;
 }
 

@@ -4,31 +4,8 @@ import GraphContainer from './graphs/GraphContainer.tsx';
 import useViewController from '../hooks/useViewController.ts';
 import { useEffect, useState } from 'https://esm.sh/react';
 import calculateMetrics from '../../functions/calculateMetrics.ts';
+import { Result, Snapshot } from '../typings/data.d.ts';
 import '../../style/analyticsContainer.css';
-
-interface Result {
-  apis: {};
-  latencyAvg: string;
-  latencyMax: string;
-  sizeAvg: string;
-  sizeMax: string;
-  queryTotal: any;
-  queryFrequency: number;
-  errorFrequency: number;
-}
-
-interface Snapshot {
-  api: string;
-  latency: number;
-  dataSize: number;
-  requestedFields: [];
-  successfulQuery: boolean;
-  errors: {
-    messages: string;
-    locations: [{ line: number; column: number }];
-  };
-  extensions: { code: string };
-}
 
 const AnalyticsContainer = () => {
   const [snapshotArray, setSnapshotArray] = useState<[Snapshot] | null>(null);

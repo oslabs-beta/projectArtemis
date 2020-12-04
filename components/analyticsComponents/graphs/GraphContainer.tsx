@@ -3,13 +3,15 @@ import LatencyGraph from './LatencyGraph.tsx';
 import QuerySuccessFailureGraph from './QuerySuccessFailureGraph.tsx';
 import DataSizeGraph from './DataSizeGraph.tsx';
 import QueryPerAPIGraph from './QueryPerAPIGraph.tsx';
+import { Action, InitialState } from '../../typings/viewController.d.ts';
+import { Result, Snapshot } from '../../typings/data.d.ts';
 import '../../../style/graphs.css';
 
 interface Props {
-  view: any;
-  setView: any;
-  snapshotArray: object | null;
-  aggregateMetrics: object | null;
+  view: InitialState;
+  setView: React.Dispatch<Action>;
+  snapshotArray: [Snapshot] | null;
+  aggregateMetrics: Result | null;
 }
 
 const GraphContainer = (props: Props) => {
@@ -33,9 +35,7 @@ const GraphContainer = (props: Props) => {
             aggregateMetrics={aggregateMetrics}
           />
         )}
-        {view === 3 && (
-          <QueryPerAPIGraph aggregateMetrics={aggregateMetrics} />
-        )}
+        {view === 3 && <QueryPerAPIGraph aggregateMetrics={aggregateMetrics} />}
       </div>
       <button
         id="increment"

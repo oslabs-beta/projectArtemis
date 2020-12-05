@@ -8,8 +8,8 @@ import '../../../style/graphs.css';
 interface Props {
   viewIndex: number;
   updateViewIndex: (action: string | number) => void;
-  snapshotArray: [object] | [];
-  aggregateMetrics: object | {};
+  snapshotArray: object | null;
+  aggregateMetrics: object | null;
 }
 
 const GraphContainer = (props: Props) => {

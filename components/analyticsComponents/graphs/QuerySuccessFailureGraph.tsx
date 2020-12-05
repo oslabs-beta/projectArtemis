@@ -2,8 +2,19 @@ import React from 'https://esm.sh/react';
 import { Doughnut } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../../style/graphs.css';
 
+interface Result {
+  apis: {};
+  latencyAvg: string;
+  latencyMax: string;
+  sizeAvg: string;
+  sizeMax: string;
+  queryTotal: any;
+  queryFrequency: number;
+  errorFrequency: number;
+}
+
 interface Props {
-	aggregateMetrics: object
+	aggregateMetrics: Result | null;
 }
 
 const QuerySuccessFailureGraph = (props: Props) => {
@@ -14,7 +25,7 @@ const QuerySuccessFailureGraph = (props: Props) => {
 			{
 				backgroundColor: ['#36A2EB','#FF6384'],
 				hoverBackgroundColor: ['#36A2EB','#FF6384'],
-				data: [aggregateMetrics.queryFrequency, aggregateMetrics.errorFrequency]
+				data: aggregateMetrics ? [aggregateMetrics.queryFrequency, aggregateMetrics.errorFrequency] : []
 			}
 		]
 	};
@@ -23,7 +34,7 @@ const QuerySuccessFailureGraph = (props: Props) => {
 		maintainAspectRatio: false,
 		title: {
 			display: true,
-			text: `Successful Queries : ${(aggregateMetrics.queryFrequency / aggregateMetrics.queryTotal *100).toFixed(3)}%           Unsuccessful Queries: ${(aggregateMetrics.errorFrequency / aggregateMetrics.queryTotal*100).toFixed(3)}%`,
+			text: `Successful Queries : ${aggregateMetrics ? (aggregateMetrics.queryFrequency / aggregateMetrics.queryTotal *100).toFixed(3): 0}%           Unsuccessful Queries: ${aggregateMetrics ? (aggregateMetrics.errorFrequency / aggregateMetrics.queryTotal*100).toFixed(3): 0}%`,
 		},
 		onClick: function(e, item) {
 			console.log(item);

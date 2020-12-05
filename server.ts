@@ -74,14 +74,14 @@ app.use(oakCors())
   // while (counter > 0) {
   //   const url = "https://api.spacex.land/graphql";
   //   let id = 10;
-  //   const query = ` query {
-  //     launch(id: "${id}") {
-  //       mission_name
-  //       launch_success
-  //       upcoming
-  //       launch_year
-  //       }
-  //     }`;
+    const query = ` query {
+      launch(id: "${id}") {
+        mission_name
+        launch_success
+        upcoming
+        launch_year
+        }
+      }`;
   //   counter--;
   //   id++;
 

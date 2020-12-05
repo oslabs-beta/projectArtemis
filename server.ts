@@ -1,13 +1,9 @@
-import {
-  Application,
-  Router,
-  RouterContext,
-  send,
+import {Application, Router, RouterContext, send,
 } from "https://deno.land/x/oak@v6.2.0/mod.ts";
 import artemisQuery from "./functions/artemisQuery.ts";
-import syncCacheAndState from "./functions/syncCacheAndState.ts";
-import addDataSnapshot from "./functions/addDataSnapshot.ts";
-import clearSnapshots from "./functions/clearSnapshots.ts";
+// import syncCacheAndState from "./functions/syncCacheAndState.ts";
+// import addDataSnapshot from "./functions/addDataSnapshot.ts";
+// import clearSnapshots from "./functions/clearSnapshots.ts";
 import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import {applyArtemis} from "./applyArtemis.ts"
@@ -49,16 +45,16 @@ app.use(oakCors())
 
 // app.use(router.routes(), router.allowedMethods());
 
-// app.use(
-//   oakCors({
-//     origin:  "http://localhost:8080",
-//     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-//   }),
-// );
+app.use(
+  oakCors({
+    origin:  "http://localhost:8080",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }),
+);
 
 
 
-//testing applyArtemisfunc
+// testing applyArtemisfunc
 const ArtemisService = await applyArtemis <Router>({
   Router,
   useGui: true
@@ -69,30 +65,28 @@ console.log('testing artemis route server')
 app.use(async (ctx, next) => {
   // console.log(Deno.cwd());
   await ctx.send({
-    root: `${Deno.cwd()}/dist`
-    // index: "index.html",
+    root: `${Deno.cwd()}/dist`,
+    index: "index.html",
   });
   next();
 });
-import {exists} from 'https://deno.land/std@0.59.0/fs/exists.ts';
+// import {exists} from 'https://deno.land/std@0.59.0/fs/exists.ts';
 
-const staticFilePath = './dist'
+// const staticFilePath = './dist'
 
-const ensureLocalFile = async (localPath: string): Promise<void> => {
-  const fileExists = await exists(localPath);
-  if (fileExists) return;
-  console.log(`${localPath}`);
-  // const response = await fetch(url);
-  // if (!response.ok) throw new Error('Response not OK');
-  const r = response.body?.getReader;
-  const buf = new Uint8Array(await response.arrayBuffer());
-  await Deno.writeFile(staticFilePath, buf);
-  console.log('File saved');
-};
+// const ensureLocalFile = async (localPath: string): Promise<void> => {
+//   const fileExists = await exists(localPath);
+//   if (fileExists) return;
+//   console.log(`${localPath}`);
+//   // const response = await fetch(url);
+//   // if (!response.ok) throw new Error('Response not OK');
+//   const r = response.body?.getReader;
+//   const buf = new Uint8Array(await response.arrayBuffer());
+//   await Deno.writeFile(staticFilePath, buf);
+//   console.log('File saved');
+// };
 
-await ensureLocalFile(staticFilePath)
-
-
+// await ensureLocalFile(staticFilePath)
 
 const port = 4016;
 console.log(`Server started on port ${port}`);

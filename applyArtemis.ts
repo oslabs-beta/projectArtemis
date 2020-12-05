@@ -1,4 +1,5 @@
 import {renderGuiPage} from './render-gui-html.ts'
+import artemisQuery from "./functions/artemisQuery.ts";
 
 interface Constructable<T> {
     new (...args: any): T & OakRouter;
@@ -61,22 +62,23 @@ export async function applyArtemis<T>({
             const gui = renderGuiPage({
               endpoint: request.url.origin + path,
             });
+            const url = "https://api.spacex.land/graphql";
+            let id = 10
+            const query = ` query {
+              launch(id: "${id}") {
+                mission_name
+                launch_success
+                ffdso
+                upcoming
+                launch_year
+                }
+              }`;
+            artemisQuery(url, query, ctx.state)
             response.status = 200;
             response.body = gui;
             return
           }
         }
       })
-
-      router.use(path, async (ctx:any) => {
-        console.log('inside the applyArtemis static function')
-        // console.log(Deno.cwd());
-        await ctx.send({
-          root: `${Deno.cwd()}/dist`,
-          // index: "index.html",
-        });
-      })
-
-
       return router;
   }

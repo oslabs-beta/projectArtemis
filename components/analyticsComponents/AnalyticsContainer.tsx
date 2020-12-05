@@ -35,7 +35,7 @@ const AnalyticsContainer = () => {
   const [aggregateMetrics, setAggregateMetrics] = useState<Result | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:4015/artemis')
+    fetch('http://localhost:4016/artemis')
       .then((response) => response.json())
       .then((data) => {
         setSnapshotArray(data.artemis);

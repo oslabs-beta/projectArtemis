@@ -3,11 +3,12 @@ import { Doughnut } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../../style/graphs.css';
 
 interface Props {
-	aggregateMetrics: object
+	snapshotArray: [object] | [];
+	aggegateMetrics: object | {};
 }
 
 const QuerySuccessFailureGraph = (props: Props) => {
-	const { aggregateMetrics } = props;
+	const { snapshotArray, aggregateMetrics } = props;
 	const data = {
 		labels: [ 'Success', 'Failure' ],
 		datasets: [

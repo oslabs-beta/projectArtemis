@@ -3,11 +3,12 @@ import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../../style/graphs.css';
 
 interface Props {
-	aggregateMetrics: object | {};
+	snapshotArray: [object] | [];
+	aggegateMetrics: object | {};
 }
 
 const QueryPerAPIGraph = (props: Props) => {
-const { aggregateMetrics } = props;
+const { snapshotArray, aggregateMetrics } = props;
 	const amounts: any = [];
 	const labels: any = [];
 	let topAmount: number = 0;

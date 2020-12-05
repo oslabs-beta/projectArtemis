@@ -5,6 +5,7 @@ import useViewController from '../hooks/useViewController.ts';
 import { useEffect, useState } from 'https://esm.sh/react';
 import calculateMetrics from '../../functions/calculateMetrics.ts'
 import '../../style/analyticsContainer.css'
+import ClientQuery from "./query/ClientQuery.tsx";
 
 const AnalyticsContainer = () => {
   const [snapshotArray, setSnapshotArray] = useState([]);
@@ -14,8 +15,8 @@ const AnalyticsContainer = () => {
     fetch('http://localhost:4015/artemis')
       .then((response) => response.json())
       .then((data) => {
-        setSnapshotArray(data.artemis)
-        const result = calculateMetrics(data.artemis)
+        setSnapshotArray(data)
+        const result = calculateMetrics(data)
         setAggregateMetrics(result)
       })
         .catch((err) => console.error("UseEffect error", err));
@@ -28,6 +29,12 @@ const AnalyticsContainer = () => {
       <GraphContainer
         viewIndex={viewIndex}
         updateViewIndex={updateViewIndex}
+        snapshotArray={snapshotArray}
+        aggregateMetrics={aggregateMetrics}
+      />
+      <ClientQuery
+        setSnapshotArray={setSnapshotArray}
+        setAggregateMetrics={setAggregateMetrics}
         snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics}
       />

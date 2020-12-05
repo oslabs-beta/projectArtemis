@@ -96,36 +96,6 @@ app.use(oakCors())
 //   ctx.response.body = state.artemis
 // })
 
-<<<<<<< HEAD
-router.get("/artemis", (ctx) => {
-  ctx.response.body = "Query has been sent";
-  console.log("you have entered the router");
-  let counter = 3;
-  while (counter > 0) {
-    const url = "https://api.spacex.land/graphql";
-    let id = 10;
-    const query = ` query {
-      launch(id: "${id}") {
-        mission_name
-        launch_success
-        ffdso
-        upcoming
-        launch_year
-        }
-      }`;
-    counter--;
-    id++;
-
-    artemisQuery(url, query, ctx.state);
-    ctx.response.body = ctx.state
-  }
-});
-
-
-router.get("/getData", (ctx, state:any) => {
-  console.log("in getData route")
-  ctx.response.body = state.artemis
-=======
 // app.use(router.routes(), router.allowedMethods());
 
 // app.use(
@@ -135,26 +105,57 @@ router.get("/getData", (ctx, state:any) => {
 //   }),
 // );
 
-const ArtemisService = await applyArtemis <Router>({
-  Router,
-  useGui: true
->>>>>>> b323eca68a4306b123b4a29fbde506cd06b4a7a8
+router.get("/artemis", (ctx) => {
+  const read = syncCacheAndState("./artemisCache.json")
+  ctx.response.body = read
+  // ctx.response.body = "Query has been sent";
+  // console.log("you have entered the router");
+  // let counter = 3;
+  // while (counter > 0) {
+  //   const url = "https://api.spacex.land/graphql";
+  //   let id = 10;
+  //   const query = ` query {
+  //     launch(id: "${id}") {
+  //       mission_name
+  //       launch_success
+  //       ffdso
+  //       upcoming
+  //       launch_year
+  //       }
+  //     }`;
+  //   counter--;
+  //   id++;
+
+  //   artemisQuery(url, query);
+
+  // }
+}
+);
+
+
+router.get("/getData", (ctx, state:any) => {
+  console.log("in getData route")
+  ctx.response.body = state.artemis
 })
-app.use(ArtemisService.routes());
-console.log('testing artemis route server')
 
-// app.use(async (ctx, next) => {
-//   // console.log(Deno.cwd());
-//   await ctx.send({
-//     root: `${Deno.cwd()}/dist`,
-//     // index: "index.html",
-//   });
-//   next()
-// });
+app.use(router.routes(), router.allowedMethods());
 
+app.use(
+  oakCors({
+    origin:  "http://localhost:8080",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }),
+);
 
+app.use(async (ctx, next) => {
+  // console.log(Deno.cwd());
+  await ctx.send({
+    root: `${Deno.cwd()}/dist`,
+    index: "index.html",
+  });
+  next();
+});
 
 const port = 4015;
 console.log(`Server started on port ${port}`);
 await app.listen({ port });
-

@@ -20,10 +20,12 @@ const GraphContainer = (props: Props) => {
       <div className="container-analytics">
         {viewIndex === 0 && <LatencyGraph snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics} />}
-        {viewIndex === 1 && <QuerySuccessFailureGraph aggregateMetrics={aggregateMetrics} />}
+        {viewIndex === 1 && <QuerySuccessFailureGraph snapshotArray={snapshotArray}
+          aggregateMetrics={aggregateMetrics} />}
         {viewIndex === 2 && <DataSizeGraph snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics} />}
-        {viewIndex === 3 && <QueryPerAPIGraph aggregateMetrics={aggregateMetrics} />}
+        {viewIndex === 3 && <QueryPerAPIGraph snapshotArray={snapshotArray}
+          aggregateMetrics={aggregateMetrics} />}
       </div>
       <button
         id="increment"

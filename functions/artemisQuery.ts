@@ -15,9 +15,9 @@ const extractFields = (metrics: any, data: any) => {
   }
 }
 
-const artemisQuery = (url: string, query: string, state: any) => {
+const artemisQuery = (url: string, query: string) => {
   const start = Date.now()
-  syncCacheAndState(state)
+  // syncCacheAndState(state)
 
   const opts = {
     method: "POST",
@@ -30,9 +30,9 @@ const artemisQuery = (url: string, query: string, state: any) => {
     api : url,
     latency: 0,
     dataSize: 0,
-    requestedFields: [],
+    requestedFields: [query],
     successfulQuery: true,
-    errors: []
+    errors: null,
   }
 
   return fetch(url, opts).then(res => {
@@ -41,10 +41,15 @@ const artemisQuery = (url: string, query: string, state: any) => {
   }).then(data => {
     extractFields(metrics, data)
     metrics.latency = Date.now() - start
-    addDataSnapshot(metrics, state)
-    return data
+    // addDataSnapshot(metrics, state)
+    return metrics
   }).catch(err => {
     console.log(err)
+    metrics.successfulQuery = false
+    metrics.errors = err
+    metrics.latency = Date.now() - start
+    console.log(metrics)
+    return metrics
   })
 }
 

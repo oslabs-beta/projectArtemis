@@ -8,25 +8,27 @@ const calculateMetrics = (arr: any) => {
     const errorArr = []
     arr.forEach(el => {
         //Queries per API
-        if (!apis.hasOwnProperty(el.api)) {
-            apis[el.api] = 1;
+            if (!apis.hasOwnProperty(el.api)) {
+                apis[el.api] = 1;
+            }
+            else {
+                apis[el.api]++
+            }
+        if (el.successfulQuery) {
+
+            //Latency
+            latencySum += el.latency
+            if (el.latency > latencyMax) {
+                latencyMax = el.latency
+            }
+            //Size
+            sizeSum += el.dataSize
+            if (el.dataSize > sizeMax) {
+                sizeMax = el.dataSize
+            }
+            //Query vs. Error Frequency
+                successfulArr.push(el.successfulQuery)
         }
-        else {
-            apis[el.api]++
-        }
-        //Latency
-        latencySum += el.latency
-        if (el.latency > latencyMax) {
-            latencyMax = el.latency
-        }
-        //Size
-        sizeSum += el.dataSize
-        if (el.dataSize > sizeMax) {
-            sizeMax = el.dataSize
-        }
-        //Query vs. Error Frequency
-        if (el.successfulQuery === true) {
-            successfulArr.push(el.successfulQuery)}
         else {
             errorArr.push(el.successfulQuery)
         }

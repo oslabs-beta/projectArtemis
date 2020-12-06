@@ -1,74 +1,17 @@
-import {
-  Application,
-  Router,
-  RouterContext,
-  send,
+import {Application, Router, RouterContext, send,
 } from "https://deno.land/x/oak@v6.2.0/mod.ts";
 import artemisQuery from "./functions/artemisQuery.ts";
-import syncCacheAndState from "./functions/syncCacheAndState.ts";
-import addDataSnapshot from "./functions/addDataSnapshot.ts";
-import clearSnapshots from "./functions/clearSnapshots.ts";
+// import syncCacheAndState from "./functions/syncCacheAndState.ts";
+// import addDataSnapshot from "./functions/addDataSnapshot.ts";
+// import clearSnapshots from "./functions/clearSnapshots.ts";
 import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
+import {applyArtemis} from "./applyArtemis.ts"
 
 const app = new Application();
 
 const router = new Router();
 app.use(oakCors())
-// app.use(async (ctx, next) => {
-//   console.log(Deno.cwd())
-
-//   await ctx.send({
-
-//     root: `/Users/stellaliao/Desktop/Codesmith - VScode/newFrontend/artemis-gui/dist`,
-//     index: "index.html",
-// });
-//   next()
-// const url = "https://api.spacex.land/graphql"
-// const query = ` query {
-//   launch(id: "1") {
-//     mission_name
-//     launch_success
-//     launch_year
-//     }
-//   }`
-//   const query = `
-//   query {
-//     Lift(id: "panorama") {
-//       name
-//       status
-//     }
-//   }
-// `;
-// const url = "https://snowtooth.moonhighway.com/";
-// artemisQuery(url, query, ctx.state)
-// });
-
-// router.use("/", async (ctx, next) => {
-//   console.log('in router')
-
-//     const url = "https://api.spacex.land/graphql"
-//       const query = ` query {
-//         launch(id: "1") {
-//           mission_name
-//           launch_success
-//           upcoming
-//           launch_year
-//           }
-//         }`
-
-//     artemisQuery(url, query, ctx.state)
-//   })
-//   app.use(router.routes(), router.allowedMethods())
-
-// router.get("/gui", async (ctx) => {
-//   // ctx.response.redirect('/index.html')
-//   console.log(Deno.cwd())
-//   await ctx.send({
-//         root: `${Deno.cwd()}`,
-//         index: "index.html",
-//       });
-// })
 
 router.get("/artemis", (ctx) => {
   ctx.response.body = "Query has been sent";
@@ -95,10 +38,10 @@ router.get("/artemis", (ctx) => {
 });
 
 
-router.get("/getData", (ctx, state:any) => {
-  console.log("in getData route")
-  ctx.response.body = state.artemis
-})
+// router.get("/getData", (ctx, state:any) => {
+//   console.log("in getData route")
+//   ctx.response.body = state.artemis
+// })
 
 app.use(router.routes(), router.allowedMethods());
 
@@ -109,6 +52,16 @@ app.use(
   }),
 );
 
+
+
+// // testing applyArtemisfunc
+// const ArtemisService = await applyArtemis <Router>({
+//   Router,
+//   useGui: true
+// })
+// app.use(ArtemisService.routes());
+// console.log('testing artemis route server')
+
 app.use(async (ctx, next) => {
   // console.log(Deno.cwd());
   await ctx.send({
@@ -117,7 +70,27 @@ app.use(async (ctx, next) => {
   });
   next();
 });
+// import {exists} from 'https://deno.land/std@0.59.0/fs/exists.ts';
 
-const port = 4015;
+// const staticFilePath = './dist'
+
+// const ensureLocalFile = async (localPath: string): Promise<void> => {
+//   const fileExists = await exists(localPath);
+//   if (fileExists) return;
+//   console.log(`${localPath}`);
+//   // const response = await fetch(url);
+//   // if (!response.ok) throw new Error('Response not OK');
+//   const r = response.body?.getReader;
+//   const buf = new Uint8Array(await response.arrayBuffer());
+//   await Deno.writeFile(staticFilePath, buf);
+//   console.log('File saved');
+// };
+
+// await ensureLocalFile(staticFilePath)
+
+const port = 4020;
 console.log(`Server started on port ${port}`);
 await app.listen({ port });
+
+
+

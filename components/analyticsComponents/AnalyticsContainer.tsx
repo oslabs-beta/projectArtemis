@@ -1,13 +1,19 @@
 import React from 'https://esm.sh/react';
 import TabBar from './tabs/TabBar.tsx';
 import GraphContainer from './graphs/GraphContainer.tsx';
-import useViewController from '../hooks/useViewController.ts';
-import useData from "../hooks/useData.ts";
+// import useViewController from '../hooks/useViewController.ts';
+import useData from '../hooks/useData.ts';
 import '../../style/analyticsContainer.css';
+import { Action, InitialState } from '../typings/viewController.d.ts';
 
-const AnalyticsContainer = () => {
+interface Props {
+  view: InitialState;
+  setView: React.Dispatch<Action>;
+}
+
+const AnalyticsContainer = (props: Props) => {
+  const { view, setView } = props;
   const [snapshotArray, aggregateMetrics] = useData();
-  const [view, setView] = useViewController();
 
   return (
     <div className="container-main-view">

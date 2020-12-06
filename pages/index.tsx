@@ -3,19 +3,18 @@ import React from 'https://esm.sh/react';
 import AnalyticsContainer from '../components/analyticsComponents/AnalyticsContainer.tsx';
 import SideBar from '../components/sidebarComponents/SidebarContainer.tsx';
 import useArrow from '../components/hooks/useArrows.ts';
-
-// let's try not to pollute our index.tsx - components that encompass a lot of small components
-// testing, testing
+import useViewController from "../components/hooks/useViewController.ts";
 
 export default function Home() {
+  const [view, setView] = useViewController();
   // on component mount, adds event listener for the arrow keys
-  useArrow();
+  useArrow(setView);
 
   return (
     <div className="container-gui">
       <Import from="../style/index.css" />
       <SideBar />
-      <AnalyticsContainer />
+      <AnalyticsContainer view={view} setView={setView}/>
     </div>
   );
 }

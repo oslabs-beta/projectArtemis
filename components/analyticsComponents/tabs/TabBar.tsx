@@ -13,6 +13,7 @@ const TabBar = (props: Props) => {
     'Success Rate',
     'Data Size',
     'APIs',
+    'Query table'
   ];
 
   return (

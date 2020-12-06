@@ -1,7 +1,7 @@
 import { useState } from 'https://esm.sh/react';
 
 const increment = (count: number, setCount: (Number: number) => void) => {
-  if (count >= 3) {
+  if (count >= 4) {
     setCount(0);
   } else {
     setCount(count + 1);
@@ -10,7 +10,7 @@ const increment = (count: number, setCount: (Number: number) => void) => {
 
 const decrement = (count: number, setCount: (Number: number) => void) => {
   if (count <= 0) {
-    setCount(3);
+    setCount(4);
   } else {
     setCount(count - 1);
   }
@@ -26,6 +26,7 @@ const useViewController = () => {
     else if (action === 1) setCount(1);
     else if (action === 2) setCount(2);
     else if (action === 3) setCount(3);
+    else if (action === 4) setCount(4);
   };
 
   return [count, countLogic] as const;

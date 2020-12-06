@@ -20,8 +20,3 @@
   border-bottom-color: var(--tertiary-color);
   color: var(--primary--text-color);
 }
-
-.hidden-view-buttons {
-  position: absolute;
-  display: none;
-}

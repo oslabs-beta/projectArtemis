@@ -37,16 +37,6 @@ const GraphContainer = (props: Props) => {
         )}
         {view === 3 && <QueryPerAPIGraph aggregateMetrics={aggregateMetrics} />}
       </div>
-      <button
-        id="increment"
-        className="hidden-view-buttons"
-        onClick={() => setView({ type: 'NEXT' })}
-      ></button>
-      <button
-        id="decrement"
-        className="hidden-view-buttons"
-        onClick={() => setView({ type: 'PREV' })}
-      ></button>
     </>
   );
 };

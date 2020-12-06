@@ -20,7 +20,6 @@ const AnalyticsContainer = (props: Props) => {
       <TabBar view={view} setView={setView} />
       <GraphContainer
         view={view}
-        setView={setView}
         snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics}
       />

@@ -3,19 +3,18 @@ import LatencyGraph from './LatencyGraph.tsx';
 import QuerySuccessFailureGraph from './QuerySuccessFailureGraph.tsx';
 import DataSizeGraph from './DataSizeGraph.tsx';
 import QueryPerAPIGraph from './QueryPerAPIGraph.tsx';
-import { Action, InitialState } from '../../typings/viewController.d.ts';
+import { InitialState } from '../../typings/viewController.d.ts';
 import { Result, Snapshot } from '../../typings/data.d.ts';
 import '../../../style/graphs.css';
 
 interface Props {
   view: InitialState;
-  setView: React.Dispatch<Action>;
   snapshotArray: [Snapshot] | null;
   aggregateMetrics: Result | null;
 }
 
 const GraphContainer = (props: Props) => {
-  const { view, setView, snapshotArray, aggregateMetrics } = props;
+  const { view, snapshotArray, aggregateMetrics } = props;
 
   return (
     <>

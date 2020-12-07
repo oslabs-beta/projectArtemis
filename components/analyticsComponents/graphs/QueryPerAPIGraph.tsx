@@ -2,19 +2,8 @@ import React from 'https://esm.sh/react';
 import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
 import '../../../style/graphs.css';
 
-interface Result {
-  apis: {};
-  latencyAvg: string;
-  latencyMax: string;
-  sizeAvg: string;
-  sizeMax: string;
-  queryTotal: any;
-  queryFrequency: number;
-  errorFrequency: number;
-}
-
 interface Props {
-  aggregateMetrics: Result | null;
+  aggregateMetrics: any;
 }
 
 const QueryPerAPIGraph = (props: Props) => {

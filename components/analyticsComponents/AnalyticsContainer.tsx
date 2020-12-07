@@ -1,57 +1,24 @@
 import React from 'https://esm.sh/react';
 import TabBar from './tabs/TabBar.tsx';
 import GraphContainer from './graphs/GraphContainer.tsx';
-import useViewController from '../hooks/useViewController.ts';
-import { useEffect, useState } from 'https://esm.sh/react';
-import calculateMetrics from '../../functions/calculateMetrics.ts';
+import useData from '../hooks/useData.ts';
 import '../../style/analyticsContainer.css';
+import { Action, InitialState } from '../typings/viewController.d.ts';
 
-interface Result {
-  apis: {};
-  latencyAvg: string;
-  latencyMax: string;
-  sizeAvg: string;
-  sizeMax: string;
-  queryTotal: any;
-  queryFrequency: number;
-  errorFrequency: number;
+interface Props {
+  view: InitialState;
+  setView: React.Dispatch<Action>;
 }
 
-interface Snapshot {
-  api: string;
-  latency: number;
-  dataSize: number;
-  requestedFields: [];
-  successfulQuery: boolean;
-  errors: {
-    messages: string;
-    locations: [{ line: number; column: number }];
-  };
-  extensions: { code: string };
-}
-
-const AnalyticsContainer = () => {
-  const [snapshotArray, setSnapshotArray] = useState<[Snapshot] | null>(null);
-  const [aggregateMetrics, setAggregateMetrics] = useState<Result | null>(null);
-
-  useEffect(() => {
-    fetch('http://localhost:4020/artemis')
-      .then((response) => response.json())
-      .then((data) => {
-        setSnapshotArray(data.artemis);
-        const result: Result = calculateMetrics(data.artemis);
-        setAggregateMetrics(result);
-      })
-      .catch((err) => console.error('UseEffect error', err));
-  }, []);
-  const [viewIndex, updateViewIndex] = useViewController();
+const AnalyticsContainer = (props: Props) => {
+  const { view, setView } = props;
+  const [snapshotArray, aggregateMetrics] = useData();
 
   return (
     <div className="container-main-view">
-      <TabBar viewIndex={viewIndex} updateViewIndex={updateViewIndex} />
+      <TabBar view={view} setView={setView} />
       <GraphContainer
-        viewIndex={viewIndex}
-        updateViewIndex={updateViewIndex}
+        view={view}
         snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics}
       />

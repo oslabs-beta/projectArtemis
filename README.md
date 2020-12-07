@@ -1,6 +1,6 @@
 Welcome to Artemis!
 
-We are an unprecendented Graphql optimization tool for developing Deno APIs that provides effiecient way to visualize API performance.
+We are an unprecedented Graphql optimization tool for developing Deno APIs that provides efficient way to visualize API performance.
 
 <div align="center">GraphQL analytics, built for Deno.</div>
 

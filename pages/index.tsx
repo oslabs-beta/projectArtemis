@@ -3,9 +3,11 @@ import React from 'https://esm.sh/react';
 import AnalyticsContainer from '../components/analyticsComponents/AnalyticsContainer.tsx';
 import SideBar from '../components/sidebarComponents/SidebarContainer.tsx';
 import useArrow from '../components/hooks/useArrows.ts';
-import useViewController from "../components/hooks/useViewController.ts";
+import useViewController from '../components/hooks/useViewController.ts';
+import useData from '../components/hooks/useData.ts'
 
 export default function Home() {
+  const [snapshotArray, aggregateMetrics] = useData();
   const [view, setView] = useViewController();
   // on component mount, adds event listener for the arrow keys
   useArrow(setView);
@@ -14,7 +16,12 @@ export default function Home() {
     <div className="container-gui">
       <Import from="../style/index.css" />
       <SideBar />
-      <AnalyticsContainer view={view} setView={setView}/>
+      <AnalyticsContainer
+        snapshotArray={snapshotArray}
+        aggregateMetrics={aggregateMetrics}
+        view={view}
+        setView={setView}
+      />
     </div>
   );
 }

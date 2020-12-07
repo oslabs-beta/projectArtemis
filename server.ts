@@ -11,15 +11,12 @@ import clearSnapshots from "./functions/clearSnapshots.ts";
 import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
-
-import {applyArtemis} from "./applyArtemis.ts"
-
+import { applyArtemis } from "./applyArtemis.ts";
 
 const app = new Application();
 
 const router = new Router();
-app.use(oakCors())
-
+app.use(oakCors());
 
 // // const url = "https://api.spacex.land/graphql"
 // // const query = ` query {
@@ -68,22 +65,22 @@ app.use(oakCors())
 // // })
 
 // router.get("/artemis", (ctx) => {
-  // ctx.response.body = "Query has been sent";
-  // console.log("you have entered the router");
-  // let counter = 3;
-  // while (counter > 0) {
-  //   const url = "https://api.spacex.land/graphql";
-  //   let id = 10;
-    const query = ` query {
-      launch(id: "${id}") {
-        mission_name
-        launch_success
-        upcoming
-        launch_year
-        }
-      }`;
-  //   counter--;
-  //   id++;
+// ctx.response.body = "Query has been sent";
+// console.log("you have entered the router");
+// let counter = 3;
+// while (counter > 0) {
+//   const url = "https://api.spacex.land/graphql";
+//   let id = 10;
+const query = ` query {
+  launch(id: "${id}") {
+    mission_name
+    launch_success
+    upcoming
+    launch_year
+    }
+//   }`;
+//   counter--;
+//   id++;
 
 //     artemisQuery(url, query, ctx.state);
 //     ctx.response.body = ctx.state
@@ -106,8 +103,8 @@ app.use(oakCors())
 // );
 
 router.get("/artemis", (ctx) => {
-  const read = syncCacheAndState("./artemisCache.json")
-  ctx.response.body = read
+  const read = syncCacheAndState("./artemisCache.json");
+  ctx.response.body = read;
   // ctx.response.body = "Query has been sent";
   // console.log("you have entered the router");
   // let counter = 3;
@@ -129,20 +126,18 @@ router.get("/artemis", (ctx) => {
   //   artemisQuery(url, query);
 
   // }
-}
-);
+});
 
-
-router.get("/getData", (ctx, state:any) => {
-  console.log("in getData route")
-  ctx.response.body = state.artemis
-})
+router.get("/getData", (ctx, state: any) => {
+  console.log("in getData route");
+  ctx.response.body = state.artemis;
+});
 
 app.use(router.routes(), router.allowedMethods());
 
 app.use(
   oakCors({
-    origin:  "http://localhost:8080",
+    origin: "http://localhost:8080",
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   }),
 );

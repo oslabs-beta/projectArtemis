@@ -1,18 +1,21 @@
 import { useReducer } from 'https://esm.sh/react';
 import { InitialState, Action } from '../typings/viewController.d.ts';
 
+const startView: number = 0;
+const maxViews: number = 4;
+
 const reducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case 'NEXT': {
-      if (state >= 3) {
-        return 0;
+      if (state >= maxViews) {
+        return startView;
       } else {
         return state + 1;
       }
     }
     case 'PREV': {
       if (state <= 0) {
-        return 3;
+        return maxViews;
       } else {
         return state - 1;
       }

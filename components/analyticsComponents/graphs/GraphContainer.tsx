@@ -3,6 +3,7 @@ import LatencyGraph from './LatencyGraph.tsx';
 import QuerySuccessFailureGraph from './QuerySuccessFailureGraph.tsx';
 import DataSizeGraph from './DataSizeGraph.tsx';
 import QueryPerAPIGraph from './QueryPerAPIGraph.tsx';
+import QuerySnapShot from './QuerySnapshot.tsx';
 import { InitialState } from '../../typings/viewController.d.ts';
 import { Result, Snapshot } from '../../typings/data.d.ts';
 import '../../../style/graphs.css';
@@ -34,10 +35,8 @@ const GraphContainer = (props: Props) => {
             aggregateMetrics={aggregateMetrics}
           />
         )}
-        {view === 3 && (
-          <QueryPerAPIGraph aggregateMetrics={aggregateMetrics} />
-        )}
-        {view === 4 && <QuerySnapshot snapshotArray={snapshotArray} />}
+        {view === 3 && <QueryPerAPIGraph aggregateMetrics={aggregateMetrics} />}
+        {view === 4 && <QuerySnapShot snapshotArray={snapshotArray} />}
       </div>
     </>
   );

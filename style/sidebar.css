@@ -5,10 +5,8 @@ SIDEBAR ONLY
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 25px;
-  padding: 2.5%;
-  /* ! fix, give this a media query */
-  max-width: 1%;
+  padding: 1%;
+  gap: 10px;
 }
 
 .container-sidebar {
@@ -37,19 +35,47 @@ a:link {
 
 a {
   color: var(--secondary-text-color);
-  transition: .28s ease-in-out;
+  transition: 0.28s ease-in-out;
 }
 
 a:focus {
   outline: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: var(--tertiary-color);
   text-decoration: underline;
 }
 
-.queries_list_item {
+.snapshots_list {
+  overflow-y: scroll;
+  max-height: 59vh;
+}
+
+/* scrollbar design */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 4px 4px 10px 0.5px var(--dark-neumorphism),
+    -1.5px -1.5px 4px 0.5px var(--light-neumorphism);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background: var(--tertiary-color);
+}
+
+.snapshots_list_item {
   text-transform: uppercase;
   font-size: 1.1rem;
   color: var(--secondary-text-color);
@@ -60,10 +86,11 @@ a:hover, a:focus {
   transition: 0.2s ease-in-out;
 }
 
-.queries_list_item:hover {
+.snapshots_list_item:hover {
   color: var(--tertiary-color);
   text-shadow: 2px 2px 3px var(--dark-neumorphism),
     -2px -2px 3px var(--light-neumorphism);
+  cursor: pointer;
 }
 
 /*

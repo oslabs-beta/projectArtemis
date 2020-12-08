@@ -5,13 +5,12 @@ import SideBar from '../components/sidebarComponents/SidebarContainer.tsx';
 import useArrow from '../components/hooks/useArrows.ts';
 import useViewController from '../components/hooks/useViewController.ts';
 import useData from '../components/hooks/useData.ts';
+import ContextQuery from '../components/hooks/useContextQuery.tsx';
 
 export default function Home() {
   const [
     snapshotArray,
     aggregateMetrics,
-    currentSnapshot,
-    setCurrentSnapshot,
   ] = useData();
   const [view, setView] = useViewController();
   // on component mount, adds event listener for the arrow keys
@@ -20,13 +19,18 @@ export default function Home() {
   return (
     <div className="container-gui">
       <Import from="../style/index.css" />
-      <SideBar snapshotArray={snapshotArray} />
-      <AnalyticsContainer
-        snapshotArray={snapshotArray}
-        aggregateMetrics={aggregateMetrics}
-        view={view}
-        setView={setView}
-      />
+      <ContextQuery>
+        <SideBar
+          snapshotArray={snapshotArray}
+          setView={setView}
+        />
+        <AnalyticsContainer
+          snapshotArray={snapshotArray}
+          aggregateMetrics={aggregateMetrics}
+          view={view}
+          setView={setView}
+        />
+      </ContextQuery>
     </div>
   );
 }

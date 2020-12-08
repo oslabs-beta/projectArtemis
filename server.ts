@@ -1,14 +1,9 @@
 import {
   Application,
   Router,
-  RouterContext,
   send,
 } from "https://deno.land/x/oak@v6.2.0/mod.ts";
 import artemisQuery from "./functions/artemisQuery.ts";
-import syncCacheAndState from "./functions/syncCacheAndState.ts";
-import addDataSnapshot from "./functions/addDataSnapshot.ts";
-import clearSnapshots from "./functions/clearSnapshots.ts";
-import { createSecAccept } from "https://deno.land/std@0.69.0/ws/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 import { applyArtemis } from "./applyArtemis.ts";
@@ -92,6 +87,7 @@ app.use(oakCors());
 //   console.log("state", state.artemis)
 //   ctx.response.body = state.artemis
 // })
+app.use(oakCors());
 
 // app.use(router.routes(), router.allowedMethods());
 
@@ -128,11 +124,6 @@ router.get("/artemis", (ctx) => {
   // }
 });
 
-router.get("/getData", (ctx, state: any) => {
-  console.log("in getData route");
-  ctx.response.body = state.artemis;
-});
-
 app.use(router.routes(), router.allowedMethods());
 
 app.use(
@@ -143,7 +134,6 @@ app.use(
 );
 
 app.use(async (ctx, next) => {
-  // console.log(Deno.cwd());
   await ctx.send({
     root: `${Deno.cwd()}/dist`,
     index: "index.html",
@@ -151,6 +141,6 @@ app.use(async (ctx, next) => {
   next();
 });
 
-const port = 4015;
+const port = 4020;
 console.log(`Server started on port ${port}`);
 await app.listen({ port });

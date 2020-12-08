@@ -1,19 +1,15 @@
 import React from 'https://esm.sh/react';
 import Tab from './Tab.tsx';
+import { InitialState, Action } from '../../typings/viewController.d.ts';
 
 interface Props {
-  viewIndex: number;
-  updateViewIndex: (action: string | number) => void;
+  view: InitialState;
+  setView: React.Dispatch<Action>;
 }
 
 const TabBar = (props: Props) => {
-  const { viewIndex, updateViewIndex } = props;
-  const tabs = [
-    'Latency',
-    'Success Rate',
-    'Data Size',
-    'APIs',
-  ];
+  const { view, setView } = props;
+  const tabs = ['Latency', 'Success Rate', 'Data Size', 'APIs', 'Query table'];
 
   return (
     <div className="container-tab">
@@ -21,11 +17,11 @@ const TabBar = (props: Props) => {
         return (
           <Tab
             label={label}
-            highlight={viewIndex === i ? true : null}
-            viewIndex={viewIndex}
+            highlight={view === i ? true : null}
+            view={view}
             index={i}
             length={tabs.length - 1}
-            updateViewIndex={updateViewIndex}
+            setView={setView}
             key={i}
           />
         );

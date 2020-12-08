@@ -1,30 +1,31 @@
 import React from 'https://esm.sh/react';
 import { Bar } from 'https://cdn.skypack.dev/react-chartjs-2';
+import { Result, Snapshot } from '../../typings/data.d.ts';
 import '../../../style/graphs.css';
 
 interface Props {
-	snapshotArray: [object] | [];
-	aggegateMetrics: object | {};
+	snapshotArray: [Snapshot] | null;
+	aggregateMetrics: Result | null;
 }
 
 const DataSizeGraph = (props: Props) => {
 	const { snapshotArray, aggregateMetrics } = props;
 
 	const data = {
-		labels: snapshotArray.map((obj, index) => {
+		labels: snapshotArray ? snapshotArray.map((obj, index) => {
 			const key = `Query ${index}`;
 			return key;
-		}),
+		}): [],
 		datasets: [
 			{
 				label: 'Data Size',
 				backgroundColor: 'rgb(63, 191, 127)',
 				borderWidth: 1,
 				hoverBackgroundColor: 'rgb(51, 157, 104)',
-				data: snapshotArray.map((obj: any) => {
+				data: snapshotArray ? snapshotArray.map((obj: any) => {
 					const value = obj.dataSize;
 					return value;
-				})
+				}) : [],
 			}
 		]
 	};
@@ -34,7 +35,7 @@ const DataSizeGraph = (props: Props) => {
 		maintainAspectRatio: false,
 		title: {
 			display: true,
-			text: `Average Size: ${aggregateMetrics.sizeAvg} bytes           Maximum Size: ${aggregateMetrics.sizeMax} bytes`
+			text: `Average Size: ${aggregateMetrics ? aggregateMetrics.sizeAvg : 0} bytes           Maximum Size: ${aggregateMetrics ? aggregateMetrics.sizeMax : 0} bytes`
 		},
 		onClick: function(e, item) {
 			console.log(item);
@@ -43,7 +44,6 @@ const DataSizeGraph = (props: Props) => {
 
 	const legend = {
 		display: false,
-		// boxWidth: 40,
 		labels: {
 			fontColor: 'rgb(255, 99, 132)'
 		},

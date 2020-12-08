@@ -71,14 +71,14 @@ app.use(oakCors());
 // while (counter > 0) {
 //   const url = "https://api.spacex.land/graphql";
 //   let id = 10;
-const query = ` query {
-  launch(id: "${id}") {
-    mission_name
-    launch_success
-    upcoming
-    launch_year
-    }
-//   }`;
+// const query = ` query {
+//   launch(id: "${id}") {
+//     mission_name
+//     launch_success
+//     upcoming
+//     launch_year
+//     }
+// //   }`;
 //   counter--;
 //   id++;
 
@@ -109,21 +109,21 @@ router.get("/artemis", (ctx) => {
   // console.log("you have entered the router");
   // let counter = 3;
   // while (counter > 0) {
-  //   const url = "https://api.spacex.land/graphql";
-  //   let id = 10;
-  //   const query = ` query {
-  //     launch(id: "${id}") {
-  //       mission_name
-  //       launch_success
-  //       ffdso
-  //       upcoming
-  //       launch_year
-  //       }
-  //     }`;
+  const url = "https://api.spacex.land/graphql";
+  // let id = 10;
+  const query = ` query {
+      launch(id: "10") {
+        mission_name
+        launch_success
+        upcoming
+        launch_year
+        }}`;
   //   counter--;
   //   id++;
-
-  //   artemisQuery(url, query);
+  const query2 = 'query { Lift(id: "panorama") { name, status}}';
+  const url2 = "https://snowtooth.moonhighway.com";
+  // artemisQuery(url, query).then((result) => console.log(result));
+  // console.log("artemis query", artemisQuery(url2, query2));
 
   // }
 });

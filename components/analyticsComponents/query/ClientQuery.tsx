@@ -1,6 +1,7 @@
 import React, { useState } from "https://esm.sh/react";
 import artemisQuery from "../../../functions/artemisQuery.ts";
-import calculateMetrics from "../../../functions/artemisQuery.ts";
+import calculateMetrics from "../../../functions/calculateMetrics.ts";
+import "../../../style/query.css";
 
 interface Result {
   apis: {};
@@ -25,54 +26,67 @@ const ClientQuery = (props: Props) => {
   const [URL, setURL] = useState("");
   const [number, setNumber] = useState(0);
 
-  const runQuery = async (URL: string, query: string, number: number) => {
+  const runQuery = (URL: string, query: string, number: number) => {
     try {
-      query = `${query}`;
-      console.log("URL", URL);
-      console.log("Query", query);
-      const result = await artemisQuery(URL, query);
-      setSnapshotArray([...snapshotArray, result]);
-      number--;
-      if (number > 0) runQuery(URL, query, number);
+      if (number > 0) {
+        artemisQuery(URL, query)
+          .then((result) => {
+            console.log(result);
+            setSnapshotArray([...snapshotArray, result]);
+            number--;
+            runQuery(URL, query, number);
+          });
+      }
     } catch (err) {
       console.log(err.message);
     }
   };
-
-  const onSubmitForm = async (e) => {
+  let formWidth = "600px";
+  const onSubmitForm = (e) => {
     e.preventDefault();
-    await runQuery(URL, query, number);
-    console.log(snapshotArray);
-    const result: Result = calculateMetrics(snapshotArray);
-    console.log("new metrics", result);
-    setAggregateMetrics(result);
+    if (number > 0) {
+      runQuery(URL, query, number);
+      const newMetrics = calculateMetrics(snapshotArray);
+      setAggregateMetrics(newMetrics);
+    }
   };
   return (
     <div className="queryForm">
+      <br></br>
       <form
         action=""
         style={{ display: "flex", flexDirection: "column" }}
         onSubmit={onSubmitForm}
       >
-        <label>URL</label>
-        <input
-          type="text"
-          value={URL}
-          onChange={(e) => setURL(e.target.value)}
-        />
-        <label>QUERY</label>
-        <input
-          type="text"
+        <div className="url-number">
+          <label>URL:</label>
+          <input
+            id="urlInput"
+            type="text"
+            value={URL}
+            onChange={(e) => setURL(e.target.value)}
+          />
+          <div>
+            <label className="numberLabel">Number of Queries:</label>
+            <input
+              id="numberInput"
+              type="number"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+            />
+          </div>
+        </div>
+        <br></br>
+        <label>Query:</label>
+        <textarea
+          id="queryInput"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
         />
-        <label>NUMBER OF QUERIES</label>
-        <input
-          type="number"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-        />
-        <input type="submit" value="Submit" />
+        <br></br>
+        <input id="submitButton" type="submit" value="Submit" />
       </form>
     </div>
   );

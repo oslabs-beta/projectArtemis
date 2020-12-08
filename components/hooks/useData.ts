@@ -17,7 +17,7 @@ const useData = () => {
       .catch((err) => console.error("UseEffect error", err));
   }, []);
 
-  return [snapshotArray, aggregateMetrics] as const;
+  return [snapshotArray, aggregateMetrics, setSnapshotArray, setAggregateMetrics] as const;
 };
 
 export default useData;

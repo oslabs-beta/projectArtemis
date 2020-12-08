@@ -40,7 +40,7 @@ const artemisQuery = (url: string, query: string) => {
     metrics.dataSize = new TextEncoder().encode(JSON.stringify(res)).length;
     return res.json();
   }).then((data) => {
-    // metrics.data = data;
+    metrics.data = data;
     extractFields(metrics, data);
     metrics.latency = Date.now() - start;
     // addDataSnapshot(metrics, state)

@@ -13,7 +13,8 @@ interface Props {
 
 const AnalyticsContainer = (props: Props) => {
   const { view, setView } = props;
-  const [snapshotArray, aggregateMetrics] = useData();
+  const [snapshotArray, aggregateMetrics, setSnapshotArray, setAggregateMetrics] = useData();
+
 
   return (
     <div className="container-main-view">
@@ -24,8 +25,8 @@ const AnalyticsContainer = (props: Props) => {
         aggregateMetrics={aggregateMetrics}
       />
       <ClientQuery
-        // setSnapshotArray={setSnapshotArray}
-        // setAggregateMetrics={setAggregateMetrics}
+        setSnapshotArray={setSnapshotArray}
+        setAggregateMetrics={setAggregateMetrics}
         snapshotArray={snapshotArray}
         aggregateMetrics={aggregateMetrics}
       />

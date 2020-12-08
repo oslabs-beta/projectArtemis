@@ -49,3 +49,7 @@ MAIN GUI CONTAINER ONLY
   box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
     -3px -3px 9px 1px var(--light-neumorphism);
 }
+
+.hamburger {
+  filter: invert(1);
+}

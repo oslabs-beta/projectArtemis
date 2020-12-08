@@ -21,7 +21,7 @@ const MenuSidebar = (props: Props) => {
 
   return (
     <div className="flex-menubar container-sidebar">
-      <div onClick={() => setToggle(!toggle)}>
+      <div className= 'hamburger' onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>
       <div className="menubar-items_list-links">{menuLinks}</div>

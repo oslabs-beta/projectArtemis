@@ -22,7 +22,7 @@ const ListOfQueries = (props: Props) => {
 
   return (
     <div className="flex-menubar container-snapshots">
-      <div onClick={() => setToggle(!toggle)}>
+      <div className= 'hamburger' onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>
       <div className="snapshots_list">

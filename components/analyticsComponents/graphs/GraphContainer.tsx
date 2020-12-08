@@ -1,12 +1,12 @@
-import React from 'https://esm.sh/react';
-import LatencyGraph from './LatencyGraph.tsx';
-import QuerySuccessFailureGraph from './QuerySuccessFailureGraph.tsx';
-import DataSizeGraph from './DataSizeGraph.tsx';
-import QueryPerAPIGraph from './QueryPerAPIGraph.tsx';
-import QuerySnapShot from './QuerySnapshot.tsx';
-import { InitialState } from '../../typings/viewController.d.ts';
-import { Result, Snapshot } from '../../typings/data.d.ts';
-import '../../../style/graphs.css';
+import React from "https://esm.sh/react";
+import LatencyGraph from "./LatencyGraph.tsx";
+import QuerySuccessFailureGraph from "./QuerySuccessFailureGraph.tsx";
+import DataSizeGraph from "./DataSizeGraph.tsx";
+import QueryPerAPIGraph from "./QueryPerAPIGraph.tsx";
+import QuerySnapShot from "./QuerySnapshot.tsx";
+import { InitialState } from "../../typings/viewController.d.ts";
+import { Result, Snapshot } from "../../typings/data.d.ts";
+import "../../../style/graphs.css";
 
 interface Props {
   view: InitialState;

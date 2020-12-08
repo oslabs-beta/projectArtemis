@@ -14,20 +14,20 @@ const QuerySnapshot = (props: Props) => {
   let querySnapshotArray: any = [];
   let singleDataSnapshotObject: any = {};
   const query = snapshotArray.forEach((el: any, index: any) => {
-    let fields = ' ';
+    let fields = " ";
     // console.log(el.requestedFields)
     if (el.requestedFields !== undefined) {
-      el.requestedFields.forEach((word: string) => (fields += `${word},\n`));
+      el.requestedFields.forEach((word: string) => fields += `${word},\n`);
     }
     //need to find a way to get rid of data and the extra comma in the requested fields -- slice didnt work try later
     if (el.successfulQuery) {
-      el.successfulQuery = 'It was a successful query';
+      el.successfulQuery = "It was a sucessful query";
     } else {
-      el.successfulQuery = 'It was an unsuccessful query';
+      el.successfulQuery = "It was an unsuccessful query";
     }
 
     singleDataSnapshotObject = {
-      queryNum: index,
+      queryNum: index + 1,
       api: el.api,
       latency: el.latency,
       dataSize: el.dataSize,
@@ -41,20 +41,21 @@ const QuerySnapshot = (props: Props) => {
     <div className="graph">
       <div className="queryNumberInput">
         <form>
-          <label> Enter Query Number:</label>
+          <label>Enter Query Number:</label>
           <input
             type="text"
-            style={{ width: '50px' }}
+            style={{ width: "50px" }}
             onChange={(e) => {
               e.preventDefault();
               if (e.target.value > querySnapshotArray.length) {
-                alert('query does not exist');
+                alert("query does not exist");
                 setQueryNumber(0);
               } else {
                 setQueryNumber(e.target.value);
               }
             }}
-          ></input>
+          >
+          </input>
         </form>
       </div>
       <table className="table table-striped">

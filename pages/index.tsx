@@ -11,6 +11,8 @@ export default function Home() {
   const [
     snapshotArray,
     aggregateMetrics,
+    setSnapshotArray,
+    setAggregateMetrics
   ] = useData();
   const [view, setView] = useViewController();
   // on component mount, adds event listener for the arrow keys
@@ -27,6 +29,8 @@ export default function Home() {
         <AnalyticsContainer
           snapshotArray={snapshotArray}
           aggregateMetrics={aggregateMetrics}
+          setSnapshotArray={setSnapshotArray}
+          setAggregateMetrics={setAggregateMetrics}
           view={view}
           setView={setView}
         />

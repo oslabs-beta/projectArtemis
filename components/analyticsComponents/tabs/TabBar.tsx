@@ -1,6 +1,6 @@
-import React from 'https://esm.sh/react';
-import Tab from './Tab.tsx';
-import { InitialState, Action } from '../../typings/viewController.d.ts';
+import React from "https://esm.sh/react";
+import Tab from "./Tab.tsx";
+import { Action, InitialState } from "../../typings/viewController.d.ts";
 
 interface Props {
   view: InitialState;
@@ -9,7 +9,7 @@ interface Props {
 
 const TabBar = (props: Props) => {
   const { view, setView } = props;
-  const tabs = ['Latency', 'Success Rate', 'Data Size', 'APIs', 'Query table'];
+  const tabs = ["Latency", "Success Rate", "Data Size", "APIs", "Query Info"];
 
   return (
     <div className="container-tab">

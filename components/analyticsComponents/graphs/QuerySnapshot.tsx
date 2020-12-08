@@ -27,7 +27,7 @@ const QuerySnapshot = (props: Props) => {
     }
 
     singleDataSnapshotObject = {
-      queryNum: index + 1,
+      queryNum: index,
       api: el.api,
       latency: el.latency,
       dataSize: el.dataSize,

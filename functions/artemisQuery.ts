@@ -1,4 +1,3 @@
-import syncCacheAndState from "./syncCacheAndState.ts";
 import addDataSnapshot from "./addDataSnapshot.ts";
 import { readStringDelim } from "https://deno.land/std@0.69.0/io/bufio.ts";
 

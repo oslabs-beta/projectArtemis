@@ -1,0 +1,49 @@
+#queryForm{
+min-height: 30%;
+}
+
+#urlInput {
+min-width: 65%;
+margin-left: 10px;
+}
+
+.numberLabel{
+margin-left: 30px;
+}
+
+#numberInput{
+  margin-left: 10px;
+    width: 15%;
+
+}
+.url-number{
+    display: flex;
+}
+
+#submitButton{
+  width:20%;
+  background-color: rgb(127, 90, 240);
+  transition: 0.2s ease-in-out;
+}
+input {
+  background-color:  rgb(173, 174, 179);
+  font-weight: 5250;
+  font-family: 'Arial';
+}
+label {
+color: rgb(114, 117, 126);
+font-weight: 5250;
+  font-family: 'Arial';
+}
+
+textarea {
+   font-weight: 5250;
+  font-family: 'Arial';
+  background-color:  rgb(173, 174, 179);
+  display: block;
+  width: 90%;
+  overflow: auto;
+  max-width: 100%;
+  min-height: 100%;
+  line-height: 20px;
+}

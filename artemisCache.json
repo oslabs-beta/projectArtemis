@@ -1,8 +1,5 @@
 [
     {
-        "test": 9
-    },
-    {
         "api": "https://api.spacex.land/graphql",
         "latency": 1068,
         "dataSize": 789,

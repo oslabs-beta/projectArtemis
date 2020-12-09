@@ -1,12 +1,13 @@
-import React, { useState } from "https://esm.sh/react";
-import "../../../style/graphs.css";
+import React, { useContext } from 'https://esm.sh/react';
+import { QueryContext } from '../../hooks/useContextQuery.tsx';
+import '../../../style/graphs.css';
 
 interface Props {
   snapshotArray: any;
 }
 const QuerySnapshot = (props: Props) => {
+  const { queryNumber, setQueryNumber } = useContext(QueryContext);
   const { snapshotArray } = props;
-  const [number, setNumber] = useState(0);
   // console.log("querydata", snapshotArray)
   // const number = snapshotArray?.forEach((el, index) => console.log(index))
   // let num:number = 0
@@ -26,7 +27,7 @@ const QuerySnapshot = (props: Props) => {
     }
 
     singleDataSnapshotObject = {
-      queryNum: index + 1,
+      queryNum: index,
       api: el.api,
       latency: el.latency,
       dataSize: el.dataSize,
@@ -48,9 +49,9 @@ const QuerySnapshot = (props: Props) => {
               e.preventDefault();
               if (e.target.value > querySnapshotArray.length) {
                 alert("query does not exist");
-                setNumber(0);
+                setQueryNumber(0);
               } else {
-                setNumber(e.target.value);
+                setQueryNumber(e.target.value);
               }
             }}
           >
@@ -60,29 +61,29 @@ const QuerySnapshot = (props: Props) => {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th colSpan="2">Query {querySnapshotArray[number].queryNum}</th>
+            <th colSpan={2}>Query {querySnapshotArray[queryNumber].queryNum}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td className="queryHeading">API</td>
-            <td>{querySnapshotArray[number].api}</td>
+            <td>{querySnapshotArray[queryNumber].api}</td>
           </tr>
           <tr>
             <td className="queryHeading">LATENCY</td>
-            <td>{querySnapshotArray[number].latency}</td>
+            <td>{querySnapshotArray[queryNumber].latency}</td>
           </tr>
           <tr>
             <td className="queryHeading">DATASIZE (in bytes)</td>
-            <td>{querySnapshotArray[number].dataSize}</td>
+            <td>{querySnapshotArray[queryNumber].dataSize}</td>
           </tr>
           <tr className="requestedFields">
             <td className="queryHeading">REQUESTED FIELDS</td>
-            <td>{querySnapshotArray[number].requestedFields}</td>
+            <td>{querySnapshotArray[queryNumber].requestedFields}</td>
           </tr>
           <tr>
-            <td className="queryHeading">SUCCESSFUL QUERY</td>
-            <td>{querySnapshotArray[number].successfulQuery}</td>
+            <td className="queryHeading"> SUCCESSFUL QUERY</td>
+            <td>{querySnapshotArray[queryNumber].successfulQuery}</td>
           </tr>
         </tbody>
       </table>

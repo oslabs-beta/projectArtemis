@@ -1,28 +1,46 @@
 import React, { useState } from 'https://esm.sh/react';
+import SnapshotItem from './SnapshotItem.tsx';
+import { Snapshot } from '../../typings/data.d.ts';
+import { Action } from '../../typings/viewController.d.ts';
 import { Hamburger } from '../Logos.tsx';
 
 interface Props {
-  setToggle: (Boolean: boolean) => void;
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>;
   toggle: boolean;
+  snapshotArray: [Snapshot] | null;
+  setView: React.Dispatch<Action>;
 }
 
-// TODO fix query expanding without restrictions
-// TODO fix query list formatting queries_list
 const ListOfQueries = (props: Props) => {
-  const { toggle, setToggle } = props;
-  // items in this array will be jsx elements
-  const [queries, setQueries] = useState([
-    <p className='queries_list_item'>hello</p>,
-    <p className='queries_list_item'>hello</p>,
-    <p className='queries_list_item'>hello</p>,
-  ]);
+  const {
+    toggle,
+    setToggle,
+    snapshotArray,
+    setView,
+  } = props;
+  const [snapShots] = useState(snapshotArray);
 
   return (
-    <div className="flex-menubar container-queries">
-      <div onClick={() => setToggle(!toggle)}>
+    <div className="flex-menubar container-snapshots">
+      <div className= 'hamburger' onClick={() => setToggle(!toggle)}>
         <Hamburger />
       </div>
-      <div className="queries_list">{queries}</div>
+      <div className="snapshots_list">
+        {snapShots ? (
+          snapShots.reduce((acc: JSX.Element[], curr: Snapshot, index) => {
+            acc.push(
+              <SnapshotItem
+                index={index}
+                setView={setView}
+                key={index}
+              />
+            );
+            return acc;
+          }, [])
+        ) : (
+          <h1 className="snapshots_list">Empty</h1>
+        )}
+      </div>
     </div>
   );
 };

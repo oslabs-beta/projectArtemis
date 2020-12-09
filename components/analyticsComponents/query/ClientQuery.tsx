@@ -41,7 +41,6 @@ const ClientQuery = (props: Props) => {
       console.log(err.message);
     }
   };
-  let formWidth = "600px";
   const onSubmitForm = (e) => {
     e.preventDefault();
     if (number > 0) {

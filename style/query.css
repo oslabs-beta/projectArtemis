@@ -38,10 +38,12 @@ font-weight: 5250;
 
 textarea {
    font-weight: 5250;
+   height: 110px;
   font-family: 'Arial';
   background-color:  rgb(173, 174, 179);
   display: block;
   width: 90%;
+  resize: none;
   overflow: auto;
   max-width: 100%;
   min-height: 100%;

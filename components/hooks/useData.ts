@@ -7,6 +7,9 @@ const useData = () => {
   const [aggregateMetrics, setAggregateMetrics] = useState<Result | null>(null);
 
   useEffect(() => {
+    localStorage.setItem("item", "lol")
+    localStorage.getItem("item")
+    console.log("local storage", localStorage)
     fetch("http://localhost:4020/artemis")
       .then((response) => response.json())
       .then((data) => {

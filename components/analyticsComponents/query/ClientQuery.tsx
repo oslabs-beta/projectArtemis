@@ -25,7 +25,7 @@ const ClientQuery = (props: Props) => {
   const { snapshotArray, setAggregateMetrics, setSnapshotArray } = props;
   const [query, setQuery] = useState("");
   const [URL, setURL] = useState("");
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(1);
 
   const runQuery = (URL: string, query: string, number: number) => {
     try {
@@ -98,7 +98,6 @@ const ClientQuery = (props: Props) => {
             />
           </div>
         </div>
-        <br></br>
         <label>Query:</label>
         <textarea
           id="queryInput"
@@ -108,19 +107,25 @@ const ClientQuery = (props: Props) => {
           }}
         />
         <br></br>
+        <div className="flex-buttons">
+        <div className="submitButtonDiv">
         <input id="submitButton" type="submit" value="Submit" />
+        </div>
+        <div className="clearButtonDiv">
         <button
           id="clearButton"
           onClick={(e) => {
-            localStorage.removeItem("artemis");
-            // localStorage.clear()
-            localStorage.setItem("artemis", JSON.stringify([]))
+            // localStorage.removeItem("artemis");
+            localStorage.clear()
+            // localStorage.setItem("artemis", JSON.stringify([]))
             setAggregateMetrics({})
             setSnapshotArray([]);
           }}
         >
           Clear Snapshots
         </button>
+        </div>
+        </div>
       </form>
     </div>
   );

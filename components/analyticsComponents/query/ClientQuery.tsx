@@ -33,26 +33,18 @@ const ClientQuery = (props: Props) => {
         artemisQuery(URL, query)
           .then((result) => {
             if (Array.isArray(snapshotArray) && snapshotArray.length > 0) {
-              // console.log("Snapshot Array Before", snapshotArray);
-              // console.log("New Array", [...snapshotArray, result]);
               setSnapshotArray([...snapshotArray, result]);
               localStorage.setItem(
                 "artemis",
                 JSON.stringify([...snapshotArray, result]),
               );
             } else {
-              console.log(result);
               localStorage.setItem(
                 "artemis",
                 JSON.stringify([result]),
               );
               setSnapshotArray([result]);
             }
-            // console.log("Snapshot Array After", snapshotArray);
-            // console.log(
-            //   "Local Storage Client Query",
-            //   JSON.parse(localStorage.getItem("artemis")),
-            // );
           }).then(() => {
             number--;
             return runQuery(URL, query, number);
@@ -112,21 +104,23 @@ const ClientQuery = (props: Props) => {
         <input id="submitButton" type="submit" value="Submit" />
         </div>
         <div className="clearButtonDiv">
-        <button
-          id="clearButton"
-          onClick={(e) => {
-            // localStorage.removeItem("artemis");
-            localStorage.clear()
-            // localStorage.setItem("artemis", JSON.stringify([]))
-            setAggregateMetrics({})
-            setSnapshotArray([]);
-          }}
-        >
-          Clear Snapshots
-        </button>
-        </div>
-        </div>
+    <button
+       type="button"
+      id="clearButton"
+      onClick={(e) => {
+        localStorage.removeItem("artemis");
+        localStorage.setItem("artemis", JSON.stringify([]))
+        setAggregateMetrics({})
+        setSnapshotArray([]);
+      }}
+    >
+      Clear Snapshots
+    </button>
+    </div>
+
+</div>
       </form>
+
     </div>
   );
 };

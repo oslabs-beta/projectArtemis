@@ -7,6 +7,7 @@ min-height: 30%;
 }
 
 #urlInput {
+background-color:  rgb(173, 174, 179);
 min-width: 65%;
 margin-left: 10px;
 height: 100%;
@@ -55,24 +56,30 @@ textarea {
 #submitButton{
   width: 40%;
   background-color: rgb(127, 90, 240);
-  transition: 0.2s ease-in-out;
+  transition: 1s ease-in-out;
+border-radius: 5px;
 }
 #clearButton {
-  width:40%;
+  width:170%;
   background-color: rgb(154, 151, 164);
-  transition: 0.2s ease-in-out;
+  transition: 1s ease-in-out;
+border-radius: 5px;
 }
 
 .flex-buttons {
   display: flex;
+  justify-content: center;
+  width: 90%;
 }
 .submitButtonDiv {
+box-sizing: border-box;
+max-width: 50%;
   width: 100%;
-   text-align: center;
+  margin-left: -20px;
 }
 
 .clearButtonDiv {
-  width: 100%;
+  max-width: 100%;
   text-align: left;
 }
 

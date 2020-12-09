@@ -4,7 +4,7 @@ import { Result, Snapshot } from "../../typings/data.d.ts";
 import "../../../style/graphs.css";
 
 interface Props {
-  aggregateMetrics: Result | null;
+  aggregateMetrics: Result | {};
   snapshotArray: [Snapshot] | [];
 }
 

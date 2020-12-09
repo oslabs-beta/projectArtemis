@@ -1,7 +1,6 @@
 import { useEffect, useState } from "https://esm.sh/react";
 import { Result, Snapshot } from "../typings/data.d.ts";
 import calculateMetrics from "../../functions/calculateMetrics.ts";
-// import { array } from "https://esm.sh/@types/prop-types@15.7.3/index.d.ts";
 
 const useData = () => {
   const [snapshotArray, setSnapshotArray] = useState<[Snapshot] | null>(null);

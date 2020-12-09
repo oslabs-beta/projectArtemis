@@ -112,7 +112,10 @@ const ClientQuery = (props: Props) => {
         <button
           id="clearButton"
           onClick={(e) => {
-            clearSnapshots();
+            localStorage.removeItem("artemis");
+            // localStorage.clear()
+            localStorage.setItem("artemis", JSON.stringify([]))
+            setAggregateMetrics({})
             setSnapshotArray([]);
           }}
         >

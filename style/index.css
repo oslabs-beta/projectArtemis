@@ -27,11 +27,12 @@ GLOBAL CSS ONLY
 
 /* this is creating the shell. It's aligning it to the center.  */
 body {
-  height: 100vh;
+  padding: 10%;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   background-color: var(--primary-color);
 }
 

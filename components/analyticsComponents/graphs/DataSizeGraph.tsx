@@ -40,9 +40,9 @@ const DataSizeGraph = (props: Props) => {
     title: {
       display: true,
       text: `Average Size: ${
-        aggregateMetrics ? aggregateMetrics.sizeAvg : 0
+        aggregateMetrics.sizeAvg ? aggregateMetrics.sizeAvg : 0
       } bytes           Maximum Size: ${
-        aggregateMetrics ? aggregateMetrics.sizeMax : 0
+        aggregateMetrics.sizeMax ? aggregateMetrics.sizeMax : 0
       } bytes`,
     },
     onClick: function (e, item) {

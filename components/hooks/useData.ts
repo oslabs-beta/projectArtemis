@@ -1,7 +1,6 @@
 import { useEffect, useState } from "https://esm.sh/react";
 import { Result, Snapshot } from "../typings/data.d.ts";
 import calculateMetrics from "../../functions/calculateMetrics.ts";
-import { array } from "https://esm.sh/@types/prop-types@15.7.3/index.d.ts";
 
 const useData = () => {
   const [snapshotArray, setSnapshotArray] = useState<[Snapshot] | null>(null);
@@ -11,6 +10,7 @@ const useData = () => {
     const artemis = JSON.parse(localStorage.getItem("artemis"));
     if (!Array.isArray(artemis)) {
       localStorage.setItem("artemis", JSON.stringify([]));
+      console.log('in use effect', localStorage)
     } else {
       if (artemis.length > 0) {
         setSnapshotArray(artemis);

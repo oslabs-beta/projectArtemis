@@ -25,7 +25,7 @@ const ClientQuery = (props: Props) => {
   const { snapshotArray, setAggregateMetrics, setSnapshotArray } = props;
   const [query, setQuery] = useState("");
   const [URL, setURL] = useState("");
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(1);
 
   const runQuery = (URL: string, query: string, number: number) => {
     try {
@@ -33,26 +33,18 @@ const ClientQuery = (props: Props) => {
         artemisQuery(URL, query)
           .then((result) => {
             if (Array.isArray(snapshotArray) && snapshotArray.length > 0) {
-              // console.log("Snapshot Array Before", snapshotArray);
-              // console.log("New Array", [...snapshotArray, result]);
               setSnapshotArray([...snapshotArray, result]);
               localStorage.setItem(
                 "artemis",
                 JSON.stringify([...snapshotArray, result]),
               );
             } else {
-              console.log(result);
               localStorage.setItem(
                 "artemis",
                 JSON.stringify([result]),
               );
               setSnapshotArray([result]);
             }
-            // console.log("Snapshot Array After", snapshotArray);
-            // console.log(
-            //   "Local Storage Client Query",
-            //   JSON.parse(localStorage.getItem("artemis")),
-            // );
           }).then(() => {
             number--;
             return runQuery(URL, query, number);
@@ -62,7 +54,6 @@ const ClientQuery = (props: Props) => {
       console.log(err);
     }
   };
-  let formWidth = "600px";
   const onSubmitForm = (e) => {
     e.preventDefault();
     if (number > 0) {
@@ -99,7 +90,6 @@ const ClientQuery = (props: Props) => {
             />
           </div>
         </div>
-        <br></br>
         <label>Query:</label>
         <textarea
           id="queryInput"
@@ -109,17 +99,28 @@ const ClientQuery = (props: Props) => {
           }}
         />
         <br></br>
+        <div className="flex-buttons">
+        <div className="submitButtonDiv">
         <input id="submitButton" type="submit" value="Submit" />
-        <button
-          id="clearButton"
-          onClick={(e) => {
-            clearSnapshots();
-            setSnapshotArray([]);
-          }}
-        >
-          Clear Snapshots
-        </button>
+        </div>
+        <div className="clearButtonDiv">
+    <button
+       type="button"
+      id="clearButton"
+      onClick={(e) => {
+        localStorage.removeItem("artemis");
+        localStorage.setItem("artemis", JSON.stringify([]))
+        setAggregateMetrics({})
+        setSnapshotArray([]);
+      }}
+    >
+      Clear Snapshots
+    </button>
+    </div>
+
+</div>
       </form>
+
     </div>
   );
 };

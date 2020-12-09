@@ -1,6 +1,7 @@
 import React, { useState } from "https://esm.sh/react";
 import artemisQuery from "../../../functions/artemisQuery.ts";
 import calculateMetrics from "../../../functions/calculateMetrics.ts";
+import clearSnapshots from "../../../functions/clearSnapshots.ts";
 import "../../../style/query.css";
 
 interface Result {
@@ -31,14 +32,34 @@ const ClientQuery = (props: Props) => {
       if (number > 0) {
         artemisQuery(URL, query)
           .then((result) => {
-            console.log(result);
-            setSnapshotArray([...snapshotArray, result]);
+            if (Array.isArray(snapshotArray) && snapshotArray.length > 0) {
+              // console.log("Snapshot Array Before", snapshotArray);
+              // console.log("New Array", [...snapshotArray, result]);
+              setSnapshotArray([...snapshotArray, result]);
+              localStorage.setItem(
+                "artemis",
+                JSON.stringify([...snapshotArray, result]),
+              );
+            } else {
+              console.log(result);
+              localStorage.setItem(
+                "artemis",
+                JSON.stringify([result]),
+              );
+              setSnapshotArray([result]);
+            }
+            // console.log("Snapshot Array After", snapshotArray);
+            // console.log(
+            //   "Local Storage Client Query",
+            //   JSON.parse(localStorage.getItem("artemis")),
+            // );
+          }).then(() => {
             number--;
-            runQuery(URL, query, number);
+            return runQuery(URL, query, number);
           });
       }
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
     }
   };
   let formWidth = "600px";
@@ -46,8 +67,10 @@ const ClientQuery = (props: Props) => {
     e.preventDefault();
     if (number > 0) {
       runQuery(URL, query, number);
-      const newMetrics = calculateMetrics(snapshotArray);
-      setAggregateMetrics(newMetrics);
+      if (Array.isArray(snapshotArray) && snapshotArray.length > 0) {
+        const newMetrics = calculateMetrics(snapshotArray);
+        setAggregateMetrics(newMetrics);
+      }
     }
   };
   return (
@@ -87,6 +110,15 @@ const ClientQuery = (props: Props) => {
         />
         <br></br>
         <input id="submitButton" type="submit" value="Submit" />
+        <button
+          id="clearButton"
+          onClick={(e) => {
+            clearSnapshots();
+            setSnapshotArray([]);
+          }}
+        >
+          Clear Snapshots
+        </button>
       </form>
     </div>
   );

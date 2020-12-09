@@ -27,7 +27,6 @@ const artemisQuery = (url: string, query: string) => {
   // Sets options for fetch request.
 
   const metrics = {
-    data: null,
     api: url,
     latency: 0,
     dataSize: 0,
@@ -40,7 +39,6 @@ const artemisQuery = (url: string, query: string) => {
     metrics.dataSize = new TextEncoder().encode(JSON.stringify(res)).length;
     return res.json();
   }).then((data) => {
-    metrics.data = data;
     extractFields(metrics, data);
     metrics.latency = Date.now() - start;
     // addDataSnapshot(metrics, state)

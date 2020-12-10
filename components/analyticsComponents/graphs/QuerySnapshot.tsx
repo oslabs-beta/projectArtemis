@@ -30,7 +30,7 @@ const QuerySnapshot = (props: Props) => {
       singleDataSnapshotObject = {
         queryNum: index,
         api: el.api,
-        latency: el.latency,
+        responseTime: el.responseTime,
         dataSize: el.dataSize,
         requestedFields: fields,
         successfulQuery: el.successfulQuery,
@@ -41,7 +41,7 @@ const QuerySnapshot = (props: Props) => {
     singleDataSnapshotObject = {
       queryNum: null,
       api: null,
-      latency: null,
+      responseTime: null,
       dataSize: null,
       requestedFields: null,
       successfulQuery: null,
@@ -84,8 +84,8 @@ const QuerySnapshot = (props: Props) => {
             <td>{querySnapshotArray[queryNumber].api}</td>
           </tr>
           <tr>
-            <td className="queryHeading">LATENCY</td>
-            <td>{querySnapshotArray[queryNumber].latency}</td>
+            <td className="queryHeading">RESPONSE TIME (in ms)</td>
+            <td>{querySnapshotArray[queryNumber].responseTime}</td>
           </tr>
           <tr>
             <td className="queryHeading">DATASIZE (in bytes)</td>

@@ -1,14 +1,14 @@
 export const menuSidebarText = [
   {
     title: 'Home',
-    url: '#',
+    url: 'https://artemis-deno.land',
   },
   {
     title: 'Docs',
-    url: '#',
+    url: 'https://github.com/oslabs-beta/projectArtemis',
   },
   {
     title: 'Help',
-    url: '#',
+    url: 'https://github.com/oslabs-beta/projectArtemis/issues',
   },
 ];

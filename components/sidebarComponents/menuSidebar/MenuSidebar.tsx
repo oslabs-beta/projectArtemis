@@ -1,6 +1,6 @@
 import React from 'https://esm.sh/react';
 import { menuSidebarText } from './menuSidebarText.ts';
-import { Hamburger, Git, Twit } from '../Logos.tsx';
+import { Hamburger, Git, Twit} from '../Logos.tsx';
 
 interface Props {
   setToggle: (Boolean: boolean) => void;
@@ -27,11 +27,14 @@ const MenuSidebar = (props: Props) => {
       <div className="menubar-items_list-links">{menuLinks}</div>
       <div className="menubar-items_social-icons">
         <div className="social-icon">
-          <Git />
+          <a href="https://github.com/oslabs-beta/projectArtemis" target="_blank"><Git /></a>
         </div>
         <div className="social-icon">
-          <Twit />
+         <a href="https://twitter.com/Artemis_Proj" target="_blank"><Twit /></a>
         </div>
+        {/* <div className="social-icon">
+      <a href="https://twitter.com/Artemis_Proj" target="_blank"><Deno /></a>
+        </div> */}
       </div>
     </div>
   );

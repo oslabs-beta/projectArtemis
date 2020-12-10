@@ -1,5 +1,5 @@
 import React from "https://esm.sh/react";
-import LatencyGraph from "./LatencyGraph.tsx";
+import ResponseTimeGraph from "./ResponseTimeGraph.tsx";
 import QuerySuccessFailureGraph from "./QuerySuccessFailureGraph.tsx";
 import DataSizeGraph from "./DataSizeGraph.tsx";
 import QueryPerAPIGraph from "./QueryPerAPIGraph.tsx";
@@ -10,8 +10,8 @@ import "../../../style/graphs.css";
 
 interface Props {
   view: InitialState;
-  snapshotArray: [Snapshot] | null;
-  aggregateMetrics: Result | null;
+  snapshotArray: [Snapshot] | [];
+  aggregateMetrics: Result | any;
 }
 
 const GraphContainer = (props: Props) => {
@@ -21,7 +21,7 @@ const GraphContainer = (props: Props) => {
     <>
       <div className="container-analytics">
         {view === 0 && (
-          <LatencyGraph
+          <ResponseTimeGraph
             snapshotArray={snapshotArray}
             aggregateMetrics={aggregateMetrics}
           />

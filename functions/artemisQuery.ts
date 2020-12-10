@@ -1,6 +1,3 @@
-import addDataSnapshot from "./addDataSnapshot.ts";
-import { readStringDelim } from "https://deno.land/std@0.69.0/io/bufio.ts";
-
 //extractFields first checks if the query was successful by making sure the returned data doesn't have an errors object. If there are no errors then we extract the requested fields from the query and push the fields into the metrics object. If there is an errors object, requested fields will return an empty array, update the query to unsuccessful query, and list the errors recieved.
 const extractFields = (metrics: any, data: any) => {
   if (!data.errors) {
@@ -49,7 +46,6 @@ function calculateDataSize( object:any ) {
 
 const artemisQuery = (url: string, query: string) => {
   const start = Date.now();
-  // syncCacheAndState(state)
 
   const opts = {
     method: "POST",
@@ -60,7 +56,7 @@ const artemisQuery = (url: string, query: string) => {
 
   const metrics = {
     api: url,
-    latency: 0,
+    responseTime: 0,
     dataSize: 0,
     requestedFields: [query],
     successfulQuery: true,
@@ -69,15 +65,17 @@ const artemisQuery = (url: string, query: string) => {
 
   return fetch(url, opts).then((res) => res.json())
   .then((data) => {
+    console.log("in artemis q, data", data)
     extractFields(metrics, data);
     metrics.dataSize = calculateDataSize(data);
-    metrics.latency = Date.now() - start;
-    // addDataSnapshot(metrics, state)
+    metrics.responseTime = Date.now() - start;
+    console.log("metrics", metrics)
     return metrics;
   }).catch((err) => {
+    console.log("in err", err)
     metrics.successfulQuery = false;
     metrics.errors = err;
-    metrics.latency = Date.now() - start;
+    metrics.responseTime = Date.now() - start;
     return metrics;
   });
 };

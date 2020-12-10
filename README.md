@@ -1,8 +1,6 @@
 Welcome to Artemis!
 
-We are an unprecedented Graphql optimization tool for developing Deno APIs that provides efficient way to visualize API performance.
-
-<div align="center">GraphQL analytics, built for Deno.</div>
+<div align="center">A Deno-built Analytics Tool for GraphQL Queries</div>
 
 <div align="center">
 
@@ -23,36 +21,86 @@ We are an unprecedented Graphql optimization tool for developing Deno APIs that 
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/oslabs-beta/projectArtemis?style=social">
 </p>
 
+You can use Artemis without installing by visiting our<a href src="https://project-artemis-v1.vercel.app"> online platform </a>.
+
+
 ## Features
 
-[coming soon..]
+Artemis provides analytics including aggregate response time, success and error instance ratios, returned data size, and persistent individual snapshots of each successful query results.
 
 ## Overview
 
-[coming soon..]
+Artemis is Deno's first native GraphQL query analytics tool with a graphical user interface to visualize performance metrics.
+
+Our dynamic GUI, compiled using Aleph.js, allows users to send query requests to external APIs that use GraphQL. Under the hood, sophisticated and performant algorithms calculate performance metrics for each query request and Artemis immediately displays them as accessible and digestible analytics for developers.
+
+## To Get Started
+
+To install Aleph, enter the following command in your terminal.
+
+```javascript
+deno install -A -f -n aleph https://deno.land/x/aleph@v0.2.26/cli.ts
+```
+
+Remember to export to PATH.
+
+To load the GUI on your localhost, enter the following command in your terminal.
+```javascript
+aleph dev
+```
 
 ## Documentation and Demo
 
-[coming soon..]
+Simply enter the endpoint URL you are testing and select the number of times to run the query, then watch as Artemis visualized your results in real time. Here is a great <a href src="https://github.com/APIs-guru/graphql-apis"> resource</a> for external APIs that work with GraphQL.
 
-## Installation
+You'll notice the graphs will render dynamically.
 
-<div align="center"><strong>QUICK START</strong></div>
-<br>
+**Please note the functionality to run numerous queries is still being worked on. Use the default Number of queries(1).**
 
-
-```javascript
-
-```
+<div><img src="./public/query-example.gif" /></div>
 
 ## Making a Query
 
+Syntax is extremely important for the success of your query.
+
+Please refer to the following <a href src="https://graphql.org/">documentation</a> if you are not familiar with GraphQL queries.
+
+Here is an example of a query request to Space X's API.
+
 ```javascript
+URL: https://api.spacex.land/graphql
 
+Query:
+{
+  launchesPast(limit: 10) {
+    mission_name
+    launch_date_local
+    launch_site {
+      site_name_long
+    }
+    rocket {
+      rocket_name
+      first_stage {
+        cores {
+          flight
+          core {
+            reuse_count
+            status
+          }
+        }
+      }
+  }
+}
 ```
+The following will be populated after:
 
-## Documentation
-[coming soon...]
+<div>
+<img src="./public/responseTime-example.png" />
+<img src="./public/dataSize-example.png" />
+<img src="./public/queryInfo-example.png" />
+
+</div>
+
 
 ## Authors
 

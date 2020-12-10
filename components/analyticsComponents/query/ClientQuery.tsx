@@ -1,7 +1,6 @@
 import React, { useState } from "https://esm.sh/react";
 import artemisQuery from "../../../functions/artemisQuery.ts";
 import calculateMetrics from "../../../functions/calculateMetrics.ts";
-import clearSnapshots from "../../../functions/clearSnapshots.ts";
 import "../../../style/query.css";
 
 interface Result {

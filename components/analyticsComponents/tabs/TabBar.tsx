@@ -9,7 +9,7 @@ interface Props {
 
 const TabBar = (props: Props) => {
   const { view, setView } = props;
-  const tabs = ["Latency", "Success Rate", "Data Size", "APIs", "Query Info"];
+  const tabs = ["Response Time", "Success Rate", "Data Size", "APIs", "Query Info"];
 
   return (
     <div className="container-tab">

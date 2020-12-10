@@ -76,10 +76,6 @@ Query:
     launch_site {
       site_name_long
     }
-    links {
-      article_link
-      video_link
-    }
     rocket {
       rocket_name
       first_stage {
@@ -91,24 +87,17 @@ Query:
           }
         }
       }
-      second_stage {
-        payloads {
-          payload_type
-          payload_mass_kg
-          payload_mass_lbs
-        }
-      }
-    }
-    ships {
-      name
-      home_port
-      image
-    }
   }
 }
 ```
+The following will be populated after:
 
-[enter image of graphs after this]
+<div>
+<img src="./public/query-info-example.png" />
+<img src="./public/dataSize-example.png" />
+<img src="./public/latency-example.png" />
+</div>
+
 
 ## Authors
 

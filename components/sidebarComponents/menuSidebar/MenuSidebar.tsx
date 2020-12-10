@@ -1,6 +1,6 @@
 import React from 'https://esm.sh/react';
 import { menuSidebarText } from './menuSidebarText.ts';
-import { Hamburger, Git, Twit, Deno } from '../Logos.tsx';
+import { Hamburger, Git, Twit} from '../Logos.tsx';
 
 interface Props {
   setToggle: (Boolean: boolean) => void;

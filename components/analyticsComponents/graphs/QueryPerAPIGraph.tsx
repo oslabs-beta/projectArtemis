@@ -8,6 +8,7 @@ interface Props {
 
 const QueryPerAPIGraph = (props: Props) => {
   const { aggregateMetrics } = props;
+  console.log("in query per Api graph, metrics:", aggregateMetrics)
   const calAmount = (string: string) => {
     const amounts: any = [];
     const labels: any = [];
@@ -25,6 +26,14 @@ const QueryPerAPIGraph = (props: Props) => {
     else if (string === "labels") return labels;
     else if (string === "topAPI") return topAPI;
   };
+  const populateAPIs = (apiObj: object) => {
+    const result = [];
+    for (let x in apiObj) {
+      result.push(apiObj[x])
+    }
+    return result
+  }
+
   const data = {
     labels: aggregateMetrics ? calAmount("labels") : [],
     datasets: [
@@ -45,7 +54,7 @@ const QueryPerAPIGraph = (props: Props) => {
           "#fc037b",
           "#fcfc03",
         ],
-        data: aggregateMetrics ? calAmount("amounts") : [],
+        data: aggregateMetrics ? populateAPIs(aggregateMetrics.apis) : [],
       },
     ],
   };

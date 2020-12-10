@@ -49,7 +49,6 @@ function calculateDataSize( object:any ) {
 
 const artemisQuery = (url: string, query: string) => {
   const start = Date.now();
-  // syncCacheAndState(state)
 
   const opts = {
     method: "POST",
@@ -72,7 +71,6 @@ const artemisQuery = (url: string, query: string) => {
     extractFields(metrics, data);
     metrics.dataSize = calculateDataSize(data);
     metrics.latency = Date.now() - start;
-    // addDataSnapshot(metrics, state)
     return metrics;
   }).catch((err) => {
     metrics.successfulQuery = false;

@@ -1,4 +1,4 @@
-Welcome to Artemis!
+<h1 align="center">Welcome to Artemis!<h1>
 
 <div align="center">A Deno-built Analytics Tool for GraphQL Queries</div>
 

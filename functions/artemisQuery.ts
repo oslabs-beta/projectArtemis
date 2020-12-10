@@ -1,6 +1,3 @@
-import addDataSnapshot from "./addDataSnapshot.ts";
-import { readStringDelim } from "https://deno.land/std@0.69.0/io/bufio.ts";
-
 //extractFields first checks if the query was successful by making sure the returned data doesn't have an errors object. If there are no errors then we extract the requested fields from the query and push the fields into the metrics object. If there is an errors object, requested fields will return an empty array, update the query to unsuccessful query, and list the errors recieved.
 const extractFields = (metrics: any, data: any) => {
   if (!data.errors) {

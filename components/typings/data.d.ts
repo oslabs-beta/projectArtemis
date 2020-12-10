@@ -1,7 +1,7 @@
 export interface Result {
   apis: {};
-  latencyAvg: string;
-  latencyMax: string;
+  responseTimeAvg: string;
+  responseTimeMax: string;
   sizeAvg: string;
   sizeMax: string;
   queryTotal: any;
@@ -11,7 +11,7 @@ export interface Result {
 
 export interface Snapshot {
   api: string;
-  latency: number;
+  responseTime: number;
   dataSize: number;
   requestedFields: [];
   successfulQuery: boolean;

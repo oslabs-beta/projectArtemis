@@ -1,7 +1,7 @@
 const calculateMetrics = (arr: any) => {
   const apis = {};
-  let latencySum = 0;
-  let latencyMax = 0;
+  let responseTimeSum = 0;
+  let responseTimeMax = 0;
   let sizeSum = 0;
   let sizeMax = 0;
   const successfulArr = [];
@@ -14,10 +14,10 @@ const calculateMetrics = (arr: any) => {
       apis[el.api]++;
     }
     if (el.successfulQuery) {
-      //Latency
-      latencySum += el.latency;
-      if (el.latency > latencyMax) {
-        latencyMax = el.latency;
+      //responseTimes
+      responseTimeSum += el.responseTime;
+      if (el.responseTime > responseTimeMax) {
+        responseTimeMax = el.responseTime;
       }
       //Size
       sizeSum += el.dataSize;
@@ -32,8 +32,8 @@ const calculateMetrics = (arr: any) => {
   });
   return {
     apis,
-    latencyAvg: (latencySum / arr.length).toFixed(3),
-    latencyMax: latencyMax.toFixed(3),
+    responseTimeAvg: (responseTimeSum / arr.length).toFixed(3),
+    responseTimeMax: responseTimeMax.toFixed(3),
     sizeAvg: (sizeSum / arr.length).toFixed(3),
     sizeMax: sizeMax.toFixed(3),
     queryTotal: arr.length,

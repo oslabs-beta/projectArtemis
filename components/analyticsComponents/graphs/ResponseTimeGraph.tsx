@@ -8,24 +8,24 @@ interface Props {
   snapshotArray: [Snapshot] | [];
 }
 
-const LatencyGraph = (props: Props) => {
+const ResponseTimeGraph = (props: Props) => {
   const { snapshotArray, aggregateMetrics } = props;
   const data = {
     labels: !Array.isArray(snapshotArray) || snapshotArray.length <= 0
       ? []
-      : snapshotArray.map((obj, index) => {
+      : snapshotArray.map((obj:any, index:any) => {
         const key = `Query ${index}`;
         return key;
       }),
     datasets: [
       {
-        label: "Latency",
+        label: "Response Times",
         borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
         data: (!Array.isArray(snapshotArray) || snapshotArray.length <= 0)
           ? []
           : snapshotArray.map((obj: any) => {
-            const value = obj.latency;
+            const value = obj.responseTime;
             return value;
           }),
       },
@@ -35,14 +35,14 @@ const LatencyGraph = (props: Props) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    // ! TODO refactor latency avg for ts
+    // ! TODO refactor responseTime avg for ts
     title: {
       display: true,
-      text: `Average Latency: ${
-        aggregateMetrics ? aggregateMetrics.latencyAvg : 0
-      } bytes           Maximum Latency: ${
-        aggregateMetrics ? aggregateMetrics.latencyMax : 0
-      } bytes`,
+      text: `Average Response Time: ${
+        aggregateMetrics ? aggregateMetrics.responseTimeAvg : 0
+      } ms          Maximum Response Time: ${
+        aggregateMetrics ? aggregateMetrics.responseTimeAvg : 0
+      } ms`,
     },
     onClick: function (e, item) {
       console.log(item);
@@ -66,4 +66,4 @@ const LatencyGraph = (props: Props) => {
   );
 };
 
-export default LatencyGraph;
+export default ResponseTimeGraph;

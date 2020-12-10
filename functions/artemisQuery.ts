@@ -56,7 +56,7 @@ const artemisQuery = (url: string, query: string) => {
 
   const metrics = {
     api: url,
-    latency: 0,
+    responseTime: 0,
     dataSize: 0,
     requestedFields: [query],
     successfulQuery: true,
@@ -68,14 +68,14 @@ const artemisQuery = (url: string, query: string) => {
     console.log("in artemis q, data", data)
     extractFields(metrics, data);
     metrics.dataSize = calculateDataSize(data);
-    metrics.latency = Date.now() - start;
+    metrics.responseTime = Date.now() - start;
     console.log("metrics", metrics)
     return metrics;
   }).catch((err) => {
     console.log("in err", err)
     metrics.successfulQuery = false;
     metrics.errors = err;
-    metrics.latency = Date.now() - start;
+    metrics.responseTime = Date.now() - start;
     return metrics;
   });
 };

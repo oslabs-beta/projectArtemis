@@ -1,4 +1,4 @@
-<div align="center">Artemis, A Deno-built Analytics Tool for GraphQL Queries</div>
+<div align="center">A Deno-built Analytics Tool for GraphQL Queries</div>
 
 <div align="center">
 

@@ -1,0 +1,46 @@
+/*******************************
+GRAPHS ONLY
+*******************************/
+
+.graph {
+  position: relative;
+  /* ! these values control the height and width of the application */
+  height: 65vh;
+  width: 72.5vw;
+  padding: 15px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table tr th{
+  border: 1px solid rgba(255, 255, 255, 0.757);
+  font-size: 25px;
+  text-align: center;
+}
+
+table tr {
+  border: 1px solid rgba(255, 255, 255, 0.757);
+  text-align: left;
+  color: rgba(255, 255, 255, 0.648);
+  border-color: yellow;
+  font-family: sans-serif;
+}
+
+table tr td {
+  border: 1px solid rgba(255, 255, 255, 0.757);
+  padding: 15px;
+  color: rgb(128, 128, 128);
+  overflow-x: auto;
+}
+
+.queryHeading {
+  font-weight: bold;
+}
+
+.queryNumberInput {
+  padding: 20px;
+ color: rgba(240, 248, 255, 0.791);
+}

@@ -1,0 +1,56 @@
+/*
+  ! Note: height property is avoided to gain height
+*/
+
+ /* todo: decrease box shadow by 25%, within container gui */
+
+/*******************************
+GLOBAL CSS ONLY
+*******************************/
+/* align everything to be uniform (each box follows this rule) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* COLOR PALETTE */
+  --primary-color: rgba(22, 22, 26, 0.95);
+  --secondary-color: rgb(114, 117, 126);
+  --tertiary-color: rgb(127, 90, 240);
+  --quaternary-color: rgba(240, 248, 255);
+
+  --dark-neumorphism: rgba(22, 22, 26, .9);
+  --light-neumorphism: rgba(240, 248, 255, 0.15);
+
+  --primary--text-color: rgb(127, 90, 240);
+  --secondary-text-color: rgb(128, 128, 128);
+}
+
+/* this is creating the shell. It's aligning it to the center.  */
+body {
+  padding: 10%;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow-y: hidden; */
+  background-color: var(--primary-color);
+}
+
+/*******************************
+MAIN GUI CONTAINER ONLY
+*******************************/
+/* this is the container for all of our boxes.  */
+.container-gui {
+  padding: 2.5%;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-around;
+  min-width: 90vw;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 8px 16.2px 1px var(--dark-neumorphism),
+    -3px -3px 9px 1px var(--light-neumorphism);
+}
+
+.hamburger {
+  filter: invert(1);
+}

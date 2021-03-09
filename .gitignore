@@ -1,4 +1,6 @@
 .DS_Store
 Thumbs.db
-.aleph/
 dist/
+WIP/
+node_modules
+/dist

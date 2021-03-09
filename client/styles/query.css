@@ -1,0 +1,85 @@
+#queryForm{
+min-height: 30%;
+}
+
+.queryForm {
+  margin-left: 80px;
+}
+
+#urlInput {
+background-color:  rgb(173, 174, 179);
+min-width: 65%;
+margin-left: 10px;
+height: 100%;
+}
+
+.numberLabel{
+margin-left: 21px;
+}
+
+#numberInput{
+  margin-left: 5px;
+    width: 15%;
+  height: 100%;
+  font-size: 18px;
+}
+.url-number{
+    display: flex;
+}
+
+input {
+  background-color:  rgb(173, 174, 179);
+  font-weight: 5250;
+  font-family: 'Arial';
+}
+label {
+  margin-top: 3px;
+color: rgb(114, 117, 126);
+font-weight: 5250;
+  font-family: 'Arial';
+}
+
+textarea {
+  margin-top: 7px;
+   font-weight: 5250;
+   height: 130px;
+  font-family: 'Arial';
+  background-color:  rgb(173, 174, 179);
+  display: block;
+  width: 90%;
+  resize: none;
+  overflow: auto;
+  max-width: 100%;
+  min-height: 100%;
+  line-height: 20px;
+}
+#submitButton{
+  width: 40%;
+  background-color: rgb(127, 90, 240);
+  transition: 1s ease-in-out;
+border-radius: 5px;
+}
+#clearButton {
+  width:170%;
+  background-color: rgb(154, 151, 164);
+  transition: 1s ease-in-out;
+border-radius: 5px;
+}
+
+.flex-buttons {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+.submitButtonDiv {
+box-sizing: border-box;
+max-width: 50%;
+  width: 100%;
+  margin-left: -20px;
+}
+
+.clearButtonDiv {
+  max-width: 100%;
+  text-align: left;
+}
+

@@ -1,0 +1,23 @@
+/*******************************
+ANALYTICS CONTAINER ONLY
+*******************************/
+.container-tab {
+  padding-bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 4px 4px 10px .5px var(--dark-neumorphism),
+  -1.5px -1.5px 4px .5px var(--light-neumorphism);
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-analytics {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: inset 4px 4px 10px .7px var(--dark-neumorphism),
+  inset -1.5px -1.5px 4px .7px var(--light-neumorphism);
+}

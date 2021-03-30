@@ -1,4 +1,4 @@
-<h3> ** Artemis is undergoing a major re-write, if you notice any bugs please report an issue. We are sorry for the inconvenience. ** </h3>
+<h3 styles={color: "red"}> ** Artemis is undergoing a major re-write, if you notice any bugs please report an issue. We are sorry for the inconvenience. ** </h3>
 
 <div align="center">A Deno-built Analytics Tool for GraphQL Queries</div>
 
